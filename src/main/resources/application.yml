@@ -1,0 +1,18 @@
+server:
+  port: 1970
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/wang_zai?useUnicode=true&characterEncoding=utf8&useSSL=false
+    username: root
+    password:
+
+mybatis:
+  type-aliases-package: com.example.model.pojos 指定pojo实体类的包
+  mapper-locations: mappers/*.xml
+  #如果把mapper文件放在dao下面，指定mapper所在的位置，直接在xml文件下右键Copy reference
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+    call-setters-on-nulls: true
+    map-underscore-to-camel-case: true
+    cache-enabled: true
