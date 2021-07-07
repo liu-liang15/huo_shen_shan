@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.model.dao.AssayMealMiddleDao">
+  <resultMap id="BaseResultMap" type="com.example.model.pojos.AssayMealMiddle">
+    <id column="hos_no" jdbcType="INTEGER" property="hosNo" />
+    <result column="patient" jdbcType="VARCHAR" property="patient" />
+    <result column="section" jdbcType="VARCHAR" property="section" />
+    <result column="doctor" jdbcType="VARCHAR" property="doctor" />
+    <result column="result" jdbcType="VARCHAR" property="result" />
+    <result column="dispose" jdbcType="VARCHAR" property="dispose" />
+    <result column="adm_zt" jdbcType="VARCHAR" property="admZt" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    hos_no, patient, `section`, doctor, `result`, dispose, adm_zt
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from adm_not
+    where hos_no = #{hosNo,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from adm_not
+    where hos_no = #{hosNo,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.example.model.pojos.AssayMealMiddle">
+    insert into adm_not (hos_no, patient, `section`, 
+      doctor, `result`, dispose, 
+      adm_zt)
+    values (#{hosNo,jdbcType=INTEGER}, #{patient,jdbcType=VARCHAR}, #{section,jdbcType=VARCHAR}, 
+      #{doctor,jdbcType=VARCHAR}, #{result,jdbcType=VARCHAR}, #{dispose,jdbcType=VARCHAR}, 
+      #{admZt,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.example.model.pojos.AssayMealMiddle">
+    insert into adm_not
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="hosNo != null">
+        hos_no,
+      </if>
+      <if test="patient != null">
+        patient,
+      </if>
+      <if test="section != null">
+        `section`,
+      </if>
+      <if test="doctor != null">
+        doctor,
+      </if>
+      <if test="result != null">
+        `result`,
+      </if>
+      <if test="dispose != null">
+        dispose,
+      </if>
+      <if test="admZt != null">
+        adm_zt,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="hosNo != null">
+        #{hosNo,jdbcType=INTEGER},
+      </if>
+      <if test="patient != null">
+        #{patient,jdbcType=VARCHAR},
+      </if>
+      <if test="section != null">
+        #{section,jdbcType=VARCHAR},
+      </if>
+      <if test="doctor != null">
+        #{doctor,jdbcType=VARCHAR},
+      </if>
+      <if test="result != null">
+        #{result,jdbcType=VARCHAR},
+      </if>
+      <if test="dispose != null">
+        #{dispose,jdbcType=VARCHAR},
+      </if>
+      <if test="admZt != null">
+        #{admZt,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.example.model.pojos.AssayMealMiddle">
+    update adm_not
+    <set>
+      <if test="patient != null">
+        patient = #{patient,jdbcType=VARCHAR},
+      </if>
+      <if test="section != null">
+        `section` = #{section,jdbcType=VARCHAR},
+      </if>
+      <if test="doctor != null">
+        doctor = #{doctor,jdbcType=VARCHAR},
+      </if>
+      <if test="result != null">
+        `result` = #{result,jdbcType=VARCHAR},
+      </if>
+      <if test="dispose != null">
+        dispose = #{dispose,jdbcType=VARCHAR},
+      </if>
+      <if test="admZt != null">
+        adm_zt = #{admZt,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where hos_no = #{hosNo,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.example.model.pojos.AssayMealMiddle">
+    update adm_not
+    set patient = #{patient,jdbcType=VARCHAR},
+      `section` = #{section,jdbcType=VARCHAR},
+      doctor = #{doctor,jdbcType=VARCHAR},
+      `result` = #{result,jdbcType=VARCHAR},
+      dispose = #{dispose,jdbcType=VARCHAR},
+      adm_zt = #{admZt,jdbcType=VARCHAR}
+    where hos_no = #{hosNo,jdbcType=INTEGER}
+  </update>
+</mapper>
