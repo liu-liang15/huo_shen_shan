@@ -9,7 +9,7 @@ spring:
 
 mybatis:
   type-aliases-package: com.example.model.pojos 指定pojo实体类的包
-  mapper-locations: mappers/*.xml
+  mapper-locations: mappers/*/*.xml
   #如果把mapper文件放在dao下面，指定mapper所在的位置，直接在xml文件下右键Copy reference
   configuration:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
