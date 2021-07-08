@@ -7,6 +7,11 @@ spring:
     username: root
     password:
 
+  #时间格式化
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+
 mybatis:
   type-aliases-package: com.example.model.pojos 指定pojo实体类的包
   mapper-locations: mappers/*/*.xml
