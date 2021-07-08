@@ -2,84 +2,26 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.example.model.dao.GoYingShangDao">
   <resultMap id="BaseResultMap" type="com.example.model.pojos.GoYingShang">
-    <id column="hos_no" jdbcType="INTEGER" property="hosNo" />
-    <result column="patient" jdbcType="VARCHAR" property="patient" />
-    <result column="section" jdbcType="VARCHAR" property="section" />
-    <result column="doctor" jdbcType="VARCHAR" property="doctor" />
-    <result column="result" jdbcType="VARCHAR" property="result" />
-    <result column="dispose" jdbcType="VARCHAR" property="dispose" />
-    <result column="adm_zt" jdbcType="VARCHAR" property="admZt" />
+    <id column="SUPPLY_ID"  property="supplyId" />
+    <result column="SUPPLY_NAME"  property="supplyName" />
+    <result column="SUPPLY_CONTACTS"  property="supplyContacts" />
+    <result column="SUPPLY_PHONE"  property="supplyPhone" />
+    <result column="SUPPLY_SITE"  property="supplySite" />
+    <result column="SUPPLY_STATE"  property="supplyState" />
   </resultMap>
-  <sql id="Base_Column_List">
-    hos_no, patient, `section`, doctor, `result`, dispose, adm_zt
-  </sql>
-  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
-    select 
-    <include refid="Base_Column_List" />
-    from adm_not
-    where hos_no = #{hosNo,jdbcType=INTEGER}
+
+  <select id="findAll" resultMap="BaseResultMap">
+    select * from go_ying_shang
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from adm_not
     where hos_no = #{hosNo,jdbcType=INTEGER}
   </delete>
   <insert id="insert" parameterType="com.example.model.pojos.GoYingShang">
-    insert into adm_not (hos_no, patient, `section`, 
-      doctor, `result`, dispose, 
-      adm_zt)
-    values (#{hosNo,jdbcType=INTEGER}, #{patient,jdbcType=VARCHAR}, #{section,jdbcType=VARCHAR}, 
-      #{doctor,jdbcType=VARCHAR}, #{result,jdbcType=VARCHAR}, #{dispose,jdbcType=VARCHAR}, 
-      #{admZt,jdbcType=VARCHAR})
+    INSERT INTO go_ying_shang VALUES
+    (null, #{supplyName},#{supplyContacts},#{supplyPhone},#{supplySite},#{supplyState})
   </insert>
-  <insert id="insertSelective" parameterType="com.example.model.pojos.GoYingShang">
-    insert into adm_not
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="hosNo != null">
-        hos_no,
-      </if>
-      <if test="patient != null">
-        patient,
-      </if>
-      <if test="section != null">
-        `section`,
-      </if>
-      <if test="doctor != null">
-        doctor,
-      </if>
-      <if test="result != null">
-        `result`,
-      </if>
-      <if test="dispose != null">
-        dispose,
-      </if>
-      <if test="admZt != null">
-        adm_zt,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="hosNo != null">
-        #{hosNo,jdbcType=INTEGER},
-      </if>
-      <if test="patient != null">
-        #{patient,jdbcType=VARCHAR},
-      </if>
-      <if test="section != null">
-        #{section,jdbcType=VARCHAR},
-      </if>
-      <if test="doctor != null">
-        #{doctor,jdbcType=VARCHAR},
-      </if>
-      <if test="result != null">
-        #{result,jdbcType=VARCHAR},
-      </if>
-      <if test="dispose != null">
-        #{dispose,jdbcType=VARCHAR},
-      </if>
-      <if test="admZt != null">
-        #{admZt,jdbcType=VARCHAR},
-      </if>
-    </trim>
-  </insert>
+
   <update id="updateByPrimaryKeySelective" parameterType="com.example.model.pojos.GoYingShang">
     update adm_not
     <set>
