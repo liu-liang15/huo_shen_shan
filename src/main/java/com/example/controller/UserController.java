@@ -17,7 +17,6 @@ public class UserController {
 
     @GetMapping("/getbumen")
     public List<BuMen> getbm(){
-        System.err.println("来到请求");
         return buMenservers.getbm();
     }
 

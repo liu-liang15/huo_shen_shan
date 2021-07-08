@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.model.pojos.YuanGoDao">
+  <resultMap id="BaseResultMap" type="com.example.model.pojos.YuanGo">
+    <id column="yg_id" jdbcType="INTEGER" property="ygId" />
+    <result column="yg_name" jdbcType="VARCHAR" property="ygName" />
+    <result column="yg_dh" jdbcType="VARCHAR" property="ygDh" />
+    <result column="yg_sfz" jdbcType="VARCHAR" property="ygSfz" />
+    <result column="ks_id" jdbcType="VARCHAR" property="ksId" />
+    <result column="bm_id" jdbcType="VARCHAR" property="bmId" />
+    <result column="gw_id" jdbcType="VARCHAR" property="gwId" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    yg_id, yg_name, yg_dh, yg_sfz, ks_id, bm_id, gw_id
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from yuan_go
+    where yg_id = #{ygId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from yuan_go
+    where yg_id = #{ygId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" keyColumn="yg_id" keyProperty="ygId" parameterType="com.example.model.pojos.YuanGo" useGeneratedKeys="true">
+    insert into yuan_go (yg_name, yg_dh, yg_sfz, 
+      ks_id, bm_id, gw_id)
+    values (#{ygName,jdbcType=VARCHAR}, #{ygDh,jdbcType=VARCHAR}, #{ygSfz,jdbcType=VARCHAR}, 
+      #{ksId,jdbcType=VARCHAR}, #{bmId,jdbcType=VARCHAR}, #{gwId,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" keyColumn="yg_id" keyProperty="ygId" parameterType="com.example.model.pojos.YuanGo" useGeneratedKeys="true">
+    insert into yuan_go
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="ygName != null">
+        yg_name,
+      </if>
+      <if test="ygDh != null">
+        yg_dh,
+      </if>
+      <if test="ygSfz != null">
+        yg_sfz,
+      </if>
+      <if test="ksId != null">
+        ks_id,
+      </if>
+      <if test="bmId != null">
+        bm_id,
+      </if>
+      <if test="gwId != null">
+        gw_id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="ygName != null">
+        #{ygName,jdbcType=VARCHAR},
+      </if>
+      <if test="ygDh != null">
+        #{ygDh,jdbcType=VARCHAR},
+      </if>
+      <if test="ygSfz != null">
+        #{ygSfz,jdbcType=VARCHAR},
+      </if>
+      <if test="ksId != null">
+        #{ksId,jdbcType=VARCHAR},
+      </if>
+      <if test="bmId != null">
+        #{bmId,jdbcType=VARCHAR},
+      </if>
+      <if test="gwId != null">
+        #{gwId,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.example.model.pojos.YuanGo">
+    update yuan_go
+    <set>
+      <if test="ygName != null">
+        yg_name = #{ygName,jdbcType=VARCHAR},
+      </if>
+      <if test="ygDh != null">
+        yg_dh = #{ygDh,jdbcType=VARCHAR},
+      </if>
+      <if test="ygSfz != null">
+        yg_sfz = #{ygSfz,jdbcType=VARCHAR},
+      </if>
+      <if test="ksId != null">
+        ks_id = #{ksId,jdbcType=VARCHAR},
+      </if>
+      <if test="bmId != null">
+        bm_id = #{bmId,jdbcType=VARCHAR},
+      </if>
+      <if test="gwId != null">
+        gw_id = #{gwId,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where yg_id = #{ygId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.example.model.pojos.YuanGo">
+    update yuan_go
+    set yg_name = #{ygName,jdbcType=VARCHAR},
+      yg_dh = #{ygDh,jdbcType=VARCHAR},
+      yg_sfz = #{ygSfz,jdbcType=VARCHAR},
+      ks_id = #{ksId,jdbcType=VARCHAR},
+      bm_id = #{bmId,jdbcType=VARCHAR},
+      gw_id = #{gwId,jdbcType=VARCHAR}
+    where yg_id = #{ygId,jdbcType=INTEGER}
+  </update>
+</mapper>
