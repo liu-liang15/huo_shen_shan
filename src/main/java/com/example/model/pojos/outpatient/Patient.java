@@ -1,4 +1,4 @@
-package com.example.model.pojos;
+package com.example.model.pojos.outpatient;
 
 import java.io.Serializable;
 import java.sql.Timestamp;

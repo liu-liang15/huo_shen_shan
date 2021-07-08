@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.example.model.dao.outpatient.PatientDao">
-    <resultMap id="patient" type="com.example.model.pojos.Patient">
+    <resultMap id="patient" type="com.example.model.pojos.outpatient.Patient">
         <id column="patient_no" property="patientNo" />
         <result column="patient_name" property="patientName" />
         <result column="patient_sex" property="patientSex" />
@@ -24,14 +24,14 @@
         order by patient_date desc
     </select>
     <!--新增病人信息-->
-    <insert id="insertPatient" parameterType="com.example.model.pojos.Patient">
+    <insert id="insertPatient" parameterType="com.example.model.pojos.outpatient.Patient">
         insert into patient values(0,#{patientName},#{patientSex}
                                 ,#{patientPhone},#{patientIdcart},#{patientAge}
                                 ,#{patientBirthdate},#{patientAddress},#{patientDate})
     </insert>
 
     <!--修改病人信息-->
-    <update id="updatePatient" parameterType="com.example.model.pojos.Patient">
+    <update id="updatePatient" parameterType="com.example.model.pojos.outpatient.Patient">
         update patient set patient_name = #{patientName} , patient_sex =  #{patientSex}
         , patient_phone =  #{patientPhone} , patient_idcart =  #{patientIdcart}
         , patient_age =  #{patientAge} , patient_birthdate =  #{patientBirthdate}

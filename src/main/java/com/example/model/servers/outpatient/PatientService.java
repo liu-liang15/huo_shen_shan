@@ -1,7 +1,7 @@
 package com.example.model.servers.outpatient;
 
 import com.example.model.dao.outpatient.PatientDao;
-import com.example.model.pojos.Patient;
+import com.example.model.pojos.outpatient.Patient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
