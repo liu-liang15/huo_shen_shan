@@ -4,15 +4,7 @@
   <resultMap id="BaseResultMap" type="com.example.model.pojos.BuMen">
     <id column="bm_id" jdbcType="INTEGER" property="bmId" />
     <result column="bm_name" jdbcType="VARCHAR" property="bmName" />
-    <association property="bmFzr">
-        <id column="yg_id" jdbcType="INTEGER" property="ygId" />
-        <result column="yg_name" jdbcType="VARCHAR" property="ygName" />
-        <result column="yg_dh" jdbcType="VARCHAR" property="ygDh" />
-        <result column="yg_sfz" jdbcType="VARCHAR" property="ygSfz" />
-        <result column="ks_id" jdbcType="VARCHAR" property="ksId" />
-        <result column="bm_id" jdbcType="VARCHAR" property="bmId" />
-        <result column="gw_id" jdbcType="VARCHAR" property="gwId" />
-    </association>
+    <result column="bm_fzr" jdbcType="VARCHAR" property="bmFzr" />
   </resultMap>
 <!--  sql语句分片 -->
   <sql id="Base_Column_List">
@@ -25,7 +17,7 @@
     from bu_men
     where bm_id = #{bmId,jdbcType=INTEGER}
   </select>
-<!--  查询所有的部门和这个部门的负责人   -->
+<!--  查询所有的部门   -->
   <select id="selectByAll" resultMap="BaseResultMap">
     select
         <include refid="Base_Column_List"/>
