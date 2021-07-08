@@ -1,1 +1,3 @@
 项目须知：
+    1、7.7 15:50 assay_ma表assay_ma_time类型改成timestamp 增加assay_ma_id主键
+    2、7.8 10:10 pom.xml加了分页插件、fastjson、log4j、Junit单元测试依赖
