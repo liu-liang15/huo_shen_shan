@@ -1,24 +1,19 @@
 package com.example.controller;
 
-import com.example.model.pojos.BuMen;
-import com.example.model.servers.BuMenservers;
+import com.example.model.servers.Assay_maService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
-
-import java.util.List;
+import java.util.Map;
 
 @CrossOrigin
 @RestController
-public class UserController {
+public class AssayPersonController {
     @Autowired
-    BuMenservers buMenservers;
-
-    @GetMapping("/getbumen")
-    public List<BuMen> getbm(){
-        return buMenservers.getbm();
+    Assay_maService assayMaService;
+    @GetMapping("find")
+    public Map<String,Object> findPerson(Integer pageNo,Integer size){
+        return assayMaService.findAll(pageNo, size);
     }
-
-
 }
