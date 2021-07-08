@@ -1,4 +1,6 @@
-package com.example.model.pojos;
+package com.example.model.pojos.hyj;
+
+import java.util.Date;
 
 public class Assay_person {
     private int assayPersonId;
@@ -6,6 +8,7 @@ public class Assay_person {
     private String assayPersonSex;
     private int assayPersonAge;
     private String assayPersonPhone;
+    private Date assayPersonTime;
 
     @Override
     public String toString() {
@@ -15,6 +18,7 @@ public class Assay_person {
                 ", assayPersonSex='" + assayPersonSex + '\'' +
                 ", assayPersonAge=" + assayPersonAge +
                 ", assayPersonPhone='" + assayPersonPhone + '\'' +
+                ", assayPersonTime=" + assayPersonTime +
                 '}';
     }
 
@@ -58,14 +62,23 @@ public class Assay_person {
         this.assayPersonPhone = assayPersonPhone;
     }
 
+    public Date getAssayPersonTime() {
+        return assayPersonTime;
+    }
+
+    public void setAssayPersonTime(Date assayPersonTime) {
+        this.assayPersonTime = assayPersonTime;
+    }
+
     public Assay_person() {
     }
 
-    public Assay_person(int assayPersonId, String assayPersonName, String assayPersonSex, int assayPersonAge, String assayPersonPhone) {
+    public Assay_person(int assayPersonId, String assayPersonName, String assayPersonSex, int assayPersonAge, String assayPersonPhone, Date assayPersonTime) {
         this.assayPersonId = assayPersonId;
         this.assayPersonName = assayPersonName;
         this.assayPersonSex = assayPersonSex;
         this.assayPersonAge = assayPersonAge;
         this.assayPersonPhone = assayPersonPhone;
+        this.assayPersonTime = assayPersonTime;
     }
 }
