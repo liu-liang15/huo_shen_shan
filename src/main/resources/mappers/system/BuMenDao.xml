@@ -6,47 +6,35 @@
     <result column="bm_name" jdbcType="VARCHAR" property="bmName" />
     <result column="bm_fzr" jdbcType="VARCHAR" property="bmFzr" />
   </resultMap>
+<!--  sql语句分片 -->
   <sql id="Base_Column_List">
     bm_id, bm_name, bm_fzr
   </sql>
+<!--  根据主键ID查询  -->
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
     from bu_men
     where bm_id = #{bmId,jdbcType=INTEGER}
   </select>
+<!--  查询所有的部门   -->
   <select id="selectByAll" resultMap="BaseResultMap">
     select
         <include refid="Base_Column_List"/>
     from bu_men
   </select>
+<!--  根据ID删除  -->
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from bu_men
     where bm_id = #{bmId,jdbcType=INTEGER}
   </delete>
+<!--  新增部门表  -->
   <insert id="insert" keyColumn="bm_id" keyProperty="bmId" parameterType="com.example.model.pojos.BuMen" useGeneratedKeys="true">
     insert into bu_men (bm_name, bm_fzr)
     values (#{bmName,jdbcType=VARCHAR}, #{bmFzr,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" keyColumn="bm_id" keyProperty="bmId" parameterType="com.example.model.pojos.BuMen" useGeneratedKeys="true">
-    insert into bu_men
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="bmName != null">
-        bm_name,
-      </if>
-      <if test="bmFzr != null">
-        bm_fzr,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="bmName != null">
-        #{bmName,jdbcType=VARCHAR},
-      </if>
-      <if test="bmFzr != null">
-        #{bmFzr,jdbcType=VARCHAR},
-      </if>
-    </trim>
-  </insert>
+
+<!--  修改部门信息  -->
   <update id="updateByPrimaryKeySelective" parameterType="com.example.model.pojos.BuMen">
     update bu_men
     <set>
@@ -59,10 +47,5 @@
     </set>
     where bm_id = #{bmId,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.example.model.pojos.BuMen">
-    update bu_men
-    set bm_name = #{bmName,jdbcType=VARCHAR},
-      bm_fzr = #{bmFzr,jdbcType=VARCHAR}
-    where bm_id = #{bmId,jdbcType=INTEGER}
-  </update>
+
 </mapper>

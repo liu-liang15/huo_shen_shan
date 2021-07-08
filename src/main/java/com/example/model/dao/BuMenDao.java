@@ -10,13 +10,10 @@ public interface BuMenDao {
 
     int insert(BuMen record);
 
-    int insertSelective(BuMen record);
-
     BuMen selectByPrimaryKey(Integer bmId);
 
     List<BuMen> selectByAll();
 
     int updateByPrimaryKeySelective(BuMen record);
 
-    int updateByPrimaryKey(BuMen record);
 }

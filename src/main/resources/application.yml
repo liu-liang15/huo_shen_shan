@@ -3,9 +3,9 @@ server:
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/wang_zai?useUnicode=true&characterEncoding=utf8&useSSL=false
-    username: root
-    password:
+    url: jdbc:mysql://39.108.55.93:3306/wang_zai?useUnicode=true&characterEncoding=utf8&useSSL=false
+    username: wang_zai
+    password: NEmBCDc43sw5FfXw
 
   #时间格式化
   jackson:

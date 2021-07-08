@@ -1,1 +1,17 @@
 项目须知：
+    黄英杰的修改：
+        7.7 15:50 assay_ma表assay_ma_time类型改成timestamp 增加assay_ma_id主键
+        7.8 10:10 pom.xml加了分页插件、fastjson、log4j、Junit单元测试依赖
+
+     谢嘉新的修改：
+
+
+
+     陈宇俊的修改：
+
+
+     黄佳明的修改：
+
+
+
+     刘亮的修改：
