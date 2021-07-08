@@ -1,6 +1,6 @@
 package com.example.controller.outpatient;
 
-import com.example.model.pojos.Patient;
+import com.example.model.pojos.outpatient.Patient;
 import com.example.model.servers.outpatient.PatientService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;

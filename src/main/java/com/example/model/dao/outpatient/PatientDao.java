@@ -1,6 +1,6 @@
 package com.example.model.dao.outpatient;
 
-import com.example.model.pojos.Patient;
+import com.example.model.pojos.outpatient.Patient;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
