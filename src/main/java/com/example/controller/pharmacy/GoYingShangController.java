@@ -1,12 +1,15 @@
-package com.example.controller;
+package com.example.controller.pharmacy;
 
-import com.example.model.pojos.GoYingShang;
-import com.example.model.servers.GoYingShangService;
+import com.example.model.pojos.pharmacy.GoYingShang;
+import com.example.model.servers.pharmacy.GoYingShangService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
+
 @CrossOrigin
 @RestController
 public class GoYingShangController {
@@ -21,7 +24,11 @@ public class GoYingShangController {
     @RequestMapping("add-supplier")
     public String addSupplier(@RequestBody GoYingShang goYingShang){
         try {
-            goYingShangService.insert(goYingShang);
+            if(goYingShang.getSupplyId()==0){
+                goYingShangService.insert(goYingShang);
+            }else{
+                goYingShangService.update(goYingShang);
+            }
             return "ok";
         } catch (Exception e) {
             e.printStackTrace();
