@@ -1,6 +1,8 @@
 package com.example.model.pojos.outpatient;
 
 import java.io.Serializable;
+import java.util.Date;
+
 import lombok.Data;
 
 @Data
@@ -12,8 +14,24 @@ public class Medicalcard implements Serializable {
   private Integer mediBalance;
   private String mediIdcart;
   private String mediPatientNo;
-  private java.sql.Timestamp mediNewdate;
+  private Date mediNewdate;
   private String mediState;
+  private Patient patient;
 
   private static final long serialVersionUID = 1L;
+
+  public Medicalcard() {
+  }
+
+  public Medicalcard(Integer mediNo, String mediCard, String mediPassword, Integer mediBalance, String mediIdcart, String mediPatientNo, Date mediNewdate, String mediState, Patient patient) {
+    this.mediNo = mediNo;
+    this.mediCard = mediCard;
+    this.mediPassword = mediPassword;
+    this.mediBalance = mediBalance;
+    this.mediIdcart = mediIdcart;
+    this.mediPatientNo = mediPatientNo;
+    this.mediNewdate = mediNewdate;
+    this.mediState = mediState;
+    this.patient = patient;
+  }
 }
