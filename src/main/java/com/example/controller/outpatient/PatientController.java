@@ -18,29 +18,27 @@ public class PatientController {
     @Autowired
     PatientService patientService;
 
+    //查询病人信息
     @GetMapping("/findAllPatient")
     public List<Patient> findAll(String param){
         System.out.println(param);
         return patientService.findAll(param);
     }
 
-    @RequestMapping("/insertPatient")
+    //新增修改
+    @RequestMapping("/savePatient")
     public void insertPatient(String patient) throws Exception {
         Patient patient1 = JSONObject.parseObject(patient,Patient.class);
         String age = getAge(patient1.getPatientBirthdate());
         patient1.setPatientAge(age);
-        patientService.insertPatient(patient1);
-    }
-    @GetMapping("/updatePatient")
-    public void updatePatient(){
-        Patient patient = new Patient(1,"ww","nv","qwe","wuhu","12","123",null,null);
-        patientService.updatePatient(patient);
-        System.out.println(1);
+        patient1.setPatientDate(new Date());
+        System.out.println(patient1);
+        patientService.savePatient(patient1);
     }
 
 
     //根据出生日期计算年龄
-    public String getAge(Timestamp birthDay) throws Exception {
+    public String getAge(Date birthDay) throws Exception {
         Calendar cal = Calendar.getInstance();
         if (cal.before(birthDay)) { //出生日期晚于当前时间，无法计算
             throw new IllegalArgumentException(
