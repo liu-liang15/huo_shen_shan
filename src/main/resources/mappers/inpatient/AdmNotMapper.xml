@@ -33,10 +33,14 @@
     </resultMap>
     <!--查询住院通知单-->
     <select id="selAdm" resultMap="AdmNotmapper">
-        select * FROM adm_not a INNER JOIN medicalcard m on a.patient = m.medi_no INNER JOIN patient p on m.medi_patient_no=p.patient_no
+        select * from adm_not a inner join medicalcard m on a.patient = m.medi_no inner join patient p on m.medi_patient_no=p.patient_no
         where a.adm_zt='0'
        <if test="param!=null and param!=''">
             and (p.patient_name like '%${param}%' or a.hos_no like '%${param}%')
        </if>
     </select>
+    <!--修改登记单状态-->
+    <update id="alterAdm">
+        update adm_not set adm_zt='1' where hos_no=#{hosNo}
+    </update>
 </mapper>

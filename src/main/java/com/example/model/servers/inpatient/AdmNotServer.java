@@ -13,7 +13,12 @@ import java.util.List;
 public class AdmNotServer {
     @Autowired
     AdmNotDao admNotDao;
+    //查找住院通知单
     public List<AdmNot> allAdm(String params){
         return admNotDao.selAdm(params);
+    }
+    //修改住院通知单状态
+    public void alterAdm(String hosNO){
+        admNotDao.alterAdm(hosNO);
     }
 }

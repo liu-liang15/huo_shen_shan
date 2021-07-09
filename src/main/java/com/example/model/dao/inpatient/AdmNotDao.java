@@ -7,6 +7,8 @@ import java.util.List;
 
 @Mapper
 public interface AdmNotDao {
-    //查询所有住院通知单
-    List<AdmNot> selAdm(String param);
+    //查询住院通知单
+    public List<AdmNot> selAdm(String param);
+    //修改住院通知单状态
+    public void alterAdm(String hosNo);
 }
