@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.example.model.dao.pharmacy.PatientDao">
+<mapper namespace="com.example.model.dao.pharmacy.GoYingShangDao">
     <resultMap id="GYSMapper" type="com.example.model.pojos.pharmacy.GoYingShang">
         <id column="SUPPLY_ID" property="supplyId" />
         <result column="SUPPLY_NAME" property="supplyName" />
