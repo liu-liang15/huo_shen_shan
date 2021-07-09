@@ -2,6 +2,7 @@ package com.example.model.pojos.outpatient;
 
 import java.io.Serializable;
 import java.sql.Timestamp;
+import java.util.Date;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
@@ -15,11 +16,12 @@ public class Patient implements Serializable {
   private String patientPhone;
   private String patientIdcart;
   private String patientAge;
-  private Timestamp patientBirthdate;
+  @JsonFormat(pattern="yyyy-MM-dd",timezone="GMT+8")
+  private Date patientBirthdate;
   private String patientAddress;
-  private Timestamp patientDate;
+  private Date patientDate;
 
-  public Patient(Integer patientNo, String patientName, String patientSex, String patientPhone, String patientIdcart, String patientAge, String patientAddress, Timestamp patientBirthdate, Timestamp patientDate) {
+  public Patient(Integer patientNo, String patientName, String patientSex, String patientPhone, String patientIdcart, String patientAge, Date patientBirthdate, String patientAddress, Date patientDate) {
     this.patientNo = patientNo;
     this.patientName = patientName;
     this.patientSex = patientSex;

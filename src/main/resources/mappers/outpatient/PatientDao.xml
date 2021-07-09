@@ -27,7 +27,7 @@
     <insert id="insertPatient" parameterType="com.example.model.pojos.outpatient.Patient">
         insert into patient values(0,#{patientName},#{patientSex}
                                 ,#{patientPhone},#{patientIdcart},#{patientAge}
-                                ,#{patientBirthdate},#{patientAddress},#{patientDate})
+                                ,#{patientAddress},#{patientBirthdate},#{patientDate})
     </insert>
 
     <!--修改病人信息-->

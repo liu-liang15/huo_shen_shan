@@ -1,4 +1,4 @@
-package com.example.model.pojos;
+package com.example.model.pojos.system;
 
 import java.io.Serializable;
 import lombok.Data;
@@ -12,7 +12,7 @@ public class BuMen implements Serializable {
     /**
      * 部门ID
      */
-    private Integer bmId;
+    private String bmId;
 
     /**
      * 部门民称
@@ -22,7 +22,7 @@ public class BuMen implements Serializable {
     /**
      * 部门主任
      */
-    private String bmFzr;
+    private YuanGo yuanGo;
 
     private static final long serialVersionUID = 1L;
 }

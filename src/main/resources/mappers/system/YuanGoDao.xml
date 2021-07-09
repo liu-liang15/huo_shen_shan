@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.example.model.pojos.YuanGoDao">
-  <resultMap id="BaseResultMap" type="com.example.model.pojos.YuanGo">
+<mapper namespace="com.example.model.dao.system.YuanGoDao">
+  <resultMap id="BaseResultMap" type="com.example.model.pojos.system.YuanGo">
     <id column="yg_id" jdbcType="INTEGER" property="ygId" />
     <result column="yg_name" jdbcType="VARCHAR" property="ygName" />
     <result column="yg_dh" jdbcType="VARCHAR" property="ygDh" />
@@ -13,23 +13,22 @@
   <sql id="Base_Column_List">
     yg_id, yg_name, yg_dh, yg_sfz, ks_id, bm_id, gw_id
   </sql>
-  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
-    select 
+  <select id="selectByAll" resultMap="BaseResultMap">
+    select
     <include refid="Base_Column_List" />
     from yuan_go
-    where yg_id = #{ygId,jdbcType=INTEGER}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from yuan_go
     where yg_id = #{ygId,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" keyColumn="yg_id" keyProperty="ygId" parameterType="com.example.model.pojos.YuanGo" useGeneratedKeys="true">
+  <insert id="insert" keyColumn="yg_id" keyProperty="ygId" parameterType="com.example.model.pojos.system.YuanGo" useGeneratedKeys="true">
     insert into yuan_go (yg_name, yg_dh, yg_sfz, 
       ks_id, bm_id, gw_id)
     values (#{ygName,jdbcType=VARCHAR}, #{ygDh,jdbcType=VARCHAR}, #{ygSfz,jdbcType=VARCHAR}, 
       #{ksId,jdbcType=VARCHAR}, #{bmId,jdbcType=VARCHAR}, #{gwId,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" keyColumn="yg_id" keyProperty="ygId" parameterType="com.example.model.pojos.YuanGo" useGeneratedKeys="true">
+  <insert id="insertSelective" keyColumn="yg_id" keyProperty="ygId" parameterType="com.example.model.pojos.system.YuanGo" useGeneratedKeys="true">
     insert into yuan_go
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="ygName != null">
@@ -72,7 +71,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.example.model.pojos.YuanGo">
+  <update id="updateByPrimaryKeySelective" parameterType="com.example.model.pojos.system.YuanGo">
     update yuan_go
     <set>
       <if test="ygName != null">
@@ -96,7 +95,7 @@
     </set>
     where yg_id = #{ygId,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.example.model.pojos.YuanGo">
+  <update id="updateByPrimaryKey" parameterType="com.example.model.pojos.system.YuanGo">
     update yuan_go
     set yg_name = #{ygName,jdbcType=VARCHAR},
       yg_dh = #{ygDh,jdbcType=VARCHAR},

@@ -18,11 +18,11 @@ public class PatientService {
         return patientDao.findAllPatient(param);
     }
 
-    public void insertPatient(Patient patient){
-        patientDao.insertPatient(patient);
-    }
-
-    public void updatePatient(Patient patient){
-        patientDao.updatePatient(patient);
+    public void savePatient(Patient patient){
+        if("0".equals(patient.getPatientNo()) || patient.getPatientNo() == null){
+            patientDao.insertPatient(patient);
+        }else{
+            patientDao.updatePatient(patient);
+        }
     }
 }
