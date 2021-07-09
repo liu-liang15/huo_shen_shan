@@ -1,6 +1,6 @@
-package com.example.model.dao;
+package com.example.model.dao.system;
 
-import com.example.model.pojos.BuMen;
+import com.example.model.pojos.system.BuMen;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;

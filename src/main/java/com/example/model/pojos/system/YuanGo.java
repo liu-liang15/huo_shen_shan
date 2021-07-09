@@ -1,4 +1,4 @@
-package com.example.model.pojos;
+package com.example.model.pojos.system;
 
 import java.io.Serializable;
 import lombok.Data;
