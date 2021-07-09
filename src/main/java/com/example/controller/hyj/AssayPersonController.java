@@ -14,9 +14,6 @@ public class AssayPersonController {
     @Autowired
     Assay_maService assayMaService;
     @GetMapping("find")
-   /* public Map<String,Object> findPerson(Integer pageNo,Integer size){
-        return assayMaService.findAll(pageNo, size);
-    }*/
     public List<Assay_person> findAll(){
         return assayMaService.findAll();
     }
@@ -31,7 +28,7 @@ public class AssayPersonController {
         return "ok";
     }
     @RequestMapping("likeFindPerson")
-    public Map<String, Object> likeFindPerson(@RequestBody Integer pageNo,Integer size,String assayPersonName){
-        return assayMaService.likeFindPerson(pageNo,size,assayPersonName);
+    public List<Assay_person> likeFindPerson(@RequestBody Assay_person assayPerson){
+        return assayMaService.likeFindPerson(assayPerson);
     }
 }

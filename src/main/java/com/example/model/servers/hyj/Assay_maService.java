@@ -35,12 +35,15 @@ public class Assay_maService {
     public void delPerson(Assay_person assayPerson){
         assayMaMapper.delPerson(assayPerson);
     }
-    public Map<String,Object> likeFindPerson(Integer pageNo, Integer size,String assayPersonName){
+    /*public Map<String,Object> likeFindPerson(Integer pageNo, Integer size,String assayPersonName){
         Map<String,Object> map = new HashMap<>();
         //分页查询
         Page<Object> page = PageHelper.startPage(pageNo, size);
         map.put("rows",assayMaMapper.likeFindPerson(assayPersonName));
         map.put("total",page.getTotal());
         return map;
+    }*/
+    public List<Assay_person> likeFindPerson(Assay_person assayPerson){
+        return assayMaMapper.likeFindPerson(assayPerson);
     }
 }

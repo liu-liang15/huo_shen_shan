@@ -19,5 +19,5 @@ public interface Assay_maMapper {
     @Delete("delete from assay_person where assay_person_id = #{assayPersonId}")
     public void delPerson(Assay_person assayPerson);
     @Select("select * from assay_person where assay_person_name like '%${assayPersonName}%'")
-    public List<Assay_person> likeFindPerson(String assayPersonName);
+    public List<Assay_person> likeFindPerson(Assay_person assayPerson);
 }
