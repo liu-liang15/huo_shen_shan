@@ -1,6 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.example.model.dao.system.BuMenDao">
+  <select id="selectByAll" resultMap="BaseResultMap" >
+    select
+    <include refid="Base_Column_List"/>
+    from bu_men bm LEFT JOIN yuan_go yg on bm_fzr=yg_id
+
+    <if test="shou != 'null'">
+      where bm_name=#{shou} or bm.bm_id like "%${shou}%" or yg_name=#{shou}
+    </if>
+  </select>
+  <!--  sql语句分片 -->
   <resultMap id="BaseResultMap" type="com.example.model.pojos.system.BuMen">
     <id column="bm_id" jdbcType="INTEGER" property="bmId" />
     <result column="bm_name" jdbcType="VARCHAR" property="bmName" />
@@ -15,22 +25,16 @@
         <result column="gw_id" jdbcType="VARCHAR" property="gwId" />
     </association>
   </resultMap>
-<!--  sql语句分片 -->
+  <!--  根据主键ID查询  -->
   <sql id="Base_Column_List">
      bm.bm_id, bm_name, bm_fzr,yg_id, yg_name, yg_dh, yg_sfz, ks_id, gw_id
   </sql>
-<!--  根据主键ID查询  -->
+  <!--  查询所有的部门 连接员工表  -->
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
-    select 
+    select
     <include refid="Base_Column_List" />
     from bu_men
     where bm_id = #{bmId,jdbcType=INTEGER}
-  </select>
-<!--  查询所有的部门 连接员工表  -->
-  <select id="selectByAll" resultMap="BaseResultMap">
-    select
-        <include refid="Base_Column_List"/>
-    from bu_men bm LEFT JOIN yuan_go yg on bm_fzr=yg_id
   </select>
 <!--  根据ID删除  -->
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
@@ -50,8 +54,8 @@
       <if test="bmName != null">
         bm_name = #{bmName,jdbcType=VARCHAR},
       </if>
-      <if test="bmFzr != null">
-        bm_fzr = #{bmFzr,jdbcType=VARCHAR},
+      <if test="yuanGo != null">
+        bm_fzr = #{yuanGo.ygId,jdbcType=VARCHAR},
       </if>
     </set>
     where bm_id = #{bmId,jdbcType=INTEGER}

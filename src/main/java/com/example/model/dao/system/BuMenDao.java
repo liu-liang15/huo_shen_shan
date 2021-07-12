@@ -12,7 +12,7 @@ public interface BuMenDao {
 
     BuMen selectByPrimaryKey(Integer bmId);
 
-    List<BuMen> selectByAll();
+    List<BuMen> selectByAll(String shou);
 
     int updateByPrimaryKeySelective(BuMen record);
 
