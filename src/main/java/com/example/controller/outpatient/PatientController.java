@@ -37,6 +37,8 @@ public class PatientController {
     }
 
 
+
+
     //根据出生日期计算年龄
     public String getAge(Date birthDay) throws Exception {
         Calendar cal = Calendar.getInstance();

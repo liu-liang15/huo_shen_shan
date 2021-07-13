@@ -18,4 +18,20 @@ public class MedicalcardService {
         System.out.println(1);
         return medicalcardDao.findAllMedicalcard(param);
     }
+
+    public void  addMedicalcard(Medicalcard medicalcard){
+        medicalcardDao.addMedicalcard(medicalcard);
+    }
+
+    public void medicalcardTY(int mediNo,String mediState){
+        medicalcardDao.medicalcardTY(mediNo,mediState);
+    }
+
+    public void medicalcardBB(int mediNo,String mediCard){
+        medicalcardDao.medicalcardBB(mediNo,mediCard);
+    }
+
+    public void editPwd(int mediNo,String mediPassword){
+        medicalcardDao.editPwd(mediNo,mediPassword);
+    }
 }
