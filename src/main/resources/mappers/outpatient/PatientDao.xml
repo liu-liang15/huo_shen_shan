@@ -24,7 +24,7 @@
         order by patient_date desc
     </select>
     <!--新增病人信息-->
-    <insert id="insertPatient" parameterType="com.example.model.pojos.outpatient.Patient">
+    <insert id="insertPatient" useGeneratedKeys="true" keyProperty="patientNo" parameterType="com.example.model.pojos.outpatient.Patient">
         insert into patient values(0,#{patientName},#{patientSex}
                                 ,#{patientPhone},#{patientIdcart},#{patientAge}
                                 ,#{patientAddress},#{patientBirthdate},#{patientDate})
