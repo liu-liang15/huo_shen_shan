@@ -13,7 +13,6 @@ public class Assay_person {
     private String assayPersonPhone;
     @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss",timezone="GMT+8")
     private Timestamp assayPersonTime;
-
     public int getAssayPersonId() {
         return assayPersonId;
     }

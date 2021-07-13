@@ -2,18 +2,14 @@ package com.example.model.servers.hyj;
 
 import com.example.model.dao.hyj.Assay_maMapper;
 import com.example.model.pojos.hyj.Assay_person;
-import com.github.pagehelper.Page;
-import com.github.pagehelper.PageHelper;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.HashMap;
+import javax.annotation.Resource;
 import java.util.List;
-import java.util.Map;
 
 @Service
 public class Assay_maService {
-    @Autowired
+    @Resource
     Assay_maMapper assayMaMapper;
     /*//分页查询
     public Map<String,Object> findAll(Integer pageNo, Integer size){

@@ -1,16 +1,19 @@
 package com.example.model.dao.pharmacy;
 
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.example.model.pojos.pharmacy.GoYingShang;
 import org.apache.ibatis.annotations.Mapper;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
 
 @Mapper
-public interface GoYingShangDao {
+public interface GoYingShangDao extends BaseMapper<GoYingShang> {
     //查询所有供应商
     List<GoYingShang> findAll();
     //新增供应商
-    void insert(GoYingShang goYingShang);
+
+    void insert2(GoYingShang goYingShang);
     //修改供应商信息
     void update(GoYingShang goYingShang);
 }

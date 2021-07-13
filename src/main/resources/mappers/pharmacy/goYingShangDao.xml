@@ -14,7 +14,7 @@
         select * from go_ying_shang where 1 = 1
     </select>
     <!--新增供应商信息-->
-    <insert id="insert" parameterType="com.example.model.pojos.pharmacy.GoYingShang">
+    <insert id="insert2" parameterType="com.example.model.pojos.pharmacy.GoYingShang">
         insert into go_ying_shang values(null,#{supplyName},#{supplyContacts}
                                   ,#{supplyPhone},#{supplySite},#{supplyState})
     </insert>
