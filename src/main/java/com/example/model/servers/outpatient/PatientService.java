@@ -15,6 +15,7 @@ public class PatientService {
     PatientDao patientDao;
 
     public List<Patient> findAll(String param){
+        System.out.println(321);
         return patientDao.findAllPatient(param);
     }
 

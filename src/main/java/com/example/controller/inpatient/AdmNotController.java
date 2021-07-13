@@ -14,7 +14,7 @@ import java.util.List;
 public class AdmNotController {
     @Autowired
     AdmNotServer admNotServer;
-
+    //查询住院单
     @GetMapping("/adm")
     public List<AdmNot> selAdm(String param){
         return admNotServer.allAdm(param);
