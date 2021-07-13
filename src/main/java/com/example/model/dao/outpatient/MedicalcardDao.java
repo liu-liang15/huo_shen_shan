@@ -20,6 +20,6 @@ public interface MedicalcardDao extends BaseMapper<Medicalcard> {
 
     void editPwd(int mediNo,String mediPassword);
     //修改卡余额
-    public void updatePat(Integer mediBalance,Integer mediNo);
+    void updatePat(Integer mediBalance,Integer mediNo);
 
 }
