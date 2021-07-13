@@ -8,5 +8,18 @@ import java.util.List;
 
 @Mapper
 public interface MedicalcardDao extends BaseMapper<Medicalcard> {
+    //查询诊疗卡
     List<Medicalcard> findAllMedicalcard(String param);
+
+    //新增诊疗卡
+    void addMedicalcard(Medicalcard medicalcard);
+
+    void medicalcardTY(int mediNo,String mediState);
+
+    void medicalcardBB(int mediNo,String mediCard);
+
+    void editPwd(int mediNo,String mediPassword);
+    //修改卡余额
+    void updatePat(Integer mediBalance,Integer mediNo);
+
 }

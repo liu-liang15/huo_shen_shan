@@ -15,11 +15,12 @@ public class PatientService {
     PatientDao patientDao;
 
     public List<Patient> findAll(String param){
+        System.out.println(321);
         return patientDao.findAllPatient(param);
     }
 
     public void savePatient(Patient patient){
-        if("0".equals(patient.getPatientNo()) || patient.getPatientNo() == null){
+        if(patient.getPatientNo() == null || patient.getPatientNo() == 0){
             patientDao.insertPatient(patient);
         }else{
             patientDao.updatePatient(patient);

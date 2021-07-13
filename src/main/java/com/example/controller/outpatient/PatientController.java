@@ -21,6 +21,7 @@ public class PatientController {
     //查询病人信息
     @GetMapping("/findAllPatient")
     public List<Patient> findAll(String param){
+        System.out.println(123);
         System.out.println(param);
         return patientService.findAll(param);
     }
@@ -35,6 +36,8 @@ public class PatientController {
         System.out.println(patient1);
         patientService.savePatient(patient1);
     }
+
+
 
 
     //根据出生日期计算年龄

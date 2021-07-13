@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.model.dao.inpatient.WardDao">
+    <resultMap id="WardMapper" type="com.example.model.pojos.inpatient.Ward">
+        <id column="ward_no" property="wardNo"/>
+        <result column="ward_name" property="wardName"/>
+        <result column="ward_dress" property="wardDress"/>
+    </resultMap>
+    <!--新增病房表-->
+    <insert id="addWard" parameterType="com.example.model.pojos.inpatient.Ward">
+        insert into ward(ward_name,ward_dress) values(#{wardName},#{wardDress})
+    </insert>
+</mapper>

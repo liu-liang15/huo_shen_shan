@@ -34,4 +34,26 @@
         </if>
         order by m.medi_newdate desc
     </select>
+    <!--改变就诊卡余额-->
+    <update id="updatePat" parameterType="com.example.model.pojos.outpatient.Medicalcard">
+        update medicalcard set medi_balance=medi_balance+#{mediBalance} where medi_no=#{mediNo}
+    </update>
+
+    <!--新增addMedicalcard-->
+    <insert id="addMedicalcard" parameterType="com.example.model.pojos.outpatient.Medicalcard">
+        insert into medicalcard(medi_card,medi_password,medi_idcart,medi_patient_no) values
+        (#{mediCard},#{mediPassword},#{mediIdcart},#{mediPatientNo})
+    </insert>
+
+    <update id="medicalcardTY" parameterType="com.example.model.pojos.outpatient.Medicalcard">
+        update medicalcard set medi_state = #{mediState} where medi_no = #{mediNo}
+    </update>
+
+    <update id="medicalcardBB" parameterType="com.example.model.pojos.outpatient.Medicalcard">
+        update medicalcard set medi_card = #{mediCard} where medi_no = #{mediNo}
+    </update>
+
+    <update id="editPwd" parameterType="com.example.model.pojos.outpatient.Medicalcard">
+        update medicalcard set medi_password = #{mediPassword} where medi_no = #{mediNo}
+    </update>
 </mapper>

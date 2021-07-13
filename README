@@ -6,14 +6,15 @@
         7.8 10:10 pom.xml加了分页插件、fastjson、log4j、Junit单元测试依赖
 
      谢嘉新的修改：
-
+        7.12 11:43 数据库的缴费记录表（medicalcardjfjl）字段mecajfjl_money的类型改为double,字段mecajfjl_date设了默认值
 
 
      陈宇俊的修改：
 
 
      黄佳明的修改：
-
-
-
+      0701：数据库药品规格表名字y_p_gui_ge改名为yao_ping_gg
+            数据库药品信息表名字yp_xing_xi改名为yao_ping_xx
+            药品表添加字段 DRUG_STATE 药品状态, DRUG_MESSAGE 药品信息
+            药品表 字段DRUG_RIQI类型改为varchar
      刘亮的修改：

@@ -22,7 +22,9 @@ public class HosAloneServer {
     }
     //新增住院单并修改住院通知单状态
     public void addHos(HosAlone hosAlone){
+        //新增住院单
         hosAloneDao.addHos(hosAlone);
+        //修改住院通知单状态
         admNotDao.alterAdm(hosAlone.getHosNo());
     }
 }
