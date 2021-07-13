@@ -13,7 +13,8 @@
 
 
      黄佳明的修改：
-
-
-
+      0701：数据库药品规格表名字y_p_gui_ge改名为yao_ping_gg
+            数据库药品信息表名字yp_xing_xi改名为yao_ping_xx
+            药品表添加字段 DRUG_STATE 药品状态, DRUG_MESSAGE 药品信息
+            药品表 字段DRUG_RIQI类型改为varchar
      刘亮的修改：
