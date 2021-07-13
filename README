@@ -6,7 +6,7 @@
         7.8 10:10 pom.xml加了分页插件、fastjson、log4j、Junit单元测试依赖
 
      谢嘉新的修改：
-
+        7.12 11:43 数据库的缴费记录表（medicalcardjfjl）字段mecajfjl_money的类型改为double,字段mecajfjl_date设了默认值
 
 
      陈宇俊的修改：

@@ -8,4 +8,7 @@ import java.util.List;
 @Mapper
 public interface MedicalcardDao {
     List<Medicalcard> findAllMedicalcard(String param);
+    //修改卡余额
+    public void updatePat(Integer mediBalance,Integer mediNo);
+
 }

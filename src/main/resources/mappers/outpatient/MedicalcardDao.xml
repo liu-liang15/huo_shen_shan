@@ -34,4 +34,8 @@
         </if>
         order by m.medi_newdate desc
     </select>
+    <!--改变就诊卡余额-->
+    <update id="updatePat" parameterType="com.example.model.pojos.outpatient.Medicalcard">
+        update medicalcard set medi_balance=medi_balance+#{mediBalance} where medi_no=#{mediNo}
+    </update>
 </mapper>
