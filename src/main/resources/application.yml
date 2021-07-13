@@ -8,7 +8,7 @@ spring:
     password: NEmBCDc43sw5FfXw
 
 mybatis:
-  type-aliases-package: com.example.model.pojos 指定pojo实体类的包
+  type-aliases-package: com.example.model.pojos
   mapper-locations: classpath:mappers/*/*.xml
   configuration:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl

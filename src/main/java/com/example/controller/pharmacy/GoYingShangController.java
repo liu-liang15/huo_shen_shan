@@ -16,7 +16,7 @@ public class GoYingShangController {
     @Autowired
     GoYingShangService goYingShangService;
 
-    @RequestMapping("upplier-mgr")
+    @RequestMapping("supplier")
     public List<GoYingShang> findAll(){
         return goYingShangService.findAll();
     }
