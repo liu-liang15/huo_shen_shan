@@ -5,41 +5,33 @@ import com.example.model.pojos.hyj.Assay_person;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.sql.Timestamp;
+import java.util.Date;
 import java.util.List;
 
 @Service
 public class Assay_maService {
     @Resource
     Assay_maMapper assayMaMapper;
-    /*//分页查询
-    public Map<String,Object> findAll(Integer pageNo, Integer size){
-        Map<String,Object> map = new HashMap<>();
-        //分页查询
-        Page<Object> page = PageHelper.startPage(pageNo, size);
-        map.put("rows",assayMaMapper.findPerson());
-        map.put("total",page.getTotal());
-        return map;
-    }*/
+
     public List<Assay_person> findAll(){
         return assayMaMapper.findPerson();
     }
     //新增
-    public void addPerson(Assay_person assayPerson){
-        assayMaMapper.addPerson(assayPerson);
+    public void insert(Assay_person assayPerson){
+        assayPerson.setAssayPersonTime(new Timestamp(System.currentTimeMillis()));
+        assayMaMapper.insert(assayPerson);
     }
     //删除
     public void delPerson(Assay_person assayPerson){
         assayMaMapper.delPerson(assayPerson);
     }
-    /*public Map<String,Object> likeFindPerson(Integer pageNo, Integer size,String assayPersonName){
-        Map<String,Object> map = new HashMap<>();
-        //分页查询
-        Page<Object> page = PageHelper.startPage(pageNo, size);
-        map.put("rows",assayMaMapper.likeFindPerson(assayPersonName));
-        map.put("total",page.getTotal());
-        return map;
-    }*/
+    //模糊查询
     public List<Assay_person> likeFindPerson(Assay_person assayPerson){
         return assayMaMapper.likeFindPerson(assayPerson);
+    }
+    //时间选择器
+    public List<Assay_person> timeChoose(Assay_person assayPerson){
+        return assayMaMapper.timeChoose(assayPerson);
     }
 }

@@ -19,7 +19,7 @@ public class AssayPersonController {
     }
     @RequestMapping("addPerson")
     public String addPerson(@RequestBody Assay_person assayPerson){
-        assayMaService.addPerson(assayPerson);
+        assayMaService.insert(assayPerson);
         return "ok";
     }
     @RequestMapping("delPerson")
@@ -30,5 +30,9 @@ public class AssayPersonController {
     @RequestMapping("likeFindPerson")
     public List<Assay_person> likeFindPerson(@RequestBody Assay_person assayPerson){
         return assayMaService.likeFindPerson(assayPerson);
+    }
+    @RequestMapping("timeChoose")
+    public List<Assay_person> timeChoose(@RequestBody Assay_person assayPerson){
+        return assayMaService.timeChoose(assayPerson);
     }
 }
