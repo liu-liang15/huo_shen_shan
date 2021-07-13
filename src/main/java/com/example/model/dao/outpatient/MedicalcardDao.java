@@ -1,5 +1,6 @@
 package com.example.model.dao.outpatient;
 
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.example.model.pojos.outpatient.Medicalcard;
 import org.apache.ibatis.annotations.Mapper;
 
@@ -19,6 +20,6 @@ public interface MedicalcardDao extends BaseMapper<Medicalcard> {
 
     void editPwd(int mediNo,String mediPassword);
     //修改卡余额
-    public void updatePat(Integer mediBalance,Integer mediNo);
+    void updatePat(Integer mediBalance,Integer mediNo);
 
 }
