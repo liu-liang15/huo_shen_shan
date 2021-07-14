@@ -7,8 +7,8 @@
 
      谢嘉新的修改：
         7.12 11:43 数据库的缴费记录表（medicalcardjfjl）字段mecajfjl_money的类型改为double,字段mecajfjl_date设了默认值
-
-
+        7.14 8:55 数据库病房表（ward）新增字段ward_zt，设默认值为0
+        7.14 21:40 床位表(bed)字段bed_zt设了默认值，新增字段res_no
      陈宇俊的修改：
 
 
