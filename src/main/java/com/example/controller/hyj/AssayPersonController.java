@@ -1,7 +1,7 @@
 package com.example.controller.hyj;
 
 import com.example.model.pojos.hyj.AssayPerson;
-import com.example.model.servers.hyj.Assay_maService;
+import com.example.model.servers.hyj.AssayMaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -11,7 +11,7 @@ import java.util.List;
 @RestController
 public class AssayPersonController {
     @Autowired
-    Assay_maService assayMaService;
+    AssayMaService assayMaService;
     @GetMapping("find")
     public List<AssayPerson> findAll(){
         return assayMaService.findAll();
