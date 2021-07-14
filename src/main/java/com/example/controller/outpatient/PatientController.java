@@ -18,7 +18,7 @@ public class PatientController {
     @Autowired
     PatientService patientService;
 
-    //查询病人信息
+    //查询病人信
     @GetMapping("/findAllPatient")
     public List<Patient> findAll(String param){
         System.out.println(123);
