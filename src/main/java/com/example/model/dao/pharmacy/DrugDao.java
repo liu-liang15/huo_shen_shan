@@ -14,4 +14,7 @@ public interface DrugDao {
     List<YaoPingLb> findAllSort();
     List<YaoPingLx> findAllType();
     List<YaoPingXx> findAllDrug(YaoPingXx yaoPingXx);
+    void addDrug(YaoPingXx yaoPingXx);
+    void updateDrug(YaoPingXx yaoPingXx);
+    void update(int supplyId);
 }

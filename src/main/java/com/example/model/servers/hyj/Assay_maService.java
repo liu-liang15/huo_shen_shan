@@ -2,6 +2,7 @@ package com.example.model.servers.hyj;
 
 import com.example.model.dao.hyj.Assay_maMapper;
 import com.example.model.pojos.hyj.Assay_person;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -9,7 +10,7 @@ import java.util.List;
 
 @Service
 public class Assay_maService {
-    @Resource
+    @Autowired
     Assay_maMapper assayMaMapper;
     /*//分页查询
     public Map<String,Object> findAll(Integer pageNo, Integer size){
