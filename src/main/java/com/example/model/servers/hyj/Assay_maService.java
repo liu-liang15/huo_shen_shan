@@ -1,7 +1,8 @@
 package com.example.model.servers.hyj;
 
 import com.example.model.dao.hyj.Assay_maMapper;
-import com.example.model.pojos.hyj.AssayPerson;
+import com.example.model.pojos.hyj.Assay_person;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -9,27 +10,37 @@ import java.util.List;
 
 @Service
 public class Assay_maService {
-    @Resource
+    @Autowired
     Assay_maMapper assayMaMapper;
-
-    public List<AssayPerson> findAll(){
+    /*//分页查询
+    public Map<String,Object> findAll(Integer pageNo, Integer size){
+        Map<String,Object> map = new HashMap<>();
+        //分页查询
+        Page<Object> page = PageHelper.startPage(pageNo, size);
+        map.put("rows",assayMaMapper.findPerson());
+        map.put("total",page.getTotal());
+        return map;
+    }*/
+    public List<Assay_person> findAll(){
         return assayMaMapper.findPerson();
     }
     //新增
-    public void insert(AssayPerson assayPerson){
-
-        assayMaMapper.insert(assayPerson);
+    public void addPerson(Assay_person assayPerson){
+        assayMaMapper.addPerson(assayPerson);
     }
     //删除
-    public void delPerson(AssayPerson assayPerson){
+    public void delPerson(Assay_person assayPerson){
         assayMaMapper.delPerson(assayPerson);
     }
-    //模糊查询
-    public List<AssayPerson> likeFindPerson(AssayPerson assayPerson){
+    /*public Map<String,Object> likeFindPerson(Integer pageNo, Integer size,String assayPersonName){
+        Map<String,Object> map = new HashMap<>();
+        //分页查询
+        Page<Object> page = PageHelper.startPage(pageNo, size);
+        map.put("rows",assayMaMapper.likeFindPerson(assayPersonName));
+        map.put("total",page.getTotal());
+        return map;
+    }*/
+    public List<Assay_person> likeFindPerson(Assay_person assayPerson){
         return assayMaMapper.likeFindPerson(assayPerson);
-    }
-    //时间选择器
-    public List<AssayPerson> timeChoose(AssayPerson assayPerson){
-        return assayMaMapper.timeChoose(assayPerson);
     }
 }

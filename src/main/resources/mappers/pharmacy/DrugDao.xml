@@ -75,10 +75,7 @@
         <!--药品名模糊查询-->
         <if test="drugName != null and drugName != ''">
             AND DRUG_NAME like concat('%','${drugName}','%')
-        </if>
-        <!--拼音码模糊查询-->
-        <if test="drugPym != null and drugPym !=''">
-            AND DRUG_PYM like concat('%','${drugPym}','%')
+            OR DRUG_PYM like concat('%','${drugName}','%')
         </if>
         <if test="drugTypeId != null and drugTypeId !=''">
             AND xx.DRUG_TYPE_ID like #{drugTypeId}
@@ -99,9 +96,25 @@
             AND DRUG_STATE like #{drugState}
         </if>
     </select>
+    <insert id="addDrug" parameterType="com.example.model.pojos.pharmacy.YaoPingXx">
+        insert into yao_ping_xx
+        values (null,#{drugName},#{drugPym},#{drugTypeId},
+                #{drugSortId},#{drugSpecId},#{drugJinjia},
+                #{drugShoujia},#{drugRiqi},#{drugMatr},
+                #{supplyId},#{drugClass},1,#{drugMessage})
+    </insert>
     <!--修改供应商信息-->
-    <update id="update" parameterType="com.example.model.pojos.pharmacy.GoYingShang">
-        update go_ying_shang set SUPPLY_NAME=#{supplyName},SUPPLY_CONTACTS=#{supplyContacts}
-                               ,SUPPLY_PHONE=#{supplyPhone},SUPPLY_SITE=#{supplySite},SUPPLY_STATE=#{supplyState} where SUPPLY_ID = #{supplyId}
+    <update id="updateDrug" parameterType="com.example.model.pojos.pharmacy.YaoPingXx">
+        update yao_ping_xx set DRUG_NAME=#{drugName},DRUG_PYM=#{drugPym},
+                               DRUG_TYPE_ID=#{drugTypeId},DRUG_SORT_ID=#{drugSortId},
+                               DRUG_SPEC_ID=#{drugSpecId},DRUG_JINJIA=#{drugJinjia},
+                               DRUG_SHOUJIA=#{drugShoujia} ,DRUG_RIQI=#{drugRiqi},
+                               DRUG_MATR=#{drugMatr},SUPPLY_ID=#{supplyId},
+                               DRUG_CLASS=#{drugClass},DRUG_STATE=#{drugState},
+                               DRUG_MESSAGE=#{drugMessage} where DRUG_ID = #{drugId}
+    </update>
+    <!--根据供应商id修改药品状态，用于供应商停用时修改他所供应的所有药品-->
+    <update id="update" parameterType="com.example.model.pojos.pharmacy.YaoPingXx">
+        update yao_ping_xx set DRUG_STATE=#{drugState} where SUPPLY_ID=#{supplyId}
     </update>
 </mapper>

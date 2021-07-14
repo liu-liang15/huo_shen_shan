@@ -27,4 +27,15 @@ public class DrugService {
     public  List<YaoPingXx> findAllDrug(YaoPingXx yaoPingXx){
         return drugDao.findAllDrug(yaoPingXx);
     };
+    public void addDrug(YaoPingXx yaoPingXx){
+        drugDao.addDrug(yaoPingXx);
+    }
+    public void updateDrug(YaoPingXx yaoPingXx){
+        drugDao.updateDrug(yaoPingXx);
+    }
+
+    public void update(int supplyId){
+        //修改供应商信息
+        drugDao.update(supplyId);
+    }
 }
