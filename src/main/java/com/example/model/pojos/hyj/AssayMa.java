@@ -4,15 +4,15 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 
 import java.sql.Timestamp;
 
-public class Assay_ma extends Assay_person {
+public class AssayMa extends AssayPerson {
     private int assayMaId;
     @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss",timezone="GMT+8")
     private Timestamp assayMaTime;
 
-    public Assay_ma() {
+    public AssayMa() {
     }
 
-    public Assay_ma(int assayMaId, Timestamp assayMaTime) {
+    public AssayMa(int assayMaId, Timestamp assayMaTime) {
         this.assayMaId = assayMaId;
         this.assayMaTime = assayMaTime;
     }
