@@ -18,7 +18,7 @@ public class PatientController {
     @Autowired
     PatientService patientService;
 
-    //查询病人信息
+    //查询病人信
     @GetMapping("/findAllPatient")
     public List<Patient> findAll(String param){
         System.out.println(123);
@@ -33,7 +33,6 @@ public class PatientController {
         String age = getAge(patient1.getPatientBirthdate());
         patient1.setPatientAge(age);
         patient1.setPatientDate(new Date());
-        System.out.println(patient1);
         patientService.savePatient(patient1);
     }
 

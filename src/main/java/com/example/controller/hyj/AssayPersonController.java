@@ -31,4 +31,8 @@ public class AssayPersonController {
     public List<Assay_person> likeFindPerson(@RequestBody Assay_person assayPerson){
         return assayMaService.likeFindPerson(assayPerson);
     }
+    @RequestMapping("timeChoose")
+    public List<AssayPerson> timeChoose(@RequestBody AssayPerson assayPerson){
+        return assayMaService.timeChoose(assayPerson);
+    }
 }
