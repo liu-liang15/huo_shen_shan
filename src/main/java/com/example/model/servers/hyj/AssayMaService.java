@@ -1,6 +1,6 @@
 package com.example.model.servers.hyj;
 
-import com.example.model.dao.hyj.Assay_maMapper;
+import com.example.model.dao.hyj.AssayMaMapper;
 import com.example.model.pojos.hyj.AssayPerson;
 import org.springframework.stereotype.Service;
 
@@ -8,9 +8,9 @@ import javax.annotation.Resource;
 import java.util.List;
 
 @Service
-public class Assay_maService {
+public class AssayMaService {
     @Resource
-    Assay_maMapper assayMaMapper;
+    AssayMaMapper assayMaMapper;
 
     public List<AssayPerson> findAll(){
         return assayMaMapper.findPerson();

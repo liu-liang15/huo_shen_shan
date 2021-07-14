@@ -9,7 +9,7 @@ import org.apache.ibatis.annotations.Select;
 import java.util.List;
 
 @Mapper
-public interface Assay_maMapper extends BaseMapper<AssayPerson> {
+public interface AssayMaMapper extends BaseMapper<AssayPerson> {
     @Select("select * from assay_person")
     public List<AssayPerson> findPerson();
     @Delete("delete from assay_person where assay_person_id = #{assayPersonId}")
