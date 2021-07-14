@@ -33,7 +33,6 @@ public class PatientController {
         String age = getAge(patient1.getPatientBirthdate());
         patient1.setPatientAge(age);
         patient1.setPatientDate(new Date());
-        System.out.println(patient1);
         patientService.savePatient(patient1);
     }
 
