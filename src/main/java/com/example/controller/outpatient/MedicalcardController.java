@@ -27,7 +27,7 @@ public class MedicalcardController {
 
     @GetMapping("/findAllMedicalcard")
     public List<Medicalcard> findAllMedicalcard(String param){
-        return medicalcardService.findAllMedicalcard(param);
+         return medicalcardService.findAllMedicalcard(param);
     }
 
     @RequestMapping("/editPwd")
