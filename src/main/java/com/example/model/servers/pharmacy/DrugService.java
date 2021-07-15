@@ -15,16 +15,27 @@ public class DrugService {
     @Autowired
     DrugDao drugDao;
 
-  public   List<YaoPingGg> findAllSpec(){
+    public   List<YaoPingGg> findAllSpec(){
         return drugDao.findAllSpec();
-  };
-   public  List<YaoPingLb> findAllSort(){
-    return drugDao.findAllSort();
-   };
-   public List<YaoPingLx> findAllType(){
-return drugDao.findAllType();
-   };
-  public  List<YaoPingXx> findAllDrug(YaoPingXx yaoPingXx){
-    return drugDao.findAllDrug(yaoPingXx);
-  };
+    };
+    public  List<YaoPingLb> findAllSort(){
+        return drugDao.findAllSort();
+    };
+    public List<YaoPingLx> findAllType(){
+        return drugDao.findAllType();
+    };
+    public  List<YaoPingXx> findAllDrug(YaoPingXx yaoPingXx){
+        return drugDao.findAllDrug(yaoPingXx);
+    };
+    public void addDrug(YaoPingXx yaoPingXx){
+        drugDao.addDrug(yaoPingXx);
+    }
+    public void updateDrug(YaoPingXx yaoPingXx){
+        drugDao.updateDrug(yaoPingXx);
+    }
+
+    public void update(int supplyId){
+        //修改供应商信息
+        drugDao.update(supplyId);
+    }
 }

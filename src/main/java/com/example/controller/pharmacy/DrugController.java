@@ -30,7 +30,32 @@ public class DrugController {
     };
     @RequestMapping("drug")
     public  List<YaoPingXx> findAllDrug(@RequestBody YaoPingXx yaoPingXx){
-        System.out.println(yaoPingXx.getDrugState());
         return drugService.findAllDrug(yaoPingXx);
-    };
+    }
+    //根据供应商修改药品状态
+    @RequestMapping("update-drug")
+    public String updateDrug(@RequestBody int supplyId){
+        try {
+            drugService.update(supplyId);
+            return "ok";
+        } catch (Exception e) {
+            e.printStackTrace();
+            return "fail";
+        }
+    }
+    @RequestMapping("add-drug")
+    public String addDrug(@RequestBody YaoPingXx yaoPingXx){
+        try {
+            if(yaoPingXx.getDrugId()==0){
+                drugService.addDrug(yaoPingXx);
+            }else{
+                drugService.updateDrug(yaoPingXx);
+            }
+            return "ok";
+        } catch (Exception e) {
+            e.printStackTrace();
+            return "fail";
+        }
+
+    }
 }

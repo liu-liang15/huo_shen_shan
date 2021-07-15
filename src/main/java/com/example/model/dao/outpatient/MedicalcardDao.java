@@ -11,6 +11,9 @@ public interface MedicalcardDao extends BaseMapper<Medicalcard> {
     //查询诊疗卡
     List<Medicalcard> findAllMedicalcard(String param);
 
+    //根据诊疗卡卡号查询信息
+    List<Medicalcard> findMedicalcardByMediCard(String mediCard);
+
     //新增诊疗卡
     void addMedicalcard(Medicalcard medicalcard);
 
@@ -19,7 +22,8 @@ public interface MedicalcardDao extends BaseMapper<Medicalcard> {
     void medicalcardBB(int mediNo,String mediCard);
 
     void editPwd(int mediNo,String mediPassword);
+
     //修改卡余额
-    void updatePat(Integer mediBalance,Integer mediNo);
+    void updatePat(double mediBalance,Integer mediNo);
 
 }

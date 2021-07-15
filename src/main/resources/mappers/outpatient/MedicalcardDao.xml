@@ -34,6 +34,11 @@
         </if>
         order by m.medi_newdate desc
     </select>
+    <!--根据诊疗卡卡号查询信息-->
+    <select id="findMedicalcardByMediCard" resultMap="medicalcard">
+        select * from medicalcard where medi_card = #{mediCard}
+    </select>
+
     <!--改变就诊卡余额-->
     <update id="updatePat" parameterType="com.example.model.pojos.outpatient.Medicalcard">
         update medicalcard set medi_balance=medi_balance+#{mediBalance} where medi_no=#{mediNo}
@@ -45,14 +50,15 @@
         (#{mediCard},#{mediPassword},#{mediIdcart},#{mediPatientNo})
     </insert>
 
+    <!--修改诊疗卡状态-->
     <update id="medicalcardTY" parameterType="com.example.model.pojos.outpatient.Medicalcard">
         update medicalcard set medi_state = #{mediState} where medi_no = #{mediNo}
     </update>
-
+    <!--修改诊疗卡卡号，补办-->
     <update id="medicalcardBB" parameterType="com.example.model.pojos.outpatient.Medicalcard">
         update medicalcard set medi_card = #{mediCard} where medi_no = #{mediNo}
     </update>
-
+    <!--修改诊疗卡密码，修改密码-->
     <update id="editPwd" parameterType="com.example.model.pojos.outpatient.Medicalcard">
         update medicalcard set medi_password = #{mediPassword} where medi_no = #{mediNo}
     </update>

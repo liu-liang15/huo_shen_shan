@@ -11,7 +11,7 @@ public class Medicalcard implements Serializable {
   private Integer mediNo;
   private String mediCard;
   private String mediPassword;
-  private Integer mediBalance;
+  private double mediBalance;
   private String mediIdcart;
   private String mediPatientNo;
   private Date mediNewdate;
@@ -23,7 +23,7 @@ public class Medicalcard implements Serializable {
   public Medicalcard() {
   }
 
-  public Medicalcard(Integer mediNo, String mediCard, String mediPassword, Integer mediBalance, String mediIdcart, String mediPatientNo, Date mediNewdate, String mediState, Patient patient) {
+  public Medicalcard(Integer mediNo, String mediCard, String mediPassword, double mediBalance, String mediIdcart, String mediPatientNo, Date mediNewdate, String mediState, Patient patient) {
     this.mediNo = mediNo;
     this.mediCard = mediCard;
     this.mediPassword = mediPassword;

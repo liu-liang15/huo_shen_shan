@@ -10,7 +10,6 @@
       where bm_name=#{shou} or bm.bm_id like "%${shou}%" or yg_name=#{shou}
     </if>
   </select>
-  <!--  sql语句分片 -->
   <resultMap id="BaseResultMap" type="com.example.model.pojos.system.BuMen">
     <id column="bm_id" jdbcType="INTEGER" property="bmId" />
     <result column="bm_name" jdbcType="VARCHAR" property="bmName" />
@@ -20,12 +19,10 @@
         <result column="yg_name" jdbcType="VARCHAR" property="ygName" />
         <result column="yg_dh" jdbcType="VARCHAR" property="ygDh" />
         <result column="yg_sfz" jdbcType="VARCHAR" property="ygSfz" />
-        <result column="ks_id" jdbcType="VARCHAR" property="ksId" />
-        <result column="bm_id" jdbcType="VARCHAR" property="bmId" />
-        <result column="gw_id" jdbcType="VARCHAR" property="gwId" />
     </association>
   </resultMap>
   <!--  根据主键ID查询  -->
+  <!--  sql语句分片 -->
   <sql id="Base_Column_List">
      bm.bm_id, bm_name, bm_fzr,yg_id, yg_name, yg_dh, yg_sfz, ks_id, gw_id
   </sql>
