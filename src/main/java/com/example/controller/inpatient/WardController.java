@@ -25,6 +25,12 @@ public class WardController {
     //修改病房
     @PostMapping("/updateWard")
     public void updateWard(@RequestBody Ward ward){
+        System.out.println("这是一个"+ward.toString());
+        if(ward.getWardZt().equals("0")){
+            ward.setWardZt("1");
+        }else if (ward.getWardZt().equals("1")){
+            ward.setWardZt("0");
+        }
         wardServer.updateWard(ward);
     }
 }

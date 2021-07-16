@@ -9,6 +9,15 @@ public class Bed {
   private String wardNo;
   private String resNo;
   private HosAlone hosAlone;
+  private Ward ward;
+
+  public Ward getWard() {
+    return ward;
+  }
+
+  public void setWard(Ward ward) {
+    this.ward = ward;
+  }
 
   public HosAlone getHosAlone() {
     return hosAlone;
@@ -25,7 +34,6 @@ public class Bed {
   public void setBedNo(long bedNo) {
     this.bedNo = bedNo;
   }
-
 
   public String getBedZt() {
     return bedZt;
