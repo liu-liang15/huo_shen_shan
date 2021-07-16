@@ -1,10 +1,12 @@
 package com.example.model.pojos.inpatient;
 
+
 public class Ward {
 
   private long wardNo;
   private String wardName;
   private String wardDress;
+  private String wardZt;
 
 
   public long getWardNo() {
@@ -31,6 +33,15 @@ public class Ward {
 
   public void setWardDress(String wardDress) {
     this.wardDress = wardDress;
+  }
+
+
+  public String getWardZt() {
+    return wardZt;
+  }
+
+  public void setWardZt(String wardZt) {
+    this.wardZt = wardZt;
   }
 
 }

@@ -36,6 +36,7 @@
 <!--        </dependency>-->
 
         <!-- mp依赖:mybatisPlus 会自动的维护Mybatis 以及MyBatis-spring相关的依赖-->
+        <!-- mybatisPlus 核心库 -->
         <dependency>
             <groupId>com.baomidou</groupId>
             <artifactId>mybatis-plus-boot-starter</artifactId>
@@ -48,14 +49,12 @@
             <artifactId>fastjson</artifactId>
             <version>1.2.70</version>
         </dependency>
+        <!--mysql-->
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
             <scope>runtime</scope>
         </dependency>
-        <!--分页插件-->
-
-
         <!-- log4j -->
         <dependency>
             <groupId>log4j</groupId>
@@ -68,6 +67,7 @@
             <artifactId>junit</artifactId>
             <version>4.12</version>
         </dependency>
+        <!--lombok-->
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
@@ -77,6 +77,11 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.baomidou</groupId>
+            <artifactId>mybatis-plus-generator</artifactId>
+            <version>3.4.1</version>
         </dependency>
     </dependencies>
 

@@ -8,15 +8,10 @@ import java.util.List;
 
 @Mapper
 public interface YuanGoDao extends BaseMapper<YuanGo> {
-    int deleteByPrimaryKey(Integer ygId);
 
-    int insert(YuanGo record);
 
-    int insertSelective(YuanGo record);
+    List<YuanGo> selectByAll01();
 
-    List<YuanGo> selectByAll();
+    List<YuanGo> selectByAll02();
 
-    int updateByPrimaryKeySelective(YuanGo record);
-
-    int updateByPrimaryKey(YuanGo record);
 }

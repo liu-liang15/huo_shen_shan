@@ -27,7 +27,7 @@ public class MedicalcardController {
 
     @GetMapping("/findAllMedicalcard")
     public List<Medicalcard> findAllMedicalcard(String param){
-        return medicalcardService.findAllMedicalcard(param);
+         return medicalcardService.findAllMedicalcard(param);
     }
 
     @RequestMapping("/editPwd")
@@ -59,7 +59,7 @@ public class MedicalcardController {
         if(pwd == null){
             pwd = "666666";
         }
-        Medicalcard medicalcard = new Medicalcard(0,getDateNo(),pwd,null,idCart,mediPatientNo,null,null,null);
+        Medicalcard medicalcard = new Medicalcard(0,getDateNo(),pwd,0,idCart,mediPatientNo,null,null,null);
         medicalcardService.addMedicalcard(medicalcard);
     }
 

@@ -7,7 +7,16 @@ public class Bed {
   private String bedZt;
   private double bedMon;
   private String wardNo;
+  private String resNo;
+  private HosAlone hosAlone;
 
+  public HosAlone getHosAlone() {
+    return hosAlone;
+  }
+
+  public void setHosAlone(HosAlone hosAlone) {
+    this.hosAlone = hosAlone;
+  }
 
   public long getBedNo() {
     return bedNo;
@@ -42,6 +51,15 @@ public class Bed {
 
   public void setWardNo(String wardNo) {
     this.wardNo = wardNo;
+  }
+
+
+  public String getResNo() {
+    return resNo;
+  }
+
+  public void setResNo(String resNo) {
+    this.resNo = resNo;
   }
 
 }

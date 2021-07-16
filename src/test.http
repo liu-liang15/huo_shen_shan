@@ -1,7 +1,6 @@
-POST http://localhost:1970/getyg
+POST http://localhost:1970/getygall
 Content-Type: application/json
 
-{}··
 
 ###
 http://localhost:1970/getbumen

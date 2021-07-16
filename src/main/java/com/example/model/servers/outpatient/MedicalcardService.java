@@ -15,8 +15,11 @@ public class MedicalcardService {
     MedicalcardDao medicalcardDao;
 
     public List<Medicalcard> findAllMedicalcard(String param){
-        System.out.println(1);
         return medicalcardDao.findAllMedicalcard(param);
+    }
+
+    public List<Medicalcard> findMedicalcardByMediCard(String mediCard){
+        return medicalcardDao.findMedicalcardByMediCard(mediCard);
     }
 
     public void  addMedicalcard(Medicalcard medicalcard){
