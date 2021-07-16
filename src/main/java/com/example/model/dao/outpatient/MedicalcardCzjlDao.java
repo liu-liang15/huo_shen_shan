@@ -1,14 +1,13 @@
 package com.example.model.dao.outpatient;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.example.model.pojos.outpatient.Medicalcard;
 import com.example.model.pojos.outpatient.Medicalcardczjl;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
 
 @Mapper
-public interface MedicalcardCzjlDao extends BaseMapper<Medicalcard> {
+public interface MedicalcardCzjlDao extends BaseMapper<Medicalcardczjl> {
     //查询充值记录
     List<Medicalcardczjl> findAllMedicalcardCzjl(String param);
 
