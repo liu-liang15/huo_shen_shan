@@ -12,7 +12,7 @@ import java.util.List;
 
 @Service
 @Transactional
-public class YuanGoservers {
+public class YuanGoservice {
     @Resource
     YuanGoDao yuanGoDao;
 //查询员工部分资料
@@ -20,8 +20,8 @@ public class YuanGoservers {
         return yuanGoDao.selectByAll02();
     }
 //查询员工所有资料
-    public List<YuanGo> getYuanGoAll(){
-        return yuanGoDao.selectByAll01();
+    public List<YuanGo> getYuanGoAll(String param){
+        return yuanGoDao.selectByAll01(param);
     }
 
 //新增员工

@@ -56,6 +56,10 @@ public class YuanGo implements Serializable {
     private String gwId;
     @TableField(exist = false)
     private GangWei gangWei2;
+    /**
+     * 员工对应的用户
+     */
+    @TableField(exist = false)
+    private YongHu yongHu;
 
-    private static final long serialVersionUID = 1L;
 }

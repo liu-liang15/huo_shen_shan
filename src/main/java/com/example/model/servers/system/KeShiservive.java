@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 import javax.annotation.Resource;
 import java.util.List;
 @Service
-public class KeShiservers {
+public class KeShiservive {
     @Resource
     KeShiDao keShiDao;
 //查询所有科室数据

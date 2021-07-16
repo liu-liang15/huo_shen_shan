@@ -10,7 +10,7 @@ import java.util.List;
 public interface YuanGoDao extends BaseMapper<YuanGo> {
 
 
-    List<YuanGo> selectByAll01();
+    List<YuanGo> selectByAll01(String param);
 
     List<YuanGo> selectByAll02();
 

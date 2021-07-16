@@ -10,7 +10,7 @@ import java.util.List;
 
 @Service
 @Transactional
-public class BuMenservers {
+public class BuMenservice {
             @Resource
             BuMenDao buMenDao;
 //          查询所有部门

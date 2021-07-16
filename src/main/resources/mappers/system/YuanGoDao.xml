@@ -26,6 +26,11 @@
       <id column="gw_id" property="gwId"/>
       <result column="gw_name" property="gwName"/>
     </association>
+    <association property="yongHu" javaType="com.example.model.pojos.system.YongHu">
+      <id column="yh_id" property="yhId"/>
+      <result column="yh_mm" property="yhMm"/>
+      <result column="yg_id" property="ygId"/>
+    </association>
   </resultMap>
   <sql id="Base_Column_List">
     yg_id, yg_name, yg_dh, yg_sfz, ks_id, bm_id, gw_id
@@ -40,6 +45,11 @@
     select * from yuan_go yg left join bu_men bm on yg.bm_id=bm.bm_id
                             left join ke_shi ks on yg.ks_id=ks.ks_id
                             left join gang_wei gw on yg.gw_id=gw.gw_id
+                            left join yong_hu yh on yg.yg_id=yh.yg_id
+
+    <if test="param!=null and param != ''">
+        where bm.bm_name=#{param} or ks.ks_name=#{param} or gw.gw_name=#{param} or yg.yg_name=#{param}
+    </if>
   </select>
 
   <!--  <insert id="insert" keyColumn="yg_id" keyProperty="ygId" parameterType="com.example.model.pojos.system.YuanGo" useGeneratedKeys="true">-->

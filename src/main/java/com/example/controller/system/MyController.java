@@ -1,16 +1,8 @@
 package com.example.controller.system;
 
-import com.example.model.pojos.system.BuMen;
-import com.example.model.pojos.system.GangWei;
-import com.example.model.pojos.system.KeShi;
-import com.example.model.pojos.system.YuanGo;
-import com.example.model.servers.system.BuMenservers;
-import com.example.model.servers.system.GangWeiservers;
-import com.example.model.servers.system.KeShiservers;
-import com.example.model.servers.system.YuanGoservers;
-import jdk.nashorn.internal.ir.BreakableNode;
+import com.example.model.pojos.system.*;
+import com.example.model.servers.system.*;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.converter.json.GsonBuilderUtils;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -20,16 +12,20 @@ import java.util.List;
 public class MyController {
 //    部门
     @Autowired
-    BuMenservers buMenservers;
+BuMenservice buMenservers;
 //     员工
     @Autowired
-    YuanGoservers yuanGoservers;
+YuanGoservice yuanGoservice;
 //    科室
     @Autowired
-    KeShiservers keShiservers;
+KeShiservive keShiservive;
 //    岗位
     @Autowired
-    GangWeiservers gangWeiservers;
+GangWeiservice gangWeiservers;
+//    用户
+    @Autowired
+YongHuservice yongHuservice;
+
 
 //      获取部门数据
     @GetMapping("/getbumen/{shou}")
@@ -39,25 +35,24 @@ public class MyController {
 //         获取员工数据
     @PostMapping("getyg")
     public List<YuanGo> getYg(){
-        return yuanGoservers.getYuanGo();
+        return yuanGoservice.getYuanGo();
     }
 //    查询员工全部数据
-    @PostMapping("getygall")
-    public List<YuanGo> getyg2(String params){
-        List<YuanGo> yuanGoAll = yuanGoservers.getYuanGoAll();
+    @RequestMapping("/getygall")
+    public List<YuanGo> getyg2(String param){
+        List<YuanGo> yuanGoAll = yuanGoservice.getYuanGoAll(param);
         return yuanGoAll;
     }
 
 //    新增员工
     @PostMapping("xzyg")
     public int xz(@RequestBody YuanGo yuanGo){
-        return yuanGoservers.insertyg(yuanGo);
+        return yuanGoservice.insertyg(yuanGo);
     }
 //   修改员工
     @PostMapping("xgyg")
     public int xg(@RequestBody YuanGo yuanGo){
-        System.err.println(yuanGo);
-        return yuanGoservers.updateyg(yuanGo);
+        return yuanGoservice.updateyg(yuanGo);
 //        return 1;
     }
 
@@ -78,7 +73,7 @@ public class MyController {
 //    查询科室
     @PostMapping("selectks")
     public List<KeShi> getks(){
-        return keShiservers.getks();
+        return keShiservive.getks();
     }
 //    查询岗位
     @PostMapping("selectgw")
@@ -87,5 +82,23 @@ public class MyController {
     }
 
 
+
+//    ====================用户管理=========================
+//新增用户
+    @PostMapping("xzyh")
+    public int ins(@RequestBody YongHu yongHu){
+        return yongHuservice.insertyh(yongHu);
+    }
+//    修改用户
+    @PostMapping("xgyh")
+    public int xgy(@RequestBody YongHu yongHu){
+        return yongHuservice.updateyh(yongHu);
+    }
+//    删除用户
+    @PostMapping("scyh")
+    public int sc(@RequestBody YongHu yongHu){
+        System.err.println(yongHu);
+        return yongHuservice.deleteyh(yongHu.getYgId());
+    }
 
 }
