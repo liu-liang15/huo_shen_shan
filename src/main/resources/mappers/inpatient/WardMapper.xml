@@ -9,7 +9,7 @@
     </resultMap>
     <!--查看病房表-->
     <select id="selWard" resultMap="WardMapper">
-        select * from ward where ward_zt='0'
+        select * from ward where 1=1
         <if test="param!=null and param!=''">
             and (ward_name like '%${param}%')
         </if>

@@ -49,14 +49,48 @@
                 </association>
             </association>
         </association>
+        <association property="ward" javaType="com.example.model.pojos.inpatient.Ward">
+            <id column="ward_no" property="wardNo"/>
+            <result column="ward_name" property="wardName"/>
+            <result column="ward_dress" property="wardDress"/>
+            <result column="ward_zt" property="wardZt"/>
+        </association>
     </resultMap>
     <select id="selBed" resultMap="BedMapper">
-        select * from bed b LEFT JOIN hos_alone h on b.res_no=h.res_no
+        select * from bed where ward_no=#{wardNo}
+        <if test="zt!=''">
+            and bed_zt='0' and res_no is null
+        </if>
+    </select>
+    <!--查询病床与患者-->
+    <select id="allocBed" resultMap="BedMapper">
+        select * from bed b INNER JOIN ward w on b.ward_no=w.ward_no
+            right JOIN hos_alone h on b.res_no=h.res_no
             LEFT join adm_not a on h.hos_no=a.hos_no
             LEFT join medicalcard m on a.patient = m.medi_no
-            LEFT join patient p on m.medi_patient_no=p.patient_no where b.ward_no=#{wardNo}
+            LEFT join patient p on m.medi_patient_no=p.patient_no
+        <if test="param!=''">
+            where b.res_no=#{param}
+        </if>
     </select>
+    <!--新增床位-->
     <insert id="addBed" parameterType="com.example.model.pojos.inpatient.Bed">
         insert into bed(bed_mon,ward_no) values(#{bedMon},#{wardNo})
     </insert>
+    <!--床位修改-->
+    <update id="updateBed">
+        update bed
+        <set>
+            <if test="bedZt!=''">
+                bed_zt=#{bedZt},
+            </if>
+            <if test="bedMon">
+                bed_mon=#{bedMon},
+            </if>
+            <if test="resNo!=''">
+                res_no=#{resNo},
+            </if>
+        </set>
+        where bed_no=#{bedNo}
+    </update>
 </mapper>

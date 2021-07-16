@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.model.dao.inpatient.BedRecDao">
+    <resultMap id="BedRecMapper" type="com.example.model.pojos.inpatient.BedRec">
+        <id column="bed_rec_no" property="bedRecNo"/>
+        <result column="bed_no" property="bedNo"/>
+        <result column="bed_time" property="bedTime"/>
+        <result column="res_no" property="resNo"/>
+    </resultMap>
+    <insert id="addBedRec">
+        insert into bed_rec(bed_no,res_no) values(#{bedNo},#{resNo})
+    </insert>
+    <select id="selBedRec" resultMap="BedRecMapper">
+        select * from bed_rec br  INNER JOIN bed b on br.bed_no =b.bed_no
+            INNER JOIN hos_alone h on b.res_no = h.res_no
+            inner join adm_not a on h.hos_no=a.hos_no
+            inner join medicalcard m on a.patient = m.medi_no
+            inner join patient p on m.medi_patient_no=p.patient_no
+        where h.hos_zt='0'
+    </select>
+</mapper>

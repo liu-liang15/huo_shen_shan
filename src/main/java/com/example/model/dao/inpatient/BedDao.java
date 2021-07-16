@@ -7,7 +7,11 @@ import java.util.List;
 @Mapper
 public interface BedDao {
     //查看床位
-    public List<Bed> selBed(String wardNo);
+    public List<Bed> selBed(String wardNo,String zt);
     //新增床位
     public void addBed(Bed bed);
+    //查看患者与床位
+    public List<Bed> allocBed(String param);
+    //修改床位
+    public void updateBed(Bed bed);
 }
