@@ -9,5 +9,5 @@ import java.util.Collection;
 @Mapper
 public interface JinHuoDanDao {
     void addJHD(CaiGoJh caiGoJh);
-    void addJHXD(Collection<JhXiangDan> jhXiangDan);
+    void addJHXD(Collection<JhXiangDan> jhXiangDan,String planId);
 }

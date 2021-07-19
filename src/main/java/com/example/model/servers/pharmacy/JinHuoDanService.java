@@ -20,6 +20,6 @@ public class JinHuoDanService {
         jinHuoDanDao.addJHD(caiGoJh);
         Collection<JhXiangDan> details=caiGoJh.getJhXiangDans();
         System.out.println("集合:"+details);
-        jinHuoDanDao.addJHXD(details);
+        jinHuoDanDao.addJHXD(details,caiGoJh.getPlanId());
     };
 }

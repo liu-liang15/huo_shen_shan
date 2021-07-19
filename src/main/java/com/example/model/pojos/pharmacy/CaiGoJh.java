@@ -1,19 +1,14 @@
 package com.example.model.pojos.pharmacy;
 
 
-import com.fasterxml.jackson.annotation.JsonFormat;
-
 import java.util.Collection;
+import java.util.List;
 
 public class CaiGoJh {
   private long planId;
   private String supplyId;
   private String userId;
-  //返回前端注解
-  @JsonFormat(pattern = "yyyy-MM-dd", timezone="GMT+8")
   private java.sql.Timestamp planTime;
-  //返回前端注解
-  @JsonFormat(pattern = "yyyy-MM-dd", timezone="GMT+8")
   private java.sql.Timestamp planXiugai;
   private double planPrice;
   private Collection<JhXiangDan> jhXiangDans;
@@ -79,15 +74,4 @@ public class CaiGoJh {
     this.planPrice = planPrice;
   }
 
-  @Override
-  public String toString() {
-    return "CaiGoJh{" +
-            "planId=" + planId +
-            ", supplyId='" + supplyId + '\'' +
-            ", userId='" + userId + '\'' +
-            ", planTime=" + planTime +
-            ", planXiugai=" + planXiugai +
-            ", planPrice=" + planPrice +
-            '}';
-  }
 }
