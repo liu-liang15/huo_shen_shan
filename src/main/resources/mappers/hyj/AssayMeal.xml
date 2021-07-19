@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.model.dao.hyj.AssayMealMapper">
+    <resultMap id="selectMeal" type="com.example.model.pojos.hyj.AssayMeal">
+        <id column="assay_meal_id" property="assayMealId"></id>
+        <result column="assay_meal_name" property="assayMealName"></result>
+        <result column="assay_meal_price" property="assayMealPrice"></result>
+        <result column="assay_type_type" property="assayTypeType"></result>
+        <collection property="assayPros" ofType="com.example.model.pojos.hyj.AssayPro">
+            <id column="assay_pro_id" property="assayProId"></id>
+            <result column="assay_pro_name" property="assayProName"></result>
+            <result column="assay_pro_ref" property="assayProRef"></result>
+            <result column="assay_pro_unit" property="assayProUnit"></result>
+        </collection>
+    </resultMap>
+
+    <select id="findMeal" resultMap="selectMeal">
+        select * from assay_meal am
+        inner join assay_meal_middle amd on am.assay_meal_id = amd.assay_meal_id
+        inner join assay_pro ap on amd.assay_pro_id = ap.assay_pro_id
+    </select>
+    <insert id="addMeal" >
+        insert into assay_meal(assay_meal_name,assay_meal_price,assay_type_type) values(#{assayMealName},#{assayMealPrice},#{assayTypeType})
+    </insert>
+    <insert id="addMiddle">
+        insert into assay_meal_middle(assay_meal_id,assay_pro_id) values
+        <foreach collection="list" item="obj" separator=",">
+            (#{mealId},#{obj.assayProId})
+        </foreach>
+    </insert>
+</mapper>

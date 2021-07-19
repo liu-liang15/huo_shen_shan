@@ -13,12 +13,13 @@ import java.sql.Timestamp;
 @NoArgsConstructor
 public class AssayPerson {
     @TableId(type = IdType.AUTO)
-    private Integer assayPersonId;
-    private String assayPersonName;
-    private String assayPersonSex;
-    private int assayPersonAge;
-    private String assayPersonPhone;
-    @TableField(fill = FieldFill.INSERT)
+    private Integer assayPersonId;//id
+    private String assayPersonName;//姓名
+    private String assayPersonSex;//性别
+    private int assayPersonAge;//年龄
+    private String assayPersonCard;//身份证
+    private String assayPersonPhone;//手机号
+    @TableField(fill = FieldFill.INSERT)//新增时，自动注入当前系统时间
     private Timestamp assayPersonTime;
     private Timestamp assayPersonTime2;
 
