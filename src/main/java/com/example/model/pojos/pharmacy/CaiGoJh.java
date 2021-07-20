@@ -1,12 +1,13 @@
 package com.example.model.pojos.pharmacy;
 
 
+import com.example.model.pojos.system.YongHu;
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 import java.util.Collection;
 
 public class CaiGoJh {
-  private long planId;
+  private String planId;
   private String supplyId;
   private String userId;
   //返回前端注解
@@ -16,7 +17,25 @@ public class CaiGoJh {
   @JsonFormat(pattern = "yyyy-MM-dd", timezone="GMT+8")
   private java.sql.Timestamp planXiugai;
   private double planPrice;
+  private GoYingShang goYingShangs;
+  private YongHu yongHu;
   private Collection<JhXiangDan> jhXiangDans;
+
+  public YongHu getYongHu() {
+    return yongHu;
+  }
+
+  public void setYongHu(YongHu yongHu) {
+    this.yongHu = yongHu;
+  }
+
+  public GoYingShang getGoYingShangs() {
+    return goYingShangs;
+  }
+
+  public void setGoYingShangs(GoYingShang goYingShangs) {
+    this.goYingShangs = goYingShangs;
+  }
 
   public Collection<JhXiangDan> getJhXiangDans() {
     return jhXiangDans;
@@ -26,11 +45,11 @@ public class CaiGoJh {
     this.jhXiangDans = jhXiangDans;
   }
 
-  public long getPlanId() {
+  public String getPlanId() {
     return planId;
   }
 
-  public void setPlanId(long planId) {
+  public void setPlanId(String planId) {
     this.planId = planId;
   }
 
