@@ -10,6 +10,5 @@ public class YongHu {
   private Integer yhId;
   private String yhMm;
   private String ygId;
-
-
+  private String yhKey;
 }

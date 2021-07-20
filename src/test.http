@@ -1,4 +1,4 @@
-POST http://localhost:1970/getygall
+GET http://localhost:1970/keshiall/null
 Content-Type: application/json
 
 

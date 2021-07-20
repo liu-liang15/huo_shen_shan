@@ -2,11 +2,10 @@ package com.example.model.servers.system;
 
 import com.example.model.dao.system.YongHuDao;
 import com.example.model.pojos.system.YongHu;
+import com.example.util.Password;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
 import javax.annotation.Resource;
-import java.util.List;
 
 @Service
 @Transactional
@@ -33,6 +32,16 @@ public class YongHuservice {
     }
 
     /**
+     *重置密码
+     */
+    public int czmm(YongHu yongHu){
+//        先删除用户
+        deleteyh(yongHu.getYhId()+"");
+//        在新增用户
+        return insertyh(yongHu);
+    }
+
+    /**
      * 根据ID删除用户
      * @param id
      * @return
@@ -47,7 +56,14 @@ public class YongHuservice {
      * @return
      */
     public int insertyh(YongHu yongHu){
-        yongHu.setYhMm("aaaaa");
+ //        随机生成密码键
+        yongHu.setYhKey(Password.generateShortUuid());
+//        将密码加密存进数据库
+        try {
+            yongHu.setYhMm(Password.encrypt("aaaaa",yongHu.getYhKey()));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         return yongHuDao.insert(yongHu);
     }
 

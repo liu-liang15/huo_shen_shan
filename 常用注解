@@ -16,3 +16,9 @@ mybatis 相关注解
     <!--    开启缓存，xml里面加这个开启二级缓存   所有的开启了二级缓存的实体类必须实现这个接口    ；implements Serializable  -->
      <cache/>相对应的注解 @CacheNamespace
 
+mysql
+一. concat()函数，可以用来防止mybatis的sql注入攻击
+    1. 含义:
+         将多个字符串连接成一个字符串。
+    2. 语法：
+         concat(str1, str2,...) 返回结果为连接参数产生的字符串，如果有任何一个参数为null，则返回值为null。
