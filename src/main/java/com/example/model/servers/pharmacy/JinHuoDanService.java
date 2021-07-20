@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Collection;
+import java.util.List;
 
 @Service
 @Transactional
@@ -16,10 +17,15 @@ public class JinHuoDanService {
     JinHuoDanDao jinHuoDanDao;
 
     public void addJHD(CaiGoJh caiGoJh){
-        System.out.println("zzzz");
         jinHuoDanDao.addJHD(caiGoJh);
         Collection<JhXiangDan> details=caiGoJh.getJhXiangDans();
-        System.out.println("集合:"+details);
         jinHuoDanDao.addJHXD(details,caiGoJh.getPlanId());
     };
+
+    public List<CaiGoJh> findAllJHD(){
+        return jinHuoDanDao.findAllJHD();
+    }
+    public List<JhXiangDan> findAllJXHD(String planId){
+        return jinHuoDanDao.findAllJHXD(planId);
+    }
 }

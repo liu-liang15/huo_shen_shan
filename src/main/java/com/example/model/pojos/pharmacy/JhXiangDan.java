@@ -9,6 +9,24 @@ public class JhXiangDan {
   private String consuId;
   private int drugNumber;
   private CaiGoJh caiGoJh;
+  private YaoPingXx yaoPingXx;
+  private HaoCai haoCai;
+
+  public YaoPingXx getYaoPingXx() {
+    return yaoPingXx;
+  }
+
+  public void setYaoPingXx(YaoPingXx yaoPingXx) {
+    this.yaoPingXx = yaoPingXx;
+  }
+
+  public HaoCai getHaoCai() {
+    return haoCai;
+  }
+
+  public void setHaoCai(HaoCai haoCai) {
+    this.haoCai = haoCai;
+  }
 
   public CaiGoJh getCaiGoJh() {
     return caiGoJh;
