@@ -5,7 +5,6 @@ public class Bed {
 
   private long bedNo;
   private String bedZt;
-  private double bedMon;
   private String wardNo;
   private String resNo;
   private HosAlone hosAlone;
@@ -42,16 +41,6 @@ public class Bed {
   public void setBedZt(String bedZt) {
     this.bedZt = bedZt;
   }
-
-
-  public double getBedMon() {
-    return bedMon;
-  }
-
-  public void setBedMon(double bedMon) {
-    this.bedMon = bedMon;
-  }
-
 
   public String getWardNo() {
     return wardNo;
