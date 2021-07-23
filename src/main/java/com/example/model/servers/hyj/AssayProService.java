@@ -3,8 +3,10 @@ package com.example.model.servers.hyj;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.example.model.dao.hyj.AssayProMapper;
 import com.example.model.dao.hyj.AssayTypeMapper;
+import com.example.model.dao.hyj.KsMapper;
 import com.example.model.pojos.hyj.AssayPro;
 import com.example.model.pojos.hyj.AssayType;
+import com.example.model.pojos.system.KeShi;
 import org.apache.catalina.Wrapper;
 import org.springframework.stereotype.Service;
 
@@ -18,6 +20,8 @@ public class AssayProService {
     AssayProMapper assayProMapper;
     @Resource
     AssayTypeMapper assayTypeMapper;
+    @Resource
+    KsMapper ksMapper;
     //查询所有
     public List<AssayPro> findAll(){
         return assayProMapper.selectList(null);
@@ -48,5 +52,9 @@ public class AssayProService {
     //查询套餐类型
     public List<AssayType> findType(){
         return assayTypeMapper.selectList(null);
+    }
+    //查询执行科室
+    public List<KeShi> findKs(){
+        return ksMapper.selectList(null);
     }
 }

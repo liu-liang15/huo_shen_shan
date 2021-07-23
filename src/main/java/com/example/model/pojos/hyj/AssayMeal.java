@@ -20,7 +20,7 @@ public class AssayMeal {
     private String assayMealName;
     private double assayMealPrice;
     private String assayTypeType;
-
+    private String ksName;
     @TableField(exist = false)
     private List<AssayPro> assayPros;
 }

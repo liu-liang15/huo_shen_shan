@@ -7,6 +7,7 @@
         <result column="assay_meal_name" property="assayMealName"></result>
         <result column="assay_meal_price" property="assayMealPrice"></result>
         <result column="assay_type_type" property="assayTypeType"></result>
+        <result column="ks_name" property="ksName"></result>
         <collection property="assayPros" ofType="com.example.model.pojos.hyj.AssayPro">
             <id column="assay_pro_id" property="assayProId"></id>
             <result column="assay_pro_name" property="assayProName"></result>
@@ -29,4 +30,12 @@
             (#{mealId},#{obj.assayProId})
         </foreach>
     </insert>
+    <!--删除套餐表-->
+    <delete id="delMeal">
+        delete from assay_meal where assay_meal_id = #{assayMealId}
+    </delete>
+    <!--删除中间表-->
+    <delete id="delMiddle">
+        delete from assay_meal_middle where assay_meal_id = #{assayMealId}
+    </delete>
 </mapper>

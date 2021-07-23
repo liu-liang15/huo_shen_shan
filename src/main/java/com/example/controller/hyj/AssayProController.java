@@ -3,6 +3,7 @@ package com.example.controller.hyj;
 import com.example.model.pojos.hyj.AssayMeal;
 import com.example.model.pojos.hyj.AssayPro;
 import com.example.model.pojos.hyj.AssayType;
+import com.example.model.pojos.system.KeShi;
 import com.example.model.servers.hyj.AssayMealService;
 import com.example.model.servers.hyj.AssayProService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -60,5 +61,20 @@ public class AssayProController {
     @RequestMapping("addMeal")
     public void addMeal(@RequestBody AssayMeal assayMeal){
         assayMealService.addMeal(assayMeal);
+    }
+    //删除套餐表和中间表
+    @RequestMapping("delMeal")
+    public void delMeal(@RequestBody AssayMeal assayMeal){
+        assayMealService.delMeal(assayMeal);
+    }
+    //查询执行科室
+    @RequestMapping("findKs")
+    public List<KeShi> findKs(){
+        return assayProService.findKs();
+    }
+    //模糊查询套餐
+    @RequestMapping("likeFind")
+    public List<AssayMeal> likeFind(@RequestBody AssayMeal assayMeal){
+        return assayMealService.likeFind(assayMeal);
     }
 }

@@ -16,4 +16,7 @@ public interface AssayMealMapper extends BaseMapper<AssayMeal> {
 
     public void addMiddle(@Param("mealId") int mealId,@Param("list") List<AssayPro> assayPros);
 
+    public void delMiddle(AssayMeal assayMeal);
+
+    public void delMeal(AssayMeal assayMeal);
 }
