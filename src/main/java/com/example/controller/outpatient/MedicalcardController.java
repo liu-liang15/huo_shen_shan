@@ -37,9 +37,11 @@ public class MedicalcardController {
     }
 
     @RequestMapping("/medicalcardBB")
-    public void medicalcardBB(String mediNo){
+    public String medicalcardBB(String mediNo){
         int i = Integer.parseInt(mediNo);
-        medicalcardService.medicalcardBB(i,getDateNo());
+        String date = getDateNo();
+        medicalcardService.medicalcardBB(i,date);
+        return date;
     }
 
     @RequestMapping("/medicalcardTY")
@@ -55,12 +57,14 @@ public class MedicalcardController {
 
     //新增诊疗卡
     @RequestMapping("/addMedicalcard")
-    public void insertMedicalcard(String pwd,String idCart,String mediPatientNo){
+    public String insertMedicalcard(String pwd,String idCart,String mediPatientNo){
         if(pwd == null){
             pwd = "666666";
         }
-        Medicalcard medicalcard = new Medicalcard(0,getDateNo(),pwd,0,idCart,mediPatientNo,null,null,null);
+        String str = getDateNo();
+        Medicalcard medicalcard = new Medicalcard(0,str,pwd,0,idCart,mediPatientNo,null,null,null);
         medicalcardService.addMedicalcard(medicalcard);
+        return str;
     }
 
 

@@ -22,6 +22,17 @@ public class HospregController {
     @Autowired
     HospregService hopregService;
 
+    @RequestMapping("/findJiuZhenLieBiao")
+    public List<Hospreg> findJiuZhenLieBiao(int horegState,int horegAttendingdocNo){
+        return hopregService.findJiuZhenLieBiao(horegState,horegAttendingdocNo);
+    }
+
+    //改变挂号状态
+    @RequestMapping("/updateHospregTuiHao")
+    public void updateHospregTuiHao(int horegState,String horegNo){
+        hopregService.updateHospregTuiHao(horegState,horegNo);
+    }
+
     //查询所有挂号记录
     @GetMapping("/findAllHopreg")
     public List<Hospreg> findAllHopreg(String param){
@@ -33,14 +44,21 @@ public class HospregController {
     public void insertHospreg(String hospreg){
         Hospreg hospreg1 = JSONObject.parseObject(hospreg,Hospreg.class);
         hospreg1.setHoregNo("MZ"+getDateNo());
-        hospreg1.setHoregType("初诊");
-        hospreg1.setHoregMoney(3);
         hospreg1.setHoregDate(new Date());
         hospreg1.setHoregState(1);
         hospreg1.setHoregOperator("张三");
         System.out.println(hospreg1);
         hopregService.insertHospreg(hospreg1);
     };
+
+    //编辑
+    @RequestMapping("/updateHospreg")
+    public void updateHospreg(String hospreg){
+        System.out.println(hospreg);
+        Hospreg hospreg1 = JSONObject.parseObject(hospreg,Hospreg.class);
+        System.out.println(hospreg1);
+        hopregService.updateHospreg(hospreg1);
+    }
 
 
     //年月日时分秒

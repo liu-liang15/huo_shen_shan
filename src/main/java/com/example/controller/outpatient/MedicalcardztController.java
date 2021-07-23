@@ -1,12 +1,16 @@
 package com.example.controller.outpatient;
 
 import com.alibaba.fastjson.JSONObject;
-import com.example.model.pojos.outpatient.Patient;
-import com.example.model.servers.outpatient.PatientService;
+import com.example.model.pojos.outpatient.Medicalcardczjl;
+import com.example.model.pojos.outpatient.Medicalcardzt;
+import com.example.model.servers.outpatient.MedicalcardztService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
-import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
@@ -14,30 +18,29 @@ import java.util.List;
 @CrossOrigin
 @RestController
 @RequestMapping("/outpatient")
-public class PatientController {
+public class MedicalcardztController {
     @Autowired
-    PatientService patientService;
+    MedicalcardztService medicalcardztService;
 
-    //查询病人信
-    @GetMapping("/findAllPatient")
-    public List<Patient> findAll(String param){
-        return patientService.findAll(param);
+    @RequestMapping("/addMedicalcardzt")
+    public void addMedicalcardCzjl(String Medicalcardzt){
+        Medicalcardzt medicalcardzt = JSONObject.parseObject(Medicalcardzt,Medicalcardzt.class);
+        System.out.println(medicalcardzt);
+        medicalcardztService.save(medicalcardzt);
     }
 
-    //新增修改
-    @RequestMapping("/savePatient")
-    public void insertPatient(String patient) throws Exception {
-        System.out.println(patient);
-        Patient patient1 = JSONObject.parseObject(patient,Patient.class);
-        String age = getAge(patient1.getPatientBirthdate());
-        patient1.setPatientAge(age);
-        patient1.setPatientDate(new Date());
-        System.out.println(patient1);
-        patientService.savePatient(patient1);
+    @GetMapping("/findAllMedicalcardzt")
+    public List<Medicalcardzt> findAllMedicalcardzt(String param){
+         return medicalcardztService.findAllMedicalcardzt(param);
     }
 
-
-
+    //年月日时分秒
+    public String getDateNo(){
+        Date d = new Date();
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddHHmmss");
+        String dateNowStr = sdf.format(d);
+        return dateNowStr;
+    }
 
     //根据出生日期计算年龄
     public String getAge(Date birthDay) throws Exception {

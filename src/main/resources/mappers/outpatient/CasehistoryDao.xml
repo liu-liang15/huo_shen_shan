@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.model.dao.outpatient.CasehistoryDao">
+    <resultMap id="casehistory" type="com.example.model.pojos.outpatient.Casehistory">
+        <id column="cashis_no" property="cashisNo" />
+        <result column="cashis_patient_no" property="cashisPatientNo" />
+        <result column="cashis_date" property="cashisDate" />
+        <association property="patient" javaType="com.example.model.pojos.outpatient.Patient">
+            <id column="patient_no" property="patientNo" />
+            <result column="patient_name" property="patientName" />
+            <result column="patient_sex" property="patientSex" />
+            <result column="patient_phone" property="patientPhone" />
+            <result column="patient_idcart" property="patientIdcart" />
+            <result column="patient_age"  property="patientAge" />
+            <result column="patient_birthdate" property="patientBirthdate" />
+            <result column="patient_address" property="patientAddress" />
+            <result column="patient_date" property="patientDate" />
+        </association>
+
+    </resultMap>
+    <select id="findAllCaseHistory" resultMap="casehistory">
+        select * from casehistory c inner join patient p on c.cashis_patient_no = p.patient_no where 1 = 1
+        <if test="param != null and param != ''">
+            and p.patient_name like '%${param}%'
+            or p.patient_phone like '%${param}%'
+            or p.patient_idcart like '%${param}%'
+        </if>
+        order by c.cashis_date desc
+    </select>
+</mapper>
