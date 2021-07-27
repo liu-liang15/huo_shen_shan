@@ -37,6 +37,6 @@
                 sur_pay=#{surPay},
             </if>
         </set>
-        where ope_no=#{opeNo}
+        where sur_no=#{surNo}
     </update>
 </mapper>
