@@ -26,6 +26,12 @@ GangWeiservice gangWeiservers;
 //    用户
     @Autowired
 YongHuservice yongHuservice;
+//   权限
+    @Autowired
+    QuanXianservice quanXianservice;
+//    班次
+    @Autowired
+    BanCiService banCiService;
 
 
 
@@ -97,12 +103,43 @@ YongHuservice yongHuservice;
     }
 
 
-//    ============================查询角色===================================
-//    查询岗位
+//    ============================岗位管理===================================
+    /**
+     * 查询岗位
+     */
     @PostMapping("selectgw")
-    public List<GangWei> getgw(){
-        return gangWeiservers.getgw();
+    public List<GangWei> getgw(String param){
+        return gangWeiservers.getgw(param);
     }
+    /**
+     * 分层查询岗位
+     */
+    @PostMapping("gwfc")
+    public List<GangWei> gwfc(){
+        return gangWeiservers.getfcgw();
+    }
+    /**
+     * 新增岗位和岗位对应的权限
+     * @param gangWei
+     */
+    @PostMapping("xzgw")
+    public void xzgw(@RequestBody GangWei gangWei){
+        gangWeiservers.insertgw(gangWei);
+    }
+
+    /**
+     * 修改岗位
+     * @param gangWei
+     * @return
+     */
+    @PostMapping("xggw")
+    public CommonResult xggw2(@RequestBody GangWei gangWei){
+        gangWeiservers.updateGw(gangWei);
+//      返回一个类
+        return new CommonResult(200,"修改成功");
+    }
+
+
 
 //    ====================用户管理=========================
 //新增用户
@@ -120,5 +157,24 @@ YongHuservice yongHuservice;
     public int sc(@RequestBody YongHu yongHu){
         return yongHuservice.deleteyh(yongHu.getYhId()+"");
     }
+//  用户登录
+    @PostMapping("login")
+    public CommonResult dl(@RequestBody YongHu yongHu){
+        boolean getyh = yongHuservice.getyh(yongHu);
+        return new CommonResult(200,getyh?"成功":"账号或密码错误");
+    }
+
+    //    ------------------------查询权限-----------------------------
+    @PostMapping("cxqx")
+    public List<QuanXian> getqx(){
+        return quanXianservice.getqx();
+    }
+
+//===================班次表==========================
+    @PostMapping("cxbc")
+    public List<BanCi> getbc(){
+       return null;
+    }
+
 
 }

@@ -15,7 +15,12 @@ mybatis 相关注解
     @Mapper matis的dao层注解
     <!--    开启缓存，xml里面加这个开启二级缓存   所有的开启了二级缓存的实体类必须实现这个接口    ；implements Serializable  -->
      <cache/>相对应的注解 @CacheNamespace
+        plus相关=================
+            @TableField   可以设置很多，常用非数据库字段，详情见源码。
 
+
+lombok  相关注解
+       @Accessors(chain = true) 链式写法
 mysql
 一. concat()函数，可以用来防止mybatis的sql注入攻击
     1. 含义:

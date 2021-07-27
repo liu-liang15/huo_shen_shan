@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.model.dao.system.PaiBanMapper">
+
+    <resultMap id="BaseResultMap" type="com.example.model.pojos.system.PaiBan">
+            <id property="pbId" column="pb_id" jdbcType="INTEGER"/>
+            <result property="ygId" column="yg_id" jdbcType="VARCHAR"/>
+            <result property="bcId" column="bc_id" jdbcType="VARCHAR"/>
+            <result property="ksRq" column="ks_rq" jdbcType="TIMESTAMP"/>
+            <result property="jsRq" column="js_rq" jdbcType="TIMESTAMP"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        pb_id,yg_id,bc_id,
+        ks_rq,js_rq
+    </sql>
+</mapper>

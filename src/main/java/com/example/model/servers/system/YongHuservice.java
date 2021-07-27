@@ -15,11 +15,14 @@ public class YongHuservice {
 
     /**
      * 根据ID查询用户
-     * @param id
+     * @param yongHu
      * @return
      */
-    public boolean getyh(String id){
-            return yongHuDao.deleteById(id)==1;
+    public boolean getyh(YongHu yongHu){
+        YongHu yongHu1 = yongHuDao.selectById(yongHu.getYhId());
+        System.err.println(yongHu);
+        System.err.println(yongHu1);
+        return false;
     }
 
     /**
