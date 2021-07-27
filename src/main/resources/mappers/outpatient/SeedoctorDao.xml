@@ -9,7 +9,7 @@
         <result column="seedo_doctor_name" property="seedoDoctorName" />
         <result column="seedo_famiroom_name" property="seedoFamiroomName" />
         <result column="seedo_record" property="seedoRecord" />
-        <result column="seedo_date" property="seedoDate" /> 
+        <result column="seedo_date" property="seedoDate" />
         <association property="casehistorydetails" javaType="com.example.model.pojos.outpatient.Casehistorydetails">
             <id column="cahide_no" property="cahideNo" />
             <result column="cahide_cashis_no" property="cahideCashisNo" />
