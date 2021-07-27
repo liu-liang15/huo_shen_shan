@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.model.dao.hyj.AssayResMapper">
+    <resultMap id="assayPerson" type="com.example.model.pojos.hyj.AssayPerson">
+        <id property="assayPersonId" column="assay_person_id"></id>
+        <result property="assayPersonName" column="assay_person_name"></result>
+        <result property="assayPersonSex" column="assay_person_sex"></result>
+        <result property="assayPersonAge" column="assay_person_age"></result>
+        <result property="assayPersonPhone" column="assay_person_phone"></result>
+        <result property="assayPersonCard" column="assay_person_card"></result>
+        <result property="assayPersonTime" column="assay_person_time"></result>
+        <result property="assayMealName" column="assay_meal_name"></result>
+        <collection property="assayRes" ofType="com.example.model.pojos.hyj.AssayRes">
+            <id property="assayResId" column="assay_res_id"></id>
+            <result property="assayPersonId" column="assay_person_id"></result>
+            <result property="assayMealName" column="assay_meal_name"></result>
+            <result property="assayProName" column="assay_pro_name"></result>
+            <result property="assayResInform" column="assay_res_inform"></result>
+            <result property="assayProRef" column="assay_pro_ref"></result>
+            <result property="assayProUnit" column="assay_pro_unit"></result>
+        </collection>
+    </resultMap>
+    <select id="findRes" resultMap="assayPerson">
+        select * from assay_person ap inner join assay_res ar
+            on ap.assay_person_id = ar.assay_person_id and ap.assay_meal_name = ar.assay_meal_name
+            where ap.assay_person_id = #{assayPersonId}
+    </select>
+
+</mapper>

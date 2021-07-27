@@ -12,16 +12,15 @@ import java.util.List;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class AssayPro {
+public class AssayMeal {
     @TableId(type = IdType.AUTO)
-    private Integer assayProId;
-
+    private Integer assayMealId;
     @TableField(exist = false)
-    private int assayMealId;
-    private String assayProName;//项目名
-    private String assayProRef;//参考值
-    private String assayProUnit;//参考值单位
-    //private double assayProPrice;//价格
-    //private String assayProType;//项目类型
-    //private List<AssayMeal> assayMeals;
+    private int assayProId;
+    private String assayMealName;
+    private double assayMealPrice;
+    private String assayTypeType;
+    private String ksName;
+    @TableField(exist = false)
+    private List<AssayPro> assayPros;
 }
