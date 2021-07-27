@@ -7,6 +7,8 @@ public class Ward {
   private String wardName;
   private String wardDress;
   private String wardZt;
+  private double wardMon;
+  private String wardDep;
 
 
   public long getWardNo() {
@@ -42,6 +44,24 @@ public class Ward {
 
   public void setWardZt(String wardZt) {
     this.wardZt = wardZt;
+  }
+
+
+  public double getWardMon() {
+    return wardMon;
+  }
+
+  public void setWardMon(double wardMon) {
+    this.wardMon = wardMon;
+  }
+
+
+  public String getWardDep() {
+    return wardDep;
+  }
+
+  public void setWardDep(String wardDep) {
+    this.wardDep = wardDep;
   }
 
 }

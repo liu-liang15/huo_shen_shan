@@ -5,19 +5,18 @@ import com.example.model.pojos.system.YongHu;
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 import java.util.Collection;
+import java.util.Date;
 
 public class CaiGoJh {
   private String planId;
   private String supplyId;
   private String userId;
   //返回前端注解
-  @JsonFormat(pattern = "yyyy-MM-dd", timezone="GMT+8")
-  private java.sql.Timestamp planTime;
+  private Date planTime = new Date();
   //返回前端注解
-  @JsonFormat(pattern = "yyyy-MM-dd", timezone="GMT+8")
-  private java.sql.Timestamp planXiugai;
+  private Date planXiugai  = new Date();
   private double planPrice;
-  private GoYingShang goYingShangs;
+  private GoYingShang goYingShangs ;
   private YongHu yongHu;
   private Collection<JhXiangDan> jhXiangDans;
 
@@ -72,20 +71,20 @@ public class CaiGoJh {
   }
 
 
-  public java.sql.Timestamp getPlanTime() {
+  public Date getPlanTime() {
     return planTime;
   }
 
-  public void setPlanTime(java.sql.Timestamp planTime) {
+  public void setPlanTime(Date planTime) {
     this.planTime = planTime;
   }
 
 
-  public java.sql.Timestamp getPlanXiugai() {
+  public Date getPlanXiugai() {
     return planXiugai;
   }
 
-  public void setPlanXiugai(java.sql.Timestamp planXiugai) {
+  public void setPlanXiugai(Date planXiugai) {
     this.planXiugai = planXiugai;
   }
 

@@ -14,4 +14,6 @@ public interface BedDao {
     public List<Bed> allocBed(String param);
     //修改床位
     public void updateBed(Bed bed);
+    //查看住院单详情
+    public List<Bed> hosXq(String param);
 }

@@ -13,4 +13,12 @@ public interface HospregDao extends BaseMapper<Hospreg> {
 
     //新增挂号
     void insertHospreg(Hospreg hospreg);
+
+    //退号
+    void updateHospregTuiHao(int horegState,String horegNo);
+
+    //编辑
+    void updateHospreg(Hospreg hospreg);
+
+    List<Hospreg> findJiuZhenLieBiao(int horegState,int horegAttendingdocNo);
 }

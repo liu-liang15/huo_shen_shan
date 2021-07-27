@@ -6,6 +6,8 @@
         <result column="ward_name" property="wardName"/>
         <result column="ward_dress" property="wardDress"/>
         <result column="ward_zt" property="wardZt"/>
+        <result column="ward_mon" property="wardMon"/>
+        <result column="ward_dep" property="wardDep"/>
     </resultMap>
     <!--查看病房表-->
     <select id="selWard" resultMap="WardMapper">
@@ -16,7 +18,7 @@
     </select>
     <!--新增病房表-->
     <insert id="addWard" parameterType="com.example.model.pojos.inpatient.Ward">
-        insert into ward(ward_name,ward_dress) values(#{wardName},#{wardDress})
+        insert into ward(ward_name,ward_dress,ward_mon,ward_dep) values(#{wardName},#{wardDress},#{wardMon},#{wardDep})
     </insert>
     <!--修改病房-->
     <update id="updateWard">
@@ -30,6 +32,9 @@
             </if>
             <if test="wardZt!=''">
                 ward_zt=#{wardZt},
+            </if>
+            <if test="wardMon!=''">
+                ward_mon=#{wardMon},
             </if>
         </set>
         where ward_no=#{wardNo}

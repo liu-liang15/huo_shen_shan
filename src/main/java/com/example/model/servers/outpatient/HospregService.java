@@ -22,4 +22,18 @@ public class HospregService {
     public void insertHospreg(Hospreg hospreg){
         hopregDao.insertHospreg(hospreg);
     };
+
+    //退号
+    public void updateHospregTuiHao(int horegState,String horegNo){
+        hopregDao.updateHospregTuiHao(horegState,horegNo);
+    }
+
+    //编辑
+    public void updateHospreg(Hospreg hospreg){
+        hopregDao.updateHospreg(hospreg);
+    }
+
+    public List<Hospreg> findJiuZhenLieBiao(int horegState,int horegAttendingdocNo){
+        return hopregDao.findJiuZhenLieBiao(horegState,horegAttendingdocNo);
+    }
 }
