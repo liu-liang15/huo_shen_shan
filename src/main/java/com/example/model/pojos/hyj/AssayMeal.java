@@ -14,7 +14,7 @@ import java.util.List;
 @NoArgsConstructor
 public class AssayMeal {
     @TableId(type = IdType.AUTO)
-    private int assayMealId;
+    private Integer assayMealId;
     @TableField(exist = false)
     private int assayProId;
     private String assayMealName;

@@ -9,6 +9,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import java.sql.Timestamp;
+import java.util.List;
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -22,8 +24,7 @@ public class AssayPerson {
     private String assayPersonPhone;//手机号
     @JsonFormat(pattern="yyyy-MM-dd",timezone="GMT+8")
     private Timestamp assayPersonTime;
-    private Timestamp assayPersonTime2;
     private String assayMealName;//体检套餐
-
+    private List<AssayRes> assayRes;//体检结果集合
 
 }
