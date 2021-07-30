@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.model.dao.system.QuanXianDao">
+
+    <resultMap id="BaseResultMap" type="com.example.model.pojos.system.QuanXian">
+            <id property="qxId" column="qx_id" jdbcType="INTEGER"/>
+            <result property="qxName" column="qx_name" jdbcType="VARCHAR"/>
+            <result property="qxZjm" column="qx_zjm" jdbcType="VARCHAR"/>
+            <result property="qxLj" column="qx_lj" jdbcType="VARCHAR"/>
+            <result property="qxIoc" column="qx_ioc" jdbcType="VARCHAR"/>
+            <result property="parentId" column="parent_id" jdbcType="INTEGER"/>
+            <result property="sfky" column="sfky" jdbcType="INTEGER"/>
+            <result property="qxDenji" column="qx_denji" jdbcType="VARCHAR"/>
+            <result property="qxzId" column="qxz_id" jdbcType="INTEGER"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        qx_id,qx_name,qx_zjm,
+        qx_lj,qx_ioc,parent_id,
+        sfky,qx_denji,qxz_id
+    </sql>
+</mapper>

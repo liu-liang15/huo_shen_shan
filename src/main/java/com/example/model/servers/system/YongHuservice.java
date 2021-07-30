@@ -2,11 +2,10 @@ package com.example.model.servers.system;
 
 import com.example.model.dao.system.YongHuDao;
 import com.example.model.pojos.system.YongHu;
+import com.example.util.Password;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
 import javax.annotation.Resource;
-import java.util.List;
 
 @Service
 @Transactional
@@ -16,11 +15,14 @@ public class YongHuservice {
 
     /**
      * 根据ID查询用户
-     * @param id
+     * @param yongHu
      * @return
      */
-    public boolean getyh(String id){
-            return yongHuDao.deleteById(id)==1;
+    public boolean getyh(YongHu yongHu){
+        YongHu yongHu1 = yongHuDao.selectById(yongHu.getYhId());
+        System.err.println(yongHu);
+        System.err.println(yongHu1);
+        return false;
     }
 
     /**
@@ -30,6 +32,16 @@ public class YongHuservice {
      */
     public int updateyh(YongHu yongHu){
         return yongHuDao.updateById(yongHu);
+    }
+
+    /**
+     *重置密码
+     */
+    public int czmm(YongHu yongHu){
+//        先删除用户
+        deleteyh(yongHu.getYhId()+"");
+//        在新增用户
+        return insertyh(yongHu);
     }
 
     /**
@@ -47,7 +59,14 @@ public class YongHuservice {
      * @return
      */
     public int insertyh(YongHu yongHu){
-        yongHu.setYhMm("aaaaa");
+ //        随机生成密码键
+        yongHu.setYhKey(Password.generateShortUuid());
+//        将密码加密存进数据库
+        try {
+            yongHu.setYhMm(Password.encrypt("aaaaa",yongHu.getYhKey()));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         return yongHuDao.insert(yongHu);
     }
 

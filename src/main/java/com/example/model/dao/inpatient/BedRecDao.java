@@ -7,6 +7,8 @@ import java.util.List;
 
 @Mapper
 public interface BedRecDao {
+    //新增床位记录
     public void addBedRec(String bedNo,String resNo);
-    public List<BedRec> selBedRec(BedRec bedRec);
+    //查看床位记录
+    public List<BedRec> selBedRec();
 }

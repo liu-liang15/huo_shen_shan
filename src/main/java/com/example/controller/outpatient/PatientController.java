@@ -27,10 +27,12 @@ public class PatientController {
     //新增修改
     @RequestMapping("/savePatient")
     public void insertPatient(String patient) throws Exception {
+        System.out.println(patient);
         Patient patient1 = JSONObject.parseObject(patient,Patient.class);
         String age = getAge(patient1.getPatientBirthdate());
         patient1.setPatientAge(age);
         patient1.setPatientDate(new Date());
+        System.out.println(patient1);
         patientService.savePatient(patient1);
     }
 

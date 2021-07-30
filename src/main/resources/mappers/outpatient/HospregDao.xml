@@ -12,6 +12,7 @@
         <result column="horeg_attendingdoc_no" property="horegAttendingdocNo" /><!--主治医生-->
         <result column="horeg_date" property="horegDate" /><!--挂号时间-->
         <result column="horeg_state" property="horegState" /><!--状态-->
+        <result column="horeg_remark" property="horegRemark" /><!--备注-->
         <result column="horeg_operator" property="horegOperator" /><!--操作员-->
         <association property="patient" javaType="com.example.model.pojos.outpatient.Patient">
             <id column="patient_no" property="patientNo" />
@@ -54,15 +55,38 @@
         inner join yuan_go y on y.yg_id = h.horeg_attendingdoc_no where 1 = 1
         <if test="param!=null and param!=''">
             and p.patient_name like '%${param}%'
+            or h.horeg_no like '%${param}%'
             or p.patient_phone like '%${param}%'
             or p.patient_idcart like '%${param}%'
         </if>
         order by h.horeg_date desc
     </select>
 
+    <!--  医生就诊，病人挂号  -->
+    <select id="findJiuZhenLieBiao" resultMap="hopreg">
+        select * from hospreg h
+        inner join patient p on h.horeg_patient_no = p.patient_no
+        where to_days(horeg_date) = to_days(now()) and horeg_state = #{horegState}
+        and horeg_attendingdoc_no = #{horegAttendingdocNo}
+        order by horeg_date asc;
+    </select>
+
     <!--挂号-->
     <insert id="insertHospreg" parameterType="com.example.model.pojos.outpatient.Hospreg">
         insert into hospreg values(#{horegNo},#{horegFamiroomNo},#{horegCategoryNo},#{horegType},#{horegMoney}
-        ,#{horegZhiliaomoney},#{horegPatientNo},#{horegAttendingdocNo},#{horegDate},#{horegState},#{horegOperator},#{horegOperator})
+        ,#{horegZhiliaomoney},#{horegPatientNo},#{horegAttendingdocNo},#{horegDate},#{horegState},#{horegOperator},#{horegRemark})
     </insert>
+
+    <!--退号-->
+    <update id="updateHospregTuiHao" parameterType="com.example.model.pojos.outpatient.Hospreg">
+        update hospreg set horeg_state = #{horegState} where horeg_no = #{horegNo}
+    </update>
+
+    <!--修改，编辑 -->
+    <update id="updateHospreg" parameterType="com.example.model.pojos.outpatient.Hospreg">
+        update hospreg set horeg_famiroom_no = #{horegFamiroomNo} , horeg_category_no = #{horegCategoryNo} ,
+                           horeg_type = #{horegType} , horeg_money = #{horegMoney} ,
+                           horeg_attendingdoc_no = #{horegAttendingdocNo} , horeg_remark = #{horegRemark}
+        where  horeg_no = #{horegNo}
+    </update>
 </mapper>

@@ -1,4 +1,4 @@
-package com.example.common;
+package com.example.util;
 
 import javax.servlet.*;
 import javax.servlet.http.HttpServletRequest;
