@@ -16,11 +16,8 @@ public class RukuController {
     //入库
     @RequestMapping("ruku")
     public String addJhd(@RequestBody RuKu ruKu){
-        System.out.println("zzzz222 ");
         try {
             rukuService.addRKD(ruKu);
-            System.out.println("zzzz");
-            System.out.println(ruKu.getRkXiangDans());
             return "ok";
         } catch (Exception e) {
             e.printStackTrace();

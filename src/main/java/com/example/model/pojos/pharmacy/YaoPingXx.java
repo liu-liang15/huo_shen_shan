@@ -12,7 +12,7 @@ public class YaoPingXx {
   private String drugSpecId;
   private double drugJinjia;
   private double drugShoujia;
-  private String drugRiqi;
+  private int drugRiqi;
   private String drugMatr;
   private String supplyId;
   private String drugClass;
@@ -140,11 +140,11 @@ public void setDrugState(int drugState){
   }
 
 
-  public String getDrugRiqi() {
+  public int getDrugRiqi() {
     return drugRiqi;
   }
 
-  public void setDrugRiqi(String drugRiqi) {
+  public void setDrugRiqi(int drugRiqi) {
     this.drugRiqi = drugRiqi;
   }
 
