@@ -6,6 +6,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -21,4 +23,6 @@ public class AssayRes {
     private String assayProRef;//参考值
     private int assayPersonId;//体检人id
     private String assayMealName;//体检套餐
+    private int assayK;//状态
+    private List<AssayRes> assayRes;
 }

@@ -15,13 +15,11 @@ import java.util.List;
 public class AssayPro {
     @TableId(type = IdType.AUTO)
     private Integer assayProId;
-
     @TableField(exist = false)
     private int assayMealId;
     private String assayProName;//项目名
+    @TableField(exist = false)
+    private String assayResInform;
     private String assayProRef;//参考值
     private String assayProUnit;//参考值单位
-    //private double assayProPrice;//价格
-    //private String assayProType;//项目类型
-    //private List<AssayMeal> assayMeals;
 }

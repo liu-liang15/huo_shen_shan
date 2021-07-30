@@ -11,6 +11,6 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class AssayType {
     @TableId(type = IdType.AUTO)
-    private int assayTypeId;
+    private Integer assayTypeId;
     private String assayTypeType;
 }
