@@ -158,7 +158,7 @@ YongHuservice yongHuservice;
         return yongHuservice.deleteyh(yongHu.getYhId()+"");
     }
 //  用户登录
-    @PostMapping("login")
+    @PostMapping("user/login")
     public CommonResult dl(@RequestBody YongHu yongHu){
         boolean getyh = yongHuservice.getyh(yongHu);
         return new CommonResult(200,getyh?"成功":"账号或密码错误");
