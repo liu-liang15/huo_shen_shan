@@ -1,12 +1,9 @@
 package com.example.model.servers.system;
 
 
-import com.baomidou.mybatisplus.extension.service.IService;
-import com.example.model.pojos.system.BanCiType;
-
 /**
-*
+*   班次类型
 */
-public interface BanCiTypeService extends IService<BanCiType> {
+public interface BanCiTypeService {
 
 }

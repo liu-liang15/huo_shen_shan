@@ -2,7 +2,6 @@ package com.example.controller.system;
 
 import com.example.model.pojos.system.*;
 import com.example.model.servers.system.*;
-import com.example.util.Password;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -163,7 +162,6 @@ YongHuservice yongHuservice;
         boolean getyh = yongHuservice.getyh(yongHu);
         return new CommonResult(200,getyh?"成功":"账号或密码错误");
     }
-
     //    ------------------------查询权限-----------------------------
     @PostMapping("cxqx")
     public List<QuanXian> getqx(){
@@ -171,9 +169,18 @@ YongHuservice yongHuservice;
     }
 
 //===================班次表==========================
-    @PostMapping("cxbc")
-    public List<BanCi> getbc(){
-       return null;
+
+    /**
+     * 班次类型
+     * @param bcType
+     * @return
+     */
+    @GetMapping("cxbc/{bcType}")
+    public List<BanCi> getbc(@PathVariable("bcType") String bcType){
+        CommonResult<List> listCommonResult = new CommonResult<>();
+        listCommonResult.setData(banCiService.getbc(bcType))
+                .setCode(200).setMessage("访问成功！");
+        return listCommonResult.getData();
     }
 
 

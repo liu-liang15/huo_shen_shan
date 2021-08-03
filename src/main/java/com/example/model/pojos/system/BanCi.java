@@ -1,7 +1,6 @@
 package com.example.model.pojos.system;
 
 
-import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 
@@ -23,12 +22,12 @@ public class BanCi implements Serializable {
     /**
      * 开始时间
      */
-    private Date bcKs;
+    private String bcKs;
 
     /**
      * 结束时间
      */
-    private Date bcJs;
+    private String bcJs;
 
     /**
      * 班次类型

@@ -3,12 +3,14 @@ package com.example.model.pojos.system;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.experimental.Accessors;
 
 import java.io.Serializable;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@Accessors(chain = true)
 //以后后台都统一返回这个类
 public class CommonResult<T> implements Serializable {
 
