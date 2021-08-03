@@ -29,11 +29,15 @@
     </resultMap>
     <!--新增医嘱详单-->
     <insert id="addDocAdvXq">
-        insert into doc_adv_xq(doc_adv_no,drug_id,drug_number,doc_stat,doc_end,doc_yz)
-        values (#{docAdvNo},#{drugId},#{drugNumber},#{docStat},#{docEnd},#{docYz})
+        insert into doc_adv_xq(doc_adv_no,drug_id,drug_number,doc_stat,doc_yz)
+        values (#{docAdvNo},#{drugId},#{drugNumber},#{docStat},#{docYz})
     </insert>
     <!--查看医嘱详单-->
     <select id="selDocAdvXq" resultMap="DocAdvXqMapper">
         select * from doc_adv_xq d inner join yao_ping_xx y on d.drug_id=y.DRUG_ID where d.doc_adv_no=#{param}
+    </select>
+    <!--根据住院单号查看医嘱详单-->
+    <select id="serDocAdvXq" resultMap="DocAdvXqMapper">
+        select * from doc_adv_xq da inner join doc_adv d on da.doc_adv_no = d.doc_adv_no where d.res_no=#{param}
     </select>
 </mapper>
