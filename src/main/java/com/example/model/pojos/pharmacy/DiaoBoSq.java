@@ -1,17 +1,27 @@
 package com.example.model.pojos.pharmacy;
 
 
+import com.example.model.pojos.system.YongHu;
+
 import java.util.Collection;
 import java.util.Date;
 
 public class DiaoBoSq {
 
   private String dbShengQing;
-  private String dbsqr;
   private String dbfzr;
   private Date sqsj = new Date();
   private String sqZhuangTai;
   private Collection<DbsqXiangBiao> dbsqXiangBiaos;
+  private YongHu yongHu;
+
+  public YongHu getYongHu() {
+    return yongHu;
+  }
+
+  public void setYongHu(YongHu yongHu) {
+    this.yongHu = yongHu;
+  }
 
   public Collection<DbsqXiangBiao> getDbsqXiangBiaos() {
     return dbsqXiangBiaos;
@@ -27,15 +37,6 @@ public class DiaoBoSq {
 
   public void setDbShengQing(String dbShengQing) {
     this.dbShengQing = dbShengQing;
-  }
-
-
-  public String getDbsqr() {
-    return dbsqr;
-  }
-
-  public void setDbsqr(String dbsqr) {
-    this.dbsqr = dbsqr;
   }
 
 

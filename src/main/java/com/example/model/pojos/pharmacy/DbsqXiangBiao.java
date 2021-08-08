@@ -6,8 +6,16 @@ public class DbsqXiangBiao {
   private long dbsqxdId;
   private String dbsqId;
   private String ypBh;
-  private String dbSl;
+  private int dbSl;
+  private YaoPingXx yaoPingXx;
 
+  public YaoPingXx getYaoPingXx() {
+    return yaoPingXx;
+  }
+
+  public void setYaoPingXx(YaoPingXx yaoPingXx) {
+    this.yaoPingXx = yaoPingXx;
+  }
 
   public long getDbsqxdId() {
     return dbsqxdId;
@@ -36,11 +44,11 @@ public class DbsqXiangBiao {
   }
 
 
-  public String getDbSl() {
+  public int getDbSl() {
     return dbSl;
   }
 
-  public void setDbSl(String dbSl) {
+  public void setDbSl(int dbSl) {
     this.dbSl = dbSl;
   }
 
