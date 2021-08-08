@@ -18,7 +18,12 @@ class DemoApplicationTests {
     AssayMealService assayMealService;
     @Test
     void contextLoads() {
-
+        Integer a = 1;
+        Integer b = 1;
+        Integer c = 500;
+        Integer d = 500;
+        System.out.println(a==b);
+        System.out.println(c==d);
     }
     //根据身份证计算年龄
     @Test

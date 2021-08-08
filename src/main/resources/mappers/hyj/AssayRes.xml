@@ -30,7 +30,7 @@
         <id column="assay_meal_id" property="assayMealId"></id>
         <result column="assay_meal_name" property="assayMealName"></result>
         <result column="assay_meal_price" property="assayMealPrice"></result>
-        <result column="assay_type_type" property="assayTypeType"></result>
+        <result column="assay_meal_type" property="assayMealType"></result>
         <result column="ks_name" property="ksName"></result>
         <collection property="assayPros" ofType="com.example.model.pojos.hyj.AssayPro">
             <id column="assay_pro_id" property="assayProId"></id>
