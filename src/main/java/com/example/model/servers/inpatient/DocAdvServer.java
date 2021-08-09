@@ -2,6 +2,7 @@ package com.example.model.servers.inpatient;
 
 import com.example.model.dao.inpatient.DocAdvDao;
 import com.example.model.dao.inpatient.DocAdvXqDao;
+import com.example.model.dao.inpatient.DocExeDao;
 import com.example.model.pojos.inpatient.DocAdv;
 import com.example.model.pojos.inpatient.DocAdvXq;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,12 +18,19 @@ public class DocAdvServer {
     DocAdvDao docAdvDao;
     @Autowired
     DocAdvXqDao docAdvXqDao;
+    @Autowired
+    DocExeDao docExeDao;
     //新增医嘱
     public void addDocAdv(DocAdv docAdv, List<DocAdvXq>docAdvXqs){
         docAdvDao.addDocAdv(docAdv);
         for(DocAdvXq d:docAdvXqs){
             d.setDocAdvNo(docAdv.getDocAdvNo()+"");
             docAdvXqDao.addDocAdvXq(d);
+            if(docAdv.getDocType().equals("1")){
+                d.setDocEnd(d.getDocStat());
+                docAdvXqDao.upDateDocAdvXq(d);
+                docExeDao.addDocExe(d.getDocAdvId()+"");
+            }
         }
     }
     //查看医嘱

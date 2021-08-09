@@ -26,6 +26,7 @@
             <result column="doc_adv_no" property="docAdvNo"/>
             <result column="drug_id" property="drugId"/>
             <result column="drug_number" property="drugNumber"/>
+            <result column="doc_fre" property="docFre"/>
             <result column="doc_stat" property="docStat"/>
             <result column="doc_end" property="docEnd"/>
             <result column="doc_yz" property="docYz"/>
@@ -37,15 +38,26 @@
         insert into doc_exe(doc_adv_id,doc_time)values (#{param},CURDATE())
     </insert>
     <!--查看医嘱-->
+
     <select id="selDocExe" resultMap="DocExeMapper">
         select * from doc_exe de
          inner join doc_adv_xq da on de.doc_adv_id=da.doc_adv_id
          inner join yao_ping_xx yx on da.drug_id=yx.drug_id
          inner join doc_adv d on d.doc_adv_no=da.doc_adv_no
-         where d.res_no=#{param} and de.doc_time=CURDATE()
+         where d.res_no=#{param}
+        <if test="type==0">
+            and d.doc_type=0 and de.doc_time=CURDATE()
+        </if>
+        <if test="type!=0">
+            and d.doc_type=1
+        </if>
     </select>
     <!--查看是否有今天的医嘱-->
     <select id="nowDocExe" resultMap="DocExeMapper">
         select * from doc_exe where doc_adv_id=#{param} and doc_time>=CURDATE()
     </select>
+    <!--修改今天医嘱为已执行-->
+    <update id="upDateDocExe">
+        update doc_exe set doc_nur='李云' where doc_exe_no=#{docExeNo}
+    </update>
 </mapper>
