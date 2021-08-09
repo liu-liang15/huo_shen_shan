@@ -19,4 +19,6 @@ public interface AssayMealMapper extends BaseMapper<AssayMeal> {
     public void delMiddle(AssayMeal assayMeal);
 
     public void delMeal(AssayMeal assayMeal);
+
+    public List<AssayMeal> findAllMeal();
 }

@@ -53,11 +53,12 @@ public class AssayProController {
     public List<AssayType> findType(){
         return assayProService.findType();
     }
-    //项目套餐和项目表多对多查询
+    //查询化验项目
     @RequestMapping("findMeal")
     public List<AssayMeal> findMeal(){
         return assayMealService.findMeal();
     }
+    //新增化验项目
     @RequestMapping("addMeal")
     public void addMeal(@RequestBody AssayMeal assayMeal){
         assayMealService.addMeal(assayMeal);
@@ -76,5 +77,10 @@ public class AssayProController {
     @RequestMapping("likeFind")
     public List<AssayMeal> likeFind(@RequestBody AssayMeal assayMeal){
         return assayMealService.likeFind(assayMeal);
+    }
+
+    @RequestMapping("findAllMeal")
+    public List<AssayMeal> findAllMeal(){
+        return assayMealService.findAllMeal();
     }
 }

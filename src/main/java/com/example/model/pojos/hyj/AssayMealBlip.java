@@ -9,8 +9,11 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class AssayType {
+public class AssayMealBlip {
     @TableId(type = IdType.AUTO)
-    private Integer assayTypeId;
-    private String assayTypeType;
+    private Integer mealBlipId;
+    private String mealBlipName;
+    private String mealBlipPrice;
+    private String mealBlipType;
+    private String ksName;
 }

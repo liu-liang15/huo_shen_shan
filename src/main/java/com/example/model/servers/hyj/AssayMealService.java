@@ -14,6 +14,7 @@ import java.util.List;
 public class AssayMealService {
     @Resource
     AssayMealMapper assayMealMapper;
+    //查询化验项目
     public List<AssayMeal> findMeal(){
             return assayMealMapper.findMeal();
     }
@@ -32,5 +33,8 @@ public class AssayMealService {
         QueryWrapper<AssayMeal> wrapper = new QueryWrapper<>();
         wrapper.like("assay_meal_name",assayMeal.getAssayMealName());
         return assayMealMapper.selectList(wrapper);
+    }
+    public List<AssayMeal> findAllMeal(){
+        return assayMealMapper.findAllMeal();
     }
 }

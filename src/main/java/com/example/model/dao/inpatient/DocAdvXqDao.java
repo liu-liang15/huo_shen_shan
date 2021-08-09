@@ -12,4 +12,8 @@ public interface DocAdvXqDao {
     public void addDocAdvXq(DocAdvXq docAdvXq);
     //查看医嘱详单
     public List<DocAdvXq> selDocAdvXq(String param);
+    //查看对应患者的医嘱详情
+    public List<DocAdvXq> serDocAdvXq(String param);
+    //修改医嘱详单
+    public void upDateDocAdvXq(DocAdvXq docAdvXq);
 }

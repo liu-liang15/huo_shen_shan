@@ -6,6 +6,7 @@
         <result column="doc_adv_no" property="docAdvNo"/>
         <result column="drug_id" property="drugId"/>
         <result column="drug_number" property="drugNumber"/>
+        <result column="doc_fre" property="docFre"/>
         <result column="doc_stat" property="docStat"/>
         <result column="doc_end" property="docEnd"/>
         <result column="doc_yz" property="docYz"/>
@@ -29,11 +30,23 @@
     </resultMap>
     <!--新增医嘱详单-->
     <insert id="addDocAdvXq">
-        insert into doc_adv_xq(doc_adv_no,drug_id,drug_number,doc_stat,doc_end,doc_yz)
-        values (#{docAdvNo},#{drugId},#{drugNumber},#{docStat},#{docEnd},#{docYz})
+        insert into doc_adv_xq(doc_adv_no,drug_id,drug_number,doc_fre,doc_stat,doc_yz)
+        values (#{docAdvNo},#{drugId},#{drugNumber},#{docFre},#{docStat},#{docYz})
+        <selectKey keyProperty="docAdvId" resultType="long">
+            select LAST_INSERT_ID()
+        </selectKey>
     </insert>
     <!--查看医嘱详单-->
     <select id="selDocAdvXq" resultMap="DocAdvXqMapper">
         select * from doc_adv_xq d inner join yao_ping_xx y on d.drug_id=y.DRUG_ID where d.doc_adv_no=#{param}
     </select>
+    <!--根据住院单号查看医嘱详单-->
+    <select id="serDocAdvXq" resultMap="DocAdvXqMapper">
+        select * from doc_adv_xq da inner join doc_adv d on da.doc_adv_no = d.doc_adv_no
+        where d.res_no=#{param} and d.doc_type=0 and (da.doc_end is not null or da.doc_end >CURDATE())
+    </select>
+    <!--修改医嘱详单-->
+    <update id="upDateDocAdvXq">
+        update doc_adv_xq set doc_end=#{docEnd} where doc_adv_id=#{docAdvId}
+    </update>
 </mapper>

@@ -9,11 +9,13 @@ public class DocAdvXq {
   private String docAdvNo;
   private long drugId;
   private long drugNumber;
+  private long docFre;
   private java.sql.Timestamp docStat;
   private java.sql.Timestamp docEnd;
   private String docYz;
   private String docZt;
   private YaoPingXx yaoPingXx;
+
 
   public long getDocAdvId() {
     return docAdvId;
@@ -48,6 +50,15 @@ public class DocAdvXq {
 
   public void setDrugNumber(long drugNumber) {
     this.drugNumber = drugNumber;
+  }
+
+
+  public long getDocFre() {
+    return docFre;
+  }
+
+  public void setDocFre(long docFre) {
+    this.docFre = docFre;
   }
 
 
@@ -92,19 +103,5 @@ public class DocAdvXq {
 
   public void setYaoPingXx(YaoPingXx yaoPingXx) {
     this.yaoPingXx = yaoPingXx;
-  }
-
-  @Override
-  public String toString() {
-    return "DocAdvXq{" +
-            "docAdvId=" + docAdvId +
-            ", docAdvNo='" + docAdvNo + '\'' +
-            ", drugId=" + drugId +
-            ", drugNumber=" + drugNumber +
-            ", docStat=" + docStat +
-            ", docEnd=" + docEnd +
-            ", docYz='" + docYz + '\'' +
-            ", docZt='" + docZt + '\'' +
-            '}';
   }
 }

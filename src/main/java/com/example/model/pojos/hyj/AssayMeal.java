@@ -19,8 +19,10 @@ public class AssayMeal {
     private int assayProId;
     private String assayMealName;
     private double assayMealPrice;
-    private String assayTypeType;
+    private String assayMealType;
     private String ksName;
+    @TableField(exist = false)
+    private int mealId;
     @TableField(exist = false)
     private List<AssayPro> assayPros;
 }
