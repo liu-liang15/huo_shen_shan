@@ -1,12 +1,22 @@
-package com.sample;
+package com.example.model.pojos.pharmacy;
 
+
+import com.example.model.pojos.pharmacy.RkXiangDan;
 
 public class YpKuCun {
 
   private long kcId;
   private String rkpcId;
   private long ypsl;
+  private RkXiangDan rkXiangDan;
 
+  public RkXiangDan getRkXiangDan() {
+    return rkXiangDan;
+  }
+
+  public void setRkXiangDan(RkXiangDan rkXiangDan) {
+    this.rkXiangDan = rkXiangDan;
+  }
 
   public long getKcId() {
     return kcId;

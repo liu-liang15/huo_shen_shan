@@ -18,7 +18,7 @@
     <insert id="addRKXD" parameterType="com.example.model.pojos.pharmacy.RkXiangDan">
         INSERT INTO rk_xiang_dan VALUES
         <foreach collection="rkXiangDans" item="p" separator=", ">
-            (null,#{rkDh},#{p.drugId},#{p.consuId},#{p.rkypSl},#{p.scrq},#{p.bzq},#{p.ckId})
+            (null,#{rkDh},#{p.drugId},#{p.consuId},#{p.rkypSl},#{p.scrq},DATE_ADD(#{p.scrq}, interval #{p.riqi} MONTH),#{p.ckId})
         </foreach>
     </insert>
 
@@ -30,7 +30,7 @@
     </insert>
     <!--修改供应商信息-->
     <update id="updateOrder">
-        UPDATE cg_ding_dan set PURCHASE_SJFK = #{purchaseSjfk},PURCHASE_FUKUANG=1,PURCHASE_FKSJ=#{times},PURCHASE_JHSJ=#{times},PURCHASE_STATE = 4 WHERE PURCHASE_ID=#{purchaseId}
+        UPDATE cg_ding_dan set PURCHASE_SJFK = #{purchaseSjfk},PURCHASE_FUKUANG=1,PURCHASE_FKSJ=#{times},PURCHASE_JHSJ=#{times},PURCHASE_STATE = 3 WHERE PURCHASE_ID=#{purchaseId}
     </update>
     <select id="FindByIdRuku" resultMap="RKXDMapper">
         select * from rk_xiang_dan where rk_dh=#{rhDh}

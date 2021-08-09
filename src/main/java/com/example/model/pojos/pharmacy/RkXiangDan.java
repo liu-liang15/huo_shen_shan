@@ -3,18 +3,55 @@ package com.example.model.pojos.pharmacy;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
-public class RkXiangDan {
+import java.util.Date;
 
+public class RkXiangDan {
   private long rkPc;
   private String rkDh;
   private String drugId;
   private String consuId;
   private int rkypSl;
   @JsonFormat(pattern="yyyy-MM-dd",timezone="GMT+8")
-  private java.sql.Timestamp scrq;
+  private Date scrq;
   @JsonFormat(pattern="yyyy-MM-dd",timezone="GMT+8")
-  private java.sql.Timestamp bzq;
+  private Date bzq;
   private String ckId;
+  private int riqi;
+  private YaoPingXx yaoPingXx;
+  private HaoCai haoCai;
+  private YaoKu yaoKu;
+
+  public int getRiqi() {
+    return riqi;
+  }
+
+  public void setRiqi(int riqi) {
+    this.riqi = riqi;
+  }
+
+  public YaoKu getYaoKu() {
+    return yaoKu;
+  }
+
+  public void setYaoKu(YaoKu yaoKu) {
+    this.yaoKu = yaoKu;
+  }
+
+  public HaoCai getHaoCai() {
+    return haoCai;
+  }
+
+  public void setHaoCai(HaoCai haoCai) {
+    this.haoCai = haoCai;
+  }
+
+  public YaoPingXx getYaoPingXx() {
+    return yaoPingXx;
+  }
+
+  public void setYaoPingXx(YaoPingXx yaoPingXx) {
+    this.yaoPingXx = yaoPingXx;
+  }
 
   public String getConsuId() {
     return consuId;
@@ -59,20 +96,20 @@ public class RkXiangDan {
   }
 
 
-  public java.sql.Timestamp getScrq() {
+  public Date getScrq() {
     return scrq;
   }
 
-  public void setScrq(java.sql.Timestamp scrq) {
+  public void setScrq(Date scrq) {
     this.scrq = scrq;
   }
 
 
-  public java.sql.Timestamp getBzq() {
+  public Date getBzq() {
     return bzq;
   }
 
-  public void setBzq(java.sql.Timestamp bzq) {
+  public void setBzq(Date bzq) {
     this.bzq = bzq;
   }
 
