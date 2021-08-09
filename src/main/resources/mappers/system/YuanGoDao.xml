@@ -8,6 +8,15 @@
     <result column="yg_dh" jdbcType="VARCHAR" property="ygDh" />
     <result column="yg_sfz" jdbcType="VARCHAR" property="ygSfz" />
   </resultMap>
+<!--  查询岗位下的员工数据-->
+  <resultMap id="gwdYg" type="com.example.model.pojos.system.GangWei">
+    <id column="gw_id" property="gwId"/>
+    <result column="gw_name" property="gwName"/>
+    <collection property="yuanGos" ofType="com.example.model.pojos.system.YuanGo">
+      <id column="yg_id" jdbcType="INTEGER" property="ygId" />
+      <result column="yg_name" jdbcType="VARCHAR" property="ygName" />
+    </collection>
+  </resultMap>
 <!--  查询员工全部数据使用-->
   <resultMap id="BaseResultMap2" type="com.example.model.pojos.system.YuanGo">
     <id column="yg_id" jdbcType="INTEGER" property="ygId" />
@@ -51,46 +60,7 @@
         where bm.bm_name=#{param} or ks.ks_name=#{param} or gw.gw_name=#{param} or yg.yg_name=#{param}
     </if>
   </select>
-
-  <!--  <insert id="insert" keyColumn="yg_id" keyProperty="ygId" parameterType="com.example.model.pojos.system.YuanGo" useGeneratedKeys="true">-->
-<!--    insert into yuan_go (yg_name, yg_dh, yg_sfz, -->
-<!--      ks_id, bm_id, gw_id)-->
-<!--    values (#{ygName,jdbcType=VARCHAR}, #{ygDh,jdbcType=VARCHAR}, #{ygSfz,jdbcType=VARCHAR}, -->
-<!--      #{ksId,jdbcType=VARCHAR}, #{bmId,jdbcType=VARCHAR}, #{gwId,jdbcType=VARCHAR})-->
-<!--  </insert>-->
-<!--  -->
-<!--  <update id="updateByPrimaryKeySelective" parameterType="com.example.model.pojos.system.YuanGo">-->
-<!--    update yuan_go-->
-<!--    <set>-->
-<!--      <if test="ygName != null">-->
-<!--        yg_name = #{ygName,jdbcType=VARCHAR},-->
-<!--      </if>-->
-<!--      <if test="ygDh != null">-->
-<!--        yg_dh = #{ygDh,jdbcType=VARCHAR},-->
-<!--      </if>-->
-<!--      <if test="ygSfz != null">-->
-<!--        yg_sfz = #{ygSfz,jdbcType=VARCHAR},-->
-<!--      </if>-->
-<!--      <if test="ksId != null">-->
-<!--        ks_id = #{ksId,jdbcType=VARCHAR},-->
-<!--      </if>-->
-<!--      <if test="bmId != null">-->
-<!--        bm_id = #{bmId,jdbcType=VARCHAR},-->
-<!--      </if>-->
-<!--      <if test="gwId != null">-->
-<!--        gw_id = #{gwId,jdbcType=VARCHAR},-->
-<!--      </if>-->
-<!--    </set>-->
-<!--    where yg_id = #{ygId,jdbcType=INTEGER}-->
-<!--  </update>-->
-<!--  <update id="updateByPrimaryKey" parameterType="com.example.model.pojos.system.YuanGo">-->
-<!--    update yuan_go-->
-<!--    set yg_name = #{ygName,jdbcType=VARCHAR},-->
-<!--      yg_dh = #{ygDh,jdbcType=VARCHAR},-->
-<!--      yg_sfz = #{ygSfz,jdbcType=VARCHAR},-->
-<!--      ks_id = #{ksId,jdbcType=VARCHAR},-->
-<!--      bm_id = #{bmId,jdbcType=VARCHAR},-->
-<!--      gw_id = #{gwId,jdbcType=VARCHAR}-->
-<!--    where yg_id = #{ygId,jdbcType=INTEGER}-->
-<!--  </update>-->
+  <select id="getGwdyg" resultMap="gwdYg">
+    select * from gang_wei gw inner join yuan_go yg on gw.gw_id=yg.gw_id where yg.ks_id=#{ksId}
+  </select>
 </mapper>

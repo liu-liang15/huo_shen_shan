@@ -33,6 +33,8 @@ public class GangWei {
   @TableField(exist=false)
   private List<GangWei> listgw;
 
+  @TableField(exist = false)
+  private List<YuanGo> yuanGos;
 
 
 }

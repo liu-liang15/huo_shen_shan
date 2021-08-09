@@ -36,6 +36,4 @@ public class KeShi implements Serializable {
   @TableField(exist = false)
   private YuanGo yuanGo;
 
-
-
 }

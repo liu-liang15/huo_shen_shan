@@ -2,8 +2,8 @@ package com.example.model.servers.system;
 
 
 import com.example.model.dao.system.YuanGoDao;
+import com.example.model.pojos.system.GangWei;
 import com.example.model.pojos.system.YuanGo;
-import org.junit.Test;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -31,5 +31,14 @@ public class YuanGoservice {
 
     public int updateyg(YuanGo yuanGo) {
         return yuanGoDao.updateById(yuanGo);
+    }
+
+    public List<GangWei> getGwdYg(String ksId) {
+        List<GangWei> gwdyg = yuanGoDao.getGwdyg(ksId);
+        for (GangWei gangWei : gwdyg) {
+            System.err.println(gangWei);
+            System.err.println(gangWei.getYuanGos());
+        }
+        return gwdyg;
     }
 }

@@ -31,6 +31,12 @@ YongHuservice yongHuservice;
 //    班次
     @Autowired
     BanCiService banCiService;
+//    班次类型
+    @Autowired
+    BanCiTypeService banCiTypeService;
+//    排班表
+    @Autowired
+    PaiBanService paiBanService;
 
 
 
@@ -55,6 +61,11 @@ YongHuservice yongHuservice;
     @PostMapping("xgyg")
     public int xg(@RequestBody YuanGo yuanGo){
         return yuanGoservice.updateyg(yuanGo);
+    }
+//    根据员工科室分门别类查询员工
+    @GetMapping("ksygs/{ksId}")
+    public List<GangWei> getksyg(@PathVariable("ksId") String ksId){
+        return yuanGoservice.getGwdYg(ksId);
     }
 
 //    ====================================部门管理======================================
@@ -91,13 +102,11 @@ YongHuservice yongHuservice;
 //  新增科室
     @PostMapping("xzks")
     public int ksxz(@RequestBody KeShi keShi){
-        System.err.println(keShi);
         return keShiservive.insertks(keShi);
     }
     //  修改科室
     @PostMapping("xgks")
     public int ksxg(@RequestBody KeShi keShi){
-        System.err.println(keShi);
         return keShiservive.updateks(keShi);
     }
 
@@ -139,7 +148,6 @@ YongHuservice yongHuservice;
     }
 
 
-
 //    ====================用户管理=========================
 //新增用户
     @PostMapping("xzyh")
@@ -171,7 +179,7 @@ YongHuservice yongHuservice;
 //===================班次表==========================
 
     /**
-     * 班次类型
+     * 班次
      * @param bcType
      * @return
      */
@@ -182,6 +190,29 @@ YongHuservice yongHuservice;
                 .setCode(200).setMessage("访问成功！");
         return listCommonResult.getData();
     }
+//    =====================班次类型表===================
+    @GetMapping("bctype")
+    public List<BanCiType> getBcType(){
+        return banCiTypeService.getBcType();
+    }
 
+//==================排班表=======================
+
+    /**
+     * 获取排班的数据
+     * @return
+     */
+    @GetMapping("hqpb/{ksId}")
+    public List<PaiBan2> getpb(@PathVariable("ksId") String ksId){
+        return paiBanService.getPb(ksId);
+    }
+    /**
+     * 新增员工排班的方法
+     */
+    @PostMapping("xzpb")
+    public CommonResult xzpb2(@RequestBody PaiBan3 paiBan3){
+        paiBanService.insertpb(paiBan3);
+        return new CommonResult(200,"新增成功");
+    }
 
 }
