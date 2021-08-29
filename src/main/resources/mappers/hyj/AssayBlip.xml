@@ -24,6 +24,6 @@
     </select>
     <!--删除影像项目-->
     <delete id="delMealBlip">
-        delete from assay_meal where assay_meal_id = #{mealBlipId}
+        delete from assay_meal where assay_meal_id = #{assayMealId}
     </delete>
 </mapper>
