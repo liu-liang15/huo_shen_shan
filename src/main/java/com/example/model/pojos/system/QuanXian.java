@@ -4,10 +4,10 @@ import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
+import lombok.Data;
+
 import java.io.Serializable;
 import java.util.List;
-
-import lombok.Data;
 
 /**
  * 权限表
@@ -65,6 +65,12 @@ public class QuanXian implements Serializable {
      * 权限类型
      */
     private String qxType;
+
+    /**
+     * 岗位Id
+     */
+    @TableField(exist = false)
+    private String gwId;
 
     /**
      * 子类权限集合

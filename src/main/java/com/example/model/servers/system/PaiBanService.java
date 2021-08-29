@@ -29,21 +29,24 @@ public class PaiBanService {
      * @return
      * @param ksId
      */
-    public List<PaiBan2> getPb(String ksId){
+    public List<PaiBan2> getPb(String ksId,Integer xq){
         List<PaiBan2> ban2List=new ArrayList<>();
 
         //获取当前时间
         Calendar calendar = Calendar.getInstance();
+        // 给这个星期加减日期
+        calendar.add(Calendar.DAY_OF_MONTH,7*xq);
         //        调用方法回到本周的第一天
         setToFirstDay(calendar);
         for (int i = 0; i < 7; i++) {
             PaiBan2 paiBan2=new PaiBan2();
 //           将星期，日期，赋值
+            System.err.println(calendar);
             paiBan2 = printDay(calendar,paiBan2);
-            //查询这个科室的排班信息，并赋值
+            //  查询这个科室的排班信息，并赋值
             List<PaiBan> panBan = paiBanMapper.getPanBan(paiBan2.getRq(),ksId);
             paiBan2.setPaiBanList(panBan);
-            //将查询出来的结果赋值给需要返回出去的集合
+            //  将查询出来的结果赋值给需要返回出去的集合
             ban2List.add(paiBan2);
             //System.out.println(rq);
 //           循环给日期加天数

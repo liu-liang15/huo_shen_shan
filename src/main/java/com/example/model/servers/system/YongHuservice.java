@@ -1,10 +1,14 @@
 package com.example.model.servers.system;
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.example.model.dao.system.YongHuDao;
+import com.example.model.dao.system.YuanGoDao;
 import com.example.model.pojos.system.YongHu;
+import com.example.model.pojos.system.YuanGo;
 import com.example.util.Password;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
 import javax.annotation.Resource;
 
 @Service
@@ -12,17 +16,32 @@ import javax.annotation.Resource;
 public class YongHuservice {
     @Resource
     YongHuDao yongHuDao;
-
+    @Resource
+    YuanGoDao yuanGoDao;
     /**
      * 根据ID查询用户
      * @param yongHu
      * @return
      */
-    public boolean getyh(YongHu yongHu){
-        YongHu yongHu1 = yongHuDao.selectById(yongHu.getYhId());
-        System.err.println(yongHu);
-        System.err.println(yongHu1);
-        return false;
+    public YuanGo getyh(YongHu yongHu){
+        //验证密码
+        YongHu yongHu2 = yongHuDao.selectOne(new QueryWrapper<YongHu>().eq("yg_id", yongHu.getYgId()));
+        boolean dl=false;
+        if (yongHu2!=null){
+            try {
+                String decrypt = Password.decrypt(yongHu2.getYhMm(), yongHu2.getYhKey());
+                dl=decrypt.equals(yongHu.getYhMm());
+            } catch (Exception e) {
+                e.printStackTrace();
+                System.err.println("密码解密错误");
+            }
+            if (dl){
+                //查询员工
+                YuanGo yuanGo = yuanGoDao.selectById(yongHu2.getYgId());
+                return yuanGo;
+            }
+        }
+        return null;
     }
 
     /**

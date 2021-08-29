@@ -1,11 +1,11 @@
 package com.example.model.pojos.system;
 
-import java.io.Serializable;
-
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
+
+import java.io.Serializable;
 
 /**
  * yuan_go
@@ -36,6 +36,11 @@ public class YuanGo implements Serializable {
     private String ygSfz;
 
     /**
+     * 员工头像
+     */
+    private String photo;
+
+    /**
      * 员工科室
      */
 
@@ -61,5 +66,6 @@ public class YuanGo implements Serializable {
      */
     @TableField(exist = false)
     private YongHu yongHu;
+
 
 }

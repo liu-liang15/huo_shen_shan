@@ -35,10 +35,10 @@ public class YuanGoservice {
 
     public List<GangWei> getGwdYg(String ksId) {
         List<GangWei> gwdyg = yuanGoDao.getGwdyg(ksId);
-        for (GangWei gangWei : gwdyg) {
-            System.err.println(gangWei);
-            System.err.println(gangWei.getYuanGos());
-        }
         return gwdyg;
+    }
+//    查询单个员工
+    public YuanGo getyg3(String ygId){
+        return yuanGoDao.selectById(ygId);
     }
 }

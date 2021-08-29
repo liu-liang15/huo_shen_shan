@@ -11,7 +11,7 @@
 <!--  查询岗位下的员工数据-->
   <resultMap id="gwdYg" type="com.example.model.pojos.system.GangWei">
     <id column="gw_id" property="gwId"/>
-    <result column="gw_name" property="gwName"/>
+    <result column="gw_name" property="ygName"/>
     <collection property="yuanGos" ofType="com.example.model.pojos.system.YuanGo">
       <id column="yg_id" jdbcType="INTEGER" property="ygId" />
       <result column="yg_name" jdbcType="VARCHAR" property="ygName" />

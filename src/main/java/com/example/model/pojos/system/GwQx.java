@@ -24,4 +24,5 @@ public class GwQx implements Serializable {
      * 权限ID
      */
     private String qxId;
+
 }

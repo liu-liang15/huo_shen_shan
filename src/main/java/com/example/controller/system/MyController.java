@@ -62,10 +62,18 @@ YongHuservice yongHuservice;
     public int xg(@RequestBody YuanGo yuanGo){
         return yuanGoservice.updateyg(yuanGo);
     }
-//    根据员工科室分门别类查询员工
+//    根据员工科室分职位查询员工
     @GetMapping("ksygs/{ksId}")
     public List<GangWei> getksyg(@PathVariable("ksId") String ksId){
         return yuanGoservice.getGwdYg(ksId);
+    }
+//  登录用接口
+    @GetMapping("user/info")
+    public List<QuanXian> getyg3(String token){
+        //System.out.println(token);
+        //YuanGo yuanGo = yuanGoservice.getyg3(token);
+        //return new CommonResult(200,null,yuanGo);
+        return quanXianservice.getqx33(token);
     }
 
 //    ====================================部门管理======================================
@@ -149,7 +157,7 @@ YongHuservice yongHuservice;
 
 
 //    ====================用户管理=========================
-//新增用户
+//  新增用户
     @PostMapping("xzyh")
     public int ins(@RequestBody YongHu yongHu){
         return yongHuservice.insertyh(yongHu);
@@ -167,14 +175,27 @@ YongHuservice yongHuservice;
 //  用户登录
     @PostMapping("user/login")
     public CommonResult dl(@RequestBody YongHu yongHu){
-        boolean getyh = yongHuservice.getyh(yongHu);
-        return new CommonResult(200,getyh?"成功":"账号或密码错误");
+        YuanGo yuanGo = yongHuservice.getyh(yongHu);
+        if(yuanGo!=null){
+            return new CommonResult(200,"登录成功",yuanGo);
+        }
+        return new CommonResult(300,"账户或密码错误",yuanGo);
     }
     //    ------------------------查询权限-----------------------------
     @PostMapping("cxqx")
     public List<QuanXian> getqx(){
         return quanXianservice.getqx();
     }
+
+    /**
+     * 获取当前登录人拥有的路由
+     * @param gwId
+     * @return
+     */
+    @GetMapping("/user/logout/{gwId}")
+    public List<QuanXian> getGwlogout(@PathVariable("gwId") String gwId){
+        return quanXianservice.getqx33(gwId);
+    };
 
 //===================班次表==========================
 
@@ -202,9 +223,9 @@ YongHuservice yongHuservice;
      * 获取排班的数据
      * @return
      */
-    @GetMapping("hqpb/{ksId}")
-    public List<PaiBan2> getpb(@PathVariable("ksId") String ksId){
-        return paiBanService.getPb(ksId);
+    @GetMapping("hqpb/{ksId}/{xq}")
+    public List<PaiBan2> getpb(@PathVariable("ksId") String ksId,@PathVariable("xq") Integer xq){
+        return paiBanService.getPb(ksId,xq);
     }
     /**
      * 新增员工排班的方法

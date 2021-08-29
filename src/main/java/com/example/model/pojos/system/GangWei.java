@@ -33,8 +33,12 @@ public class GangWei {
   @TableField(exist=false)
   private List<GangWei> listgw;
 
+  // 下面是新增排班表根据岗位查的员工的集合
   @TableField(exist = false)
   private List<YuanGo> yuanGos;
+
+  @TableField(exist = false)
+  private String ygName;
 
 
 }
