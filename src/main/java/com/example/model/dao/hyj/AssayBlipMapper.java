@@ -2,6 +2,7 @@ package com.example.model.dao.hyj;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.example.model.pojos.hyj.AssayBlip;
+import com.example.model.pojos.hyj.AssayMeal;
 import com.example.model.pojos.hyj.AssayMealBlip;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
@@ -15,5 +16,5 @@ public interface AssayBlipMapper {
 
     public List<AssayMealBlip> findMealBlip();
 
-    public void delMealBlip(AssayMealBlip assayMealBlip);
+    public void delMealBlip(AssayMeal assayMeal);
 }

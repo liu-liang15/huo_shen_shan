@@ -1,6 +1,7 @@
 package com.example.controller.hyj;
 
 import com.example.model.pojos.hyj.AssayBlip;
+import com.example.model.pojos.hyj.AssayMeal;
 import com.example.model.pojos.hyj.AssayMealBlip;
 import com.example.model.servers.hyj.AssayBlipService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,7 +26,7 @@ public class AssayBlipController {
         return assayBlipService.findMealBlip();
     }
     @RequestMapping("delMealBlip")
-    public void delMealBlip(@RequestBody AssayMealBlip assayMealBlip){
-        assayBlipService.delMealBlip(assayMealBlip);
+    public void delMealBlip(@RequestBody AssayMeal assayMeal){
+        assayBlipService.delMealBlip(assayMeal);
     }
 }
