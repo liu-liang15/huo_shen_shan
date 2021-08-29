@@ -66,6 +66,7 @@
     <select id="findJiuZhenLieBiao" resultMap="hopreg">
         select * from hospreg h
         inner join patient p on h.horeg_patient_no = p.patient_no
+        inner join ke_shi k on h.horeg_famiroom_no = k.ks_id
         where to_days(horeg_date) = to_days(now()) and horeg_state = #{horegState}
         and horeg_attendingdoc_no = #{horegAttendingdocNo}
         order by horeg_date asc;

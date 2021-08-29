@@ -16,6 +16,10 @@ public class SeedoctorService {
     @Autowired
     SeedoctorDao seedoctorDao;
 
+    public void insertJiuZhenJiLu(Seedoctor seedoctor){
+        seedoctorDao.insertJiuZhenJiLu(seedoctor);
+    }
+
     public List<Seedoctor> findseedoctor(int param){
         return seedoctorDao.findseedoctor(param);
     }

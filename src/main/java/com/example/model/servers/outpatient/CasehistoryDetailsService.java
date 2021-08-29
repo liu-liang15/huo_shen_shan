@@ -16,6 +16,10 @@ public class CasehistoryDetailsService {
     @Autowired
     CasehistoryDetailsDao casehistoryDetailsDao;
 
+    public void insertBingLiXQ(Casehistorydetails casehistorydetails){
+        casehistoryDetailsDao.insertBingLiXQ(casehistorydetails);
+    }
+
     public List<Casehistorydetails> findCasehisDetails(int param){
         return casehistoryDetailsDao.findCasehisDetails(param);
     }

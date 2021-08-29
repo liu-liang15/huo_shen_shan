@@ -38,6 +38,11 @@
             </association>
         </association>
     </resultMap>
+    
+    <insert id="insertJiuZhenJiLu" useGeneratedKeys="true" keyProperty="seedoNo" parameterType="com.example.model.pojos.outpatient.Seedoctor">
+        insert into seedoctor(seedo_number,seedo_cahide_no,seedo_patient_no,seedo_doctor_name,seedo_famiroom_name,seedo_record)
+        values(#{seedoNumber},#{seedoCahideNo},#{seedoPatientNo},#{seedoDoctorName},#{seedoFamiroomName},#{seedoRecord})
+    </insert>
 
     <select id="findseedoctor" resultMap="seedoctor">
         select * from seedoctor s inner join casehistorydetails cd on s.seedo_cahide_no = cd.cahide_no where 1=1

@@ -27,8 +27,8 @@
     </resultMap>
 
     <insert id="insertChufang" useGeneratedKeys="true" keyProperty="presNo" parameterType="com.example.model.pojos.outpatient.Prescription">
-        insert into prescription(pres_seedo_number,pres_famiroom_no,pres_doc_no,pres_money)
-         values(#{presSeedoNumber},#{presFamiroomNo},#{presDocNo},#{presMoney})
+        insert into prescription(pres_seedoc_no,pres_seedo_number,pres_famiroom_no,pres_doc_no,pres_money)
+         values(#{presSeedocNo},#{presSeedoNumber},#{presFamiroomNo},#{presDocNo},#{presMoney})
     </insert>
 
     <insert id="insertChufangXQ" parameterType="com.example.model.pojos.outpatient.Prescriptiondetails">

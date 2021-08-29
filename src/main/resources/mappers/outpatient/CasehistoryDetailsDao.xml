@@ -29,6 +29,11 @@
         </association>
     </resultMap>
 
+    <insert id="insertBingLiXQ" useGeneratedKeys="true" keyProperty="cahideNo" parameterType="com.example.model.pojos.outpatient.Casehistorydetails">
+        insert into casehistorydetails(cahide_cashis_no,cahide_keshi_name,cahide_zhusu,cahide_xianbingshi,cahide_jiwangshi,cahide_zhiliaoyijian,cahide_ysqianming)
+        values(#{cahideCashisNo},#{cahideKeshiName},#{cahideZhusu},#{cahideXianbingshi},#{cahideJiwangshi},#{cahideZhiliaoyijian},#{cahideYsqianming})
+    </insert>
+
     <select id="findCasehisDetails" resultMap="casehistorydetails">
         select * from casehistorydetails c inner join casehistory ca on c.cahide_cashis_no = ca.cashis_no where 1=1
         <if test="param != null and param != ''">

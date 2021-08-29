@@ -1,16 +1,17 @@
 package com.example.controller.outpatient;
 
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
 import com.example.model.pojos.outpatient.Casehistory;
 import com.example.model.pojos.outpatient.Casehistorydetails;
+import com.example.model.pojos.outpatient.Patient;
 import com.example.model.servers.outpatient.CasehistoryDetailsService;
 import com.example.model.servers.outpatient.CasehistoryService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 
 @CrossOrigin
 @RestController
@@ -19,7 +20,19 @@ public class CasehistoryDetailsController {
     @Autowired
     CasehistoryDetailsService casehistoryDetailsService;
 
-    //查询所有病历
+    //新增病详情
+    @PostMapping("/insertBingLiXQ")
+    public int insertBingLiXQ(@RequestBody Map<String,Object> map){
+        String bingliXQ= JSON.toJSONString(map.get("bingliXQ"));
+        String blNo= JSON.toJSONString(map.get("blNo"));
+        Casehistorydetails casehistorydetails = JSONObject.parseObject(bingliXQ,Casehistorydetails.class);
+        casehistorydetails.setCahideCashisNo(blNo);
+        casehistoryDetailsService.insertBingLiXQ(casehistorydetails);
+        return casehistorydetails.getCahideNo();
+    }
+
+
+    //查询所有病历详情
     @GetMapping("/findCasehisDetails")
     public List<Casehistorydetails> findCasehisDetails(String param){
         int i = Integer.parseInt(param);

@@ -10,4 +10,6 @@ import java.util.List;
 @Mapper
 public interface SeedoctorDao extends BaseMapper<Seedoctor> {
     List<Seedoctor> findseedoctor(int param);
+
+    void insertJiuZhenJiLu(Seedoctor seedoctor);
 }

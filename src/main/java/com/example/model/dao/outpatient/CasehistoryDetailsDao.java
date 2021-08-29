@@ -9,4 +9,6 @@ import java.util.List;
 @Mapper
 public interface CasehistoryDetailsDao extends BaseMapper<Casehistorydetails> {
     List<Casehistorydetails> findCasehisDetails(int param);
+
+    void insertBingLiXQ(Casehistorydetails casehistorydetails);
 }

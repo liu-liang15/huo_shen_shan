@@ -53,7 +53,7 @@ public class YiShengJiuZhenController {
         return assayMealBlipService.findBlip();
     }
 
-    //新增手术处方详情(化验)
+    //新增手术处方详情
     @PostMapping("/insertMzshoushuxq")
     public void insertMzshoushuxq(@RequestBody Map<String,Object> map){
         String sqSsNo1= JSON.toJSONString(map.get("sqSsNo"));
@@ -104,11 +104,11 @@ public class YiShengJiuZhenController {
     }
     //新增处方
     @RequestMapping("/insertChufang")
-    public int insertChufang(String presSeedoNumber,String presMoney,String presFamiroomNo,String presDocNo){
+    public int insertChufang(String presSeedoNumber,String presMoney,String presFamiroomNo,String presDocNo,String seeNo){
         double money = Double.parseDouble(presMoney);
-        Prescription p = new Prescription(0,1,presSeedoNumber,presFamiroomNo,presDocNo,money,null,null);
+        int seedNo = Integer.parseInt(seeNo);
+        Prescription p = new Prescription(0,seedNo,presSeedoNumber,presFamiroomNo,presDocNo,money,null,null);
         prescriptionService.insertChufang(p);
-        System.out.println("```````````````````"+p.getPresNo());
         return p.getPresNo();
     }
 }
