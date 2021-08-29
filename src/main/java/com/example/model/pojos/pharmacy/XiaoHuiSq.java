@@ -1,6 +1,8 @@
 package com.example.model.pojos.pharmacy;
 
 
+import com.example.model.pojos.system.YongHu;
+
 import java.util.Collection;
 import java.util.Date;
 
@@ -11,6 +13,15 @@ public class XiaoHuiSq {
   private Date sj=new Date();
   private long zt;
   private Collection<XiaoHuiXd> xiaoHuiXds;
+  private YongHu yongHu;
+
+  public YongHu getYongHu() {
+    return yongHu;
+  }
+
+  public void setYongHu(YongHu yongHu) {
+    this.yongHu = yongHu;
+  }
 
   public Collection<XiaoHuiXd> getXiaoHuiXds() {
     return xiaoHuiXds;
