@@ -27,6 +27,7 @@ public class DocExeServer {
         List<DocAdvXq> docAdvXqs=docAdvXqDao.serDocAdvXq(param);
         for(DocAdvXq d:docAdvXqs){
             List<DocExe>docExes=docExeDao.nowDocExe(d.getDocAdvId()+"");
+
             //没找到今天的医嘱则新增
             if(docExes.isEmpty()){
                 for(int i=0;i<d.getDocFre();i++){
