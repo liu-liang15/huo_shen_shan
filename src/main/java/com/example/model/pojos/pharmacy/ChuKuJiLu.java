@@ -5,9 +5,8 @@ public class ChuKuJiLu {
 
   private long chukusId;
   private String chukuId;
-  private String kuChunId;
+  private int rkpcId;
   private int chuKuSl;
-
 
   public long getChukusId() {
     return chukusId;
@@ -17,7 +16,6 @@ public class ChuKuJiLu {
     this.chukusId = chukusId;
   }
 
-
   public String getChukuId() {
     return chukuId;
   }
@@ -26,15 +24,13 @@ public class ChuKuJiLu {
     this.chukuId = chukuId;
   }
 
-
-  public String getKuChunId() {
-    return kuChunId;
+  public int getRkpcId() {
+    return rkpcId;
   }
 
-  public void setKuChunId(String kuChunId) {
-    this.kuChunId = kuChunId;
+  public void setRkpcId(int rkpcId) {
+    this.rkpcId = rkpcId;
   }
-
 
   public int getChuKuSl() {
     return chuKuSl;
@@ -43,5 +39,4 @@ public class ChuKuJiLu {
   public void setChuKuSl(int chuKuSl) {
     this.chuKuSl = chuKuSl;
   }
-
 }

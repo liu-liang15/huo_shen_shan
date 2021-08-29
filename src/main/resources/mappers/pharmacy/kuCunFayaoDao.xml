@@ -124,7 +124,7 @@
     </insert>
     <insert id="addDBXD" parameterType="java.util.Collection">
         insert into dbsq_xiang_biao values
-        <foreach collection="dbsqXiangBiaos" item="p" separator=", ">
+        <foreach collection="dbsqXiangBiaos" item="p" separator=",">
             (null,#{dbShengQing},#{p.ypBh},#{p.dbSl})
         </foreach>
     </insert>
@@ -154,6 +154,4 @@
             (null,#{xhsqId},#{p.rkpcId},#{p.ypsl})
         </foreach>
     </insert>
-
-
 </mapper>

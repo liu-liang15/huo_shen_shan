@@ -11,14 +11,17 @@ public class ChuKu {
   private String chukuFuzhe;
   private String chukuCause;
   private Date chukuTime=new Date();
-  private List<ChuKuJiLu> chuKuJiLus;
+  private Collection<ChuKuJiLu> chuKuJiLus;
+  private List<Interim> interims;
+  private int zt;
+  private String xhsqId;
 
-  public List<ChuKuJiLu> getChuKuJiLus() {
-    return chuKuJiLus;
+  public List<Interim> getInterims() {
+    return interims;
   }
 
-  public void setChuKuJiLus(List<ChuKuJiLu> chuKuJiLus) {
-    this.chuKuJiLus = chuKuJiLus;
+  public void setInterims(List<Interim> interims) {
+    this.interims = interims;
   }
 
   public String getChukuId() {
@@ -29,7 +32,6 @@ public class ChuKu {
     this.chukuId = chukuId;
   }
 
-
   public String getChukuFuzhe() {
     return chukuFuzhe;
   }
@@ -37,7 +39,6 @@ public class ChuKu {
   public void setChukuFuzhe(String chukuFuzhe) {
     this.chukuFuzhe = chukuFuzhe;
   }
-
 
   public String getChukuCause() {
     return chukuCause;
@@ -47,7 +48,6 @@ public class ChuKu {
     this.chukuCause = chukuCause;
   }
 
-
   public Date getChukuTime() {
     return chukuTime;
   }
@@ -56,4 +56,27 @@ public class ChuKu {
     this.chukuTime = chukuTime;
   }
 
+  public Collection<ChuKuJiLu> getChuKuJiLus() {
+    return chuKuJiLus;
+  }
+
+  public void setChuKuJiLus(Collection<ChuKuJiLu> chuKuJiLus) {
+    this.chuKuJiLus = chuKuJiLus;
+  }
+
+  public int getZt() {
+    return zt;
+  }
+
+  public void setZt(int zt) {
+    this.zt = zt;
+  }
+
+  public String getXhsqId() {
+    return xhsqId;
+  }
+
+  public void setXhsqId(String xhsqId) {
+    this.xhsqId = xhsqId;
+  }
 }
