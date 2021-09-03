@@ -69,11 +69,11 @@ YongHuservice yongHuservice;
     }
 //  登录用接口
     @GetMapping("user/info")
-    public List<QuanXian> getyg3(String token){
-        //System.out.println(token);
-        //YuanGo yuanGo = yuanGoservice.getyg3(token);
-        //return new CommonResult(200,null,yuanGo);
-        return quanXianservice.getqx33(token);
+    public CommonResult getyg3(String token){
+        //返回的用户信息
+        System.out.println(token);
+        YuanGo yuanGo = yuanGoservice.getyg3(token);
+        return new CommonResult(200,null,yuanGo);
     }
 
 //    ====================================部门管理======================================
