@@ -48,7 +48,6 @@
     <delete id="deleteDrug">
         delete from yp_yao_fang where drug_id=#{drugId}
     </delete>
-    <select id=""
     <!--药房发药减少对应药品库存-->
     <update id="reduceDrugNumber" parameterType="com.example.model.pojos.pharmacy.YpYaoFang">
         update yp_yao_fang set drug_number=drug_number-#{drugNumber} where drug_id=#{drugId}
