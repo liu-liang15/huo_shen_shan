@@ -31,6 +31,13 @@
             <result column="patient_date" property="patientDate"/>
         </association>
     </resultMap>
+
+    <!--新增住院申请单-->
+    <insert id="addAdm" parameterType="com.example.model.pojos.inpatient.AdmNot">
+        insert into adm_not(patient,section,doctor,result,dispose,adm_zt)
+        values(#{patient},#{section},#{doctor},#{result},#{dispose},#{admZt})
+    </insert>
+
     <!--查询住院通知单-->
     <select id="selAdm" resultMap="AdmNotmapper">
         select * from adm_not a inner join medicalcard m on a.patient = m.medi_no inner join patient p on m.medi_patient_no=p.patient_no

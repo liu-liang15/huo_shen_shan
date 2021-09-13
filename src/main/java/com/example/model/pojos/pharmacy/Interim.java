@@ -1,22 +1,22 @@
 package com.example.model.pojos.pharmacy;
 
 public class Interim {
-    private int drugId;
-    private int drugNumber;
+    private int ypBh;
+    private int chuKuSl;
 
-    public int getDrugId() {
-        return drugId;
+    public int getYpBh() {
+        return ypBh;
     }
 
-    public void setDrugId(int drugId) {
-        this.drugId = drugId;
+    public void setYpBh(int ypBh) {
+        this.ypBh = ypBh;
     }
 
-    public int getDrugNumber() {
-        return drugNumber;
+    public int getChuKuSl() {
+        return chuKuSl;
     }
 
-    public void setDrugNumber(int drugNumber) {
-        this.drugNumber = drugNumber;
+    public void setChuKuSl(int chuKuSl) {
+        this.chuKuSl = chuKuSl;
     }
 }

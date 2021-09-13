@@ -10,14 +10,6 @@
         <result column="exaord_state" property="exaordState" />
     </resultMap>
 
-    <resultMap id="examinedetails" type="com.example.model.pojos.outpatient.Examinedetails">
-        <id column="exadet_no" property="exadetNo" />
-        <result column="exadet_exaord_no" property="exadetExaordNo" />
-        <result column="meal_blip_id" property="mealBlipId" />
-        <result column="exadet_count" property="exadetCount" />
-        <result column="meal_blip_price" property="mealBlipPrice" />
-    </resultMap>
-
     <insert id="insertExamineorder" useGeneratedKeys="true" keyProperty="exaordNo" parameterType="com.example.model.pojos.outpatient.Examineorder">
         insert into examineorder(exaord_seedo_number,exaord_money)
          values(#{exaordSeedoNumber},#{exaordMoney})
@@ -25,6 +17,6 @@
 
     <insert id="insertExaminedetails" parameterType="com.example.model.pojos.outpatient.Examinedetails">
         insert into examinedetails
-        values(0,#{exadetExaordNo},#{mealBlipId},#{exadetCount},#{mealBlipPrice})
+        values(0,#{exadetExaordNo},#{assayMealId},#{exadetCount},#{assayMealPrice})
     </insert>
 </mapper>

@@ -1,7 +1,7 @@
 package com.example.controller.inpatient;
 
 import com.example.model.pojos.inpatient.ConsApp;
-import com.example.model.servers.inpatient.ConsAppServer;
+import com.example.model.services.inpatient.ConsAppServer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

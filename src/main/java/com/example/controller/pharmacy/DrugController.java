@@ -1,7 +1,7 @@
 package com.example.controller.pharmacy;
 
 import com.example.model.pojos.pharmacy.*;
-import com.example.model.servers.pharmacy.DrugService;
+import com.example.model.services.pharmacy.DrugService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestBody;

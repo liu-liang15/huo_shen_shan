@@ -3,7 +3,6 @@ package com.example.model.dao.system;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.example.model.pojos.system.QuanXian;
 import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
@@ -14,10 +13,8 @@ import java.util.List;
 @Mapper
 public interface QuanXianDao extends BaseMapper<QuanXian> {
     /**
-     * 查询岗位所拥有的权限
-     * @param parentId
-     * @param gwId
-     * @return
+     * 动态路由查询
      */
-    List<QuanXian> getqx33(@Param("parentId") String parentId,@Param("gwId") String gwId);
+    List<QuanXian> router(String gwId);
+
 }

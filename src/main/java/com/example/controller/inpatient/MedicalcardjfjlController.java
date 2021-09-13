@@ -1,7 +1,7 @@
 package com.example.controller.inpatient;
 
 import com.example.model.pojos.inpatient.Medicalcardjfjl;
-import com.example.model.servers.inpatient.MedicalcardjfjlServer;
+import com.example.model.services.inpatient.MedicalcardjfjlServer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;

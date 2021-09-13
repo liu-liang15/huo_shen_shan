@@ -2,8 +2,7 @@ package com.example.controller.pharmacy;
 
 import com.example.model.pojos.pharmacy.CaiGoJh;
 import com.example.model.pojos.pharmacy.JhXiangDan;
-import com.example.model.pojos.pharmacy.YaoPingXx;
-import com.example.model.servers.pharmacy.JinHuoDanService;
+import com.example.model.services.pharmacy.JinHuoDanService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

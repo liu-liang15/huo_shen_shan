@@ -17,6 +17,9 @@ public interface MedicalcardDao extends BaseMapper<Medicalcard> {
     //新增诊疗卡
     void addMedicalcard(Medicalcard medicalcard);
 
+    //新增诊疗卡
+    void addMedicalcardno(Medicalcard medicalcard);
+
     void medicalcardTY(int mediNo,String mediState);
 
     void medicalcardBB(int mediNo,String mediCard);

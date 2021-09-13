@@ -1,7 +1,7 @@
 package com.example.controller.hyj;
 
 import com.example.model.pojos.hyj.AssayPerson;
-import com.example.model.servers.hyj.AssayMaService;
+import com.example.model.services.hyj.AssayMaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

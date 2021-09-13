@@ -1,7 +1,7 @@
 package com.example.controller.system;
 
 import com.example.model.pojos.system.*;
-import com.example.model.servers.system.*;
+import com.example.model.services.system.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -69,11 +69,11 @@ YongHuservice yongHuservice;
     }
 //  登录用接口
     @GetMapping("user/info")
-    public List<QuanXian> getyg3(String token){
-        //System.out.println(token);
-        //YuanGo yuanGo = yuanGoservice.getyg3(token);
-        //return new CommonResult(200,null,yuanGo);
-        return quanXianservice.getqx33(token);
+    public CommonResult getyg3(String token){
+        //返回的用户信息
+        System.out.println(token);
+        YuanGo yuanGo = yuanGoservice.getyg3(token);
+        return new CommonResult(200,null,yuanGo);
     }
 
 //    ====================================部门管理======================================
@@ -192,9 +192,12 @@ YongHuservice yongHuservice;
      * @param gwId
      * @return
      */
-    @GetMapping("/user/logout/{gwId}")
-    public List<QuanXian> getGwlogout(@PathVariable("gwId") String gwId){
-        return quanXianservice.getqx33(gwId);
+    @GetMapping("/user/router/{gwId}")
+    public CommonResult<List> getGwlogout(@PathVariable("gwId") String gwId){
+        System.err.println(gwId);
+        CommonResult<List> commonResult=new CommonResult<>();
+        commonResult.setCode(200).setMessage("获取动态路由成功").setData(quanXianservice.router(gwId));
+        return commonResult;
     };
 
 //===================班次表==========================
@@ -234,6 +237,13 @@ YongHuservice yongHuservice;
     public CommonResult xzpb2(@RequestBody PaiBan3 paiBan3){
         paiBanService.insertpb(paiBan3);
         return new CommonResult(200,"新增成功");
+    }
+
+
+    @GetMapping("abcd")
+    public Object abcdddd(){
+        System.err.println("12345678");
+        return keShiservive.dddd();
     }
 
 }

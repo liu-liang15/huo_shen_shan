@@ -1,10 +1,9 @@
 package com.example.controller.pharmacy;
 
-import com.example.model.pojos.pharmacy.ChuKu;
 import com.example.model.pojos.pharmacy.DiaoBoSq;
 import com.example.model.pojos.pharmacy.XiaoHuiSq;
 import com.example.model.pojos.pharmacy.YpKuCun;
-import com.example.model.servers.pharmacy.KuCunFayaoService;
+import com.example.model.services.pharmacy.KuCunFayaoService;
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -62,8 +61,15 @@ public class KuCunFayaoController {
         kuCunFayaoService.updateYPSQ(sqZhuangTai,dbShengQing);
     }
 
-  /*  @RequestMapping
-    public void addChuKu(@RequestBody DiaoBoSq diaoBoSq){
-        kuCunFayaoService.addChuKu(diaoBoSq);
-    }*/
+    @RequestMapping("dbck")
+    public String addChuKu(@RequestBody ChuKu chuKu){
+        try {
+            kuCunFayaoService.addDBChuKu(chuKu);
+            return "ok";
+        } catch (Exception e) {
+            e.printStackTrace();
+            return "fail";
+        }
+
+    }
 }

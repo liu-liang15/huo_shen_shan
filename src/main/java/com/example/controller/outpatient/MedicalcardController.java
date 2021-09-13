@@ -3,8 +3,8 @@ package com.example.controller.outpatient;
 import com.alibaba.fastjson.JSONObject;
 import com.example.model.pojos.outpatient.Medicalcard;
 import com.example.model.pojos.outpatient.Patient;
-import com.example.model.servers.outpatient.MedicalcardService;
-import com.example.model.servers.outpatient.PatientService;
+import com.example.model.services.outpatient.MedicalcardService;
+import com.example.model.services.outpatient.PatientService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -65,6 +65,18 @@ public class MedicalcardController {
         Medicalcard medicalcard = new Medicalcard(0,str,pwd,0,idCart,mediPatientNo,null,null,null);
         medicalcardService.addMedicalcard(medicalcard);
         return str;
+    }
+
+    //新增诊疗卡
+    @RequestMapping("/addMedicalcardno")
+    public int insertMedicalcardno(String pwd,String idCart,String mediPatientNo){
+        if(pwd == null){
+            pwd = "666666";
+        }
+        String str = getDateNo();
+        Medicalcard medicalcard = new Medicalcard(0,str,pwd,0,idCart,mediPatientNo,null,null,null);
+        medicalcardService.addMedicalcardno(medicalcard);
+        return medicalcard.getMediNo();
     }
 
 

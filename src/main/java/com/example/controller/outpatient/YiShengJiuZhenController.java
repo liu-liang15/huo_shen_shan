@@ -1,9 +1,11 @@
 package com.example.controller.outpatient;
 
 import com.alibaba.fastjson.JSON;
+import com.example.model.pojos.inpatient.AdmNot;
 import com.example.model.pojos.inpatient.DocAdv;
 import com.example.model.pojos.inpatient.DocAdvXq;
 import com.example.model.pojos.outpatient.*;
+import com.example.model.servers.inpatient.AdmNotServer;
 import com.example.model.servers.outpatient.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -25,16 +27,26 @@ public class YiShengJiuZhenController {
     AssayMealBlipService assayMealBlipService;
     @Autowired
     ExamineorderService examineorderService;
+    @Autowired
+    AdmNotServer admNotServer;
 
 
-    //新增检查处方详情(化验)
+    //门诊转住院admNotServer.addAdm
+    @RequestMapping("/addAdm")
+    public void addAdm(String patient,String section,String doctor,String result){
+        AdmNot admNot = new AdmNot(0,patient,section,doctor,result,"转住院观察","0");
+        admNotServer.addAdm(admNot);
+    }
+
+
+    //新增检查处方详情(检查)
     @PostMapping("/insertExaminedetails")
     public void insertExaminedetails(@RequestBody Map<String,Object> map){
         String exaordNo1= JSON.toJSONString(map.get("exaordNo"));
         String str= JSON.toJSONString(map.get("examinedetails"));
-        List<Examinedetails>list2=JSON.parseArray(str, Examinedetails.class);
-        System.out.println(list2);
-        System.out.println(exaordNo1);
+        System.out.println("检查cx1"+str);
+        List<Examinedetails> list2=JSON.parseArray(str, Examinedetails.class);
+        System.out.println("检查cx2"+list2);
         examineorderService.insertExaminedetails(list2,exaordNo1);
     }
     //新增处方检查单
@@ -59,8 +71,6 @@ public class YiShengJiuZhenController {
         String sqSsNo1= JSON.toJSONString(map.get("sqSsNo"));
         String str= JSON.toJSONString(map.get("mzshoushuxq"));
         List<Mzshoushuxq>list2=JSON.parseArray(str, Mzshoushuxq.class);
-        System.out.println(list2);
-        System.out.println(sqSsNo1);
         mzshoushucfService.insertMzshoushuxq(list2,sqSsNo1);
     }
     //新增处方手术单
@@ -78,8 +88,9 @@ public class YiShengJiuZhenController {
     public void insertLabworkdetailsCF(@RequestBody Map<String,Object> map){
         String assayNo= JSON.toJSONString(map.get("assayNo"));
         String str= JSON.toJSONString(map.get("labworkDetails"));
+        System.out.println("化验cx1"+str);
         List<Labworkdetails>list2=JSON.parseArray(str, Labworkdetails.class);
-        System.out.println(list2);
+        System.out.println("化验cx2"+list2);
         assayService.insertLabworkdetailsCF(list2,assayNo);
     }
     //新增处方化验单
@@ -88,7 +99,6 @@ public class YiShengJiuZhenController {
         double assayMoney = Double.parseDouble(assayMoney1);
         Assay assay = new Assay(0,assaySeedoNumber,assayMoney,null,0);
         assayService.insertAssayCF(assay);
-        System.out.println(assay.getAssayNo());
         return assay.getAssayNo();
     }
 
@@ -99,7 +109,6 @@ public class YiShengJiuZhenController {
         String predetPresNo= JSON.toJSONString(map.get("predetPresNo"));
         String str= JSON.toJSONString(map.get("prede"));
         List<Prescriptiondetails>list2=JSON.parseArray(str, Prescriptiondetails.class);
-        System.out.println(list2);
         prescriptionService.insertChufangXQ(list2,predetPresNo);
     }
     //新增处方

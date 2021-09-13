@@ -14,38 +14,35 @@
             <result property="sfky" column="sfky" jdbcType="INTEGER"/>
             <result property="qxDenji" column="qx_denji" jdbcType="VARCHAR"/>
             <result property="qxzId" column="qxz_id" jdbcType="INTEGER"/>
+            <collection property="quanXianList" ofType="com.example.model.pojos.system.QuanXian">
+                <id property="qxId" column="id2" jdbcType="INTEGER"/>
+                <result property="qxName" column="name2" jdbcType="VARCHAR"/>
+                <result property="qxZjm" column="zjm2" jdbcType="VARCHAR"/>
+                <result property="qxLj" column="lj2" jdbcType="VARCHAR"/>
+                <result property="qxIoc" column="ioc2" jdbcType="VARCHAR"/>
+                <result property="parentId" column="parent2" jdbcType="INTEGER"/>
+                <result property="sfky" column="sfky2" jdbcType="INTEGER"/>
+                <result property="qxDenji" column="denji2" jdbcType="VARCHAR"/>
+                <result property="qxzId" column="qxz2" jdbcType="INTEGER"/>
+            </collection>
     </resultMap>
 
 
     <sql id="Base_Column_List">
-        gw_id,quan_xian.qx_id,qx_name,qx_zjm,
-        qx_lj,qx_ioc,parent_id,
-        sfky,qx_denji,qxz_id
+        qx1.qx_id qx_id,qx1.qx_name qx_name,qx1.qx_zjm qx_zjm,
+        qx1.qx_lj qx_lj,qx1.qx_ioc qx_ioc,qx1.parent_id parent_id,
+        qx1.sfky sfky,qx1.qx_denji qx_denji,qx1.qxz_id qxz_id,
+
+        qx2.qx_id id2,qx2.qx_name name2,qx2.qx_zjm zjm2,
+        qx2.qx_lj lj2,qx2.qx_ioc ioc2,qx2.parent_id parent2,
+        qx2.sfky sfky2,qx2.qx_denji denji2,qx2.qxz_id qxz2
     </sql>
 
-    <resultMap id="quanXianMap" type="com.example.model.pojos.system.QuanXian">
-            <id property="qxId" column="qx_id" jdbcType="INTEGER"/>
-            <result property="qxName" column="qx_name" jdbcType="VARCHAR"/>
-            <result property="qxZjm" column="qx_zjm" jdbcType="VARCHAR"/>
-            <result property="qxLj" column="qx_lj" jdbcType="VARCHAR"/>
-            <result property="qxIoc" column="qx_ioc" jdbcType="VARCHAR"/>
-            <result property="parentId" column="parent_id" jdbcType="INTEGER"/>
-            <result property="sfky" column="sfky" jdbcType="INTEGER"/>
-            <result property="qxDenji" column="qx_denji" jdbcType="VARCHAR"/>
-            <result property="qxzId" column="qxz_id" jdbcType="INTEGER"/>
-            <result property="gwId" column="gw_id" />
-    </resultMap>
-    <select id="getqx33" resultType="com.example.model.pojos.system.QuanXian">
-        select
-         <include refid="Base_Column_List"/>
-         from quan_xian inner join gw_qx on gw_qx.qx_id = quan_xian.qx_id where gw_id = #{gwId}
-        <choose>
-            <when test=" parentId != null ">
-                and parent_id = #{parentId}
-            </when>
-            <otherwise>
-                and parent_id is null
-            </otherwise>
-        </choose>
+    <select id="router" resultMap="BaseResultMap">
+        select <include refid="Base_Column_List"/>
+        from quan_xian qx1 left join quan_xian qx2 on qx1.qx_id=qx2.parent_id
+		    where qx2.qx_id in(select qx_id from gw_qx where gw_id = #{gwId} )
     </select>
+
+
 </mapper>

@@ -3,7 +3,7 @@ package com.example.controller.hyj;
 import com.example.model.pojos.hyj.AssayMeal;
 import com.example.model.pojos.hyj.AssayPerson;
 import com.example.model.pojos.hyj.AssayRes;
-import com.example.model.servers.hyj.AssayResService;
+import com.example.model.services.hyj.AssayResService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestBody;

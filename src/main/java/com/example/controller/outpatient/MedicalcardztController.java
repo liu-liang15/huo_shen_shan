@@ -1,9 +1,8 @@
 package com.example.controller.outpatient;
 
 import com.alibaba.fastjson.JSONObject;
-import com.example.model.pojos.outpatient.Medicalcardczjl;
 import com.example.model.pojos.outpatient.Medicalcardzt;
-import com.example.model.servers.outpatient.MedicalcardztService;
+import com.example.model.services.outpatient.MedicalcardztService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;

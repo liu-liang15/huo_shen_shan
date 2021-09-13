@@ -1,16 +1,11 @@
 package com.example.demo;
 
-import com.example.model.pojos.hyj.AssayMeal;
-import com.example.model.servers.hyj.AssayMealService;
+import com.example.model.services.hyj.AssayMealService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.util.StringUtils;
 
-import java.text.SimpleDateFormat;
 import java.util.Calendar;
-import java.util.Date;
-import java.util.List;
 
 @SpringBootTest
 class DemoApplicationTests {
