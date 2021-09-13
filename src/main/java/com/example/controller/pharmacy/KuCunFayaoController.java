@@ -61,8 +61,15 @@ public class KuCunFayaoController {
         kuCunFayaoService.updateYPSQ(sqZhuangTai,dbShengQing);
     }
 
-  /*  @RequestMapping
-    public void addChuKu(@RequestBody DiaoBoSq diaoBoSq){
-        kuCunFayaoService.addChuKu(diaoBoSq);
-    }*/
+    @RequestMapping("dbck")
+    public String addChuKu(@RequestBody ChuKu chuKu){
+        try {
+            kuCunFayaoService.addDBChuKu(chuKu);
+            return "ok";
+        } catch (Exception e) {
+            e.printStackTrace();
+            return "fail";
+        }
+
+    }
 }
