@@ -20,8 +20,10 @@ public class ExamineorderService {
     }
 
     public void insertExaminedetails(List<Examinedetails> list, String exaordNo){
+        System.out.println("检查s"+list);
         int exaordNo1 = Integer.parseInt(exaordNo);
         for(Examinedetails p : list){
+            p.setExadetCount(1);
             p.setExadetExaordNo(exaordNo1);
             examineorderDao.insertExaminedetails(p);
         }

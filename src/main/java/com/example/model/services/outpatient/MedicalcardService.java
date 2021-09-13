@@ -26,6 +26,10 @@ public class MedicalcardService {
         medicalcardDao.addMedicalcard(medicalcard);
     }
 
+    public void  addMedicalcardno(Medicalcard medicalcard){
+        medicalcardDao.addMedicalcardno(medicalcard);
+    }
+
     public void medicalcardTY(int mediNo,String mediState){
         medicalcardDao.medicalcardTY(mediNo,mediState);
     }

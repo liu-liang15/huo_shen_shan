@@ -49,6 +49,11 @@
         insert into medicalcard(medi_card,medi_password,medi_idcart,medi_patient_no) values
         (#{mediCard},#{mediPassword},#{mediIdcart},#{mediPatientNo})
     </insert>
+    <!--addMedicalcardno-->
+    <insert id="addMedicalcardno" useGeneratedKeys="true" keyProperty="mediNo"  parameterType="com.example.model.pojos.outpatient.Medicalcard">
+        insert into medicalcard(medi_card,medi_password,medi_idcart,medi_patient_no) values
+        (#{mediCard},#{mediPassword},#{mediIdcart},#{mediPatientNo})
+    </insert>
 
     <!--修改诊疗卡状态-->
     <update id="medicalcardTY" parameterType="com.example.model.pojos.outpatient.Medicalcard">

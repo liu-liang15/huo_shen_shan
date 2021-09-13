@@ -67,6 +67,18 @@ public class MedicalcardController {
         return str;
     }
 
+    //新增诊疗卡
+    @RequestMapping("/addMedicalcardno")
+    public int insertMedicalcardno(String pwd,String idCart,String mediPatientNo){
+        if(pwd == null){
+            pwd = "666666";
+        }
+        String str = getDateNo();
+        Medicalcard medicalcard = new Medicalcard(0,str,pwd,0,idCart,mediPatientNo,null,null,null);
+        medicalcardService.addMedicalcardno(medicalcard);
+        return medicalcard.getMediNo();
+    }
+
 
     //新增病人信息
     @RequestMapping("/meAddPatient")
