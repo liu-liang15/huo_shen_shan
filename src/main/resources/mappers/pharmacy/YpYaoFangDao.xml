@@ -48,8 +48,13 @@
     <delete id="deleteDrug">
         delete from yp_yao_fang where drug_id=#{drugId}
     </delete>
-    <!--根据供应商id修改药品状态，用于供应商停用时修改他所供应的所有药品-->
-    <update id="updateDrugNumber" parameterType="com.example.model.pojos.pharmacy.YaoPingXx">
+    <select id=""
+    <!--药房发药减少对应药品库存-->
+    <update id="reduceDrugNumber" parameterType="com.example.model.pojos.pharmacy.YpYaoFang">
+        update yp_yao_fang set drug_number=drug_number-#{drugNumber} where drug_id=#{drugId}
+    </update>
+    <!--药库调拨药品药房增加对应药品库存-->
+    <update id="addDrugNumber" parameterType="com.example.model.pojos.pharmacy.YaoPingXx">
         update yp_yao_fang set drug_number=drug_number+#{drugNumber} where drug_id=#{drugId}
     </update>
 </mapper>

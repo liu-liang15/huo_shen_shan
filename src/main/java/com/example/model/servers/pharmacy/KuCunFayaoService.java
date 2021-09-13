@@ -58,7 +58,7 @@ public class KuCunFayaoService {
             //根据药品编号获取该库存的库存,时间倒序查询,优先减少保质时间最少的
             List<YpKuCun> kuCuns= kuCunFayaoDao.FindAllKuCun2(interims.get(i).getYpBh());
             //修改药房药品的数量
-            yaoFangDao.updateDrugNumber(interims.get(i).getYpBh(),interims.get(i).getChuKuSl());
+            yaoFangDao.addDrugNumber(interims.get(i).getYpBh(),interims.get(i).getChuKuSl());
             //循环减某一药品库存
             for (int y=0;y<kuCuns.size();i++){
                 //药品调拨的数量
