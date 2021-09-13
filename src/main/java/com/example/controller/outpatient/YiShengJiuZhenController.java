@@ -5,8 +5,8 @@ import com.example.model.pojos.inpatient.AdmNot;
 import com.example.model.pojos.inpatient.DocAdv;
 import com.example.model.pojos.inpatient.DocAdvXq;
 import com.example.model.pojos.outpatient.*;
-import com.example.model.servers.inpatient.AdmNotServer;
-import com.example.model.servers.outpatient.*;
+import com.example.model.services.inpatient.AdmNotServer;
+import com.example.model.services.outpatient.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

@@ -1,5 +1,6 @@
 package com.example.controller.pharmacy;
 
+import com.example.model.pojos.pharmacy.ChuKu;
 import com.example.model.pojos.pharmacy.DiaoBoSq;
 import com.example.model.pojos.pharmacy.XiaoHuiSq;
 import com.example.model.pojos.pharmacy.YpKuCun;
