@@ -1,19 +1,15 @@
 package com.example.controller.pharmacy;
 
-import com.example.model.pojos.pharmacy.CaiGoJh;
 import com.example.model.pojos.pharmacy.CgDingDan;
 import com.example.model.pojos.pharmacy.CgddXiangDan;
-import com.example.model.pojos.pharmacy.JhXiangDan;
-import com.example.model.servers.pharmacy.CaiGouService;
+import com.example.model.services.pharmacy.CaiGouService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.Collection;
 import java.util.List;
-import java.util.Map;
 
 @CrossOrigin
 @RestController

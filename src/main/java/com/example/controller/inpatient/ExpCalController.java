@@ -1,7 +1,7 @@
 package com.example.controller.inpatient;
 
 import com.example.model.pojos.inpatient.ExpCal;
-import com.example.model.servers.inpatient.ExpCalServer;
+import com.example.model.services.inpatient.ExpCalServer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;

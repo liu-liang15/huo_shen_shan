@@ -2,17 +2,14 @@ package com.example.controller.outpatient;
 
 import com.alibaba.fastjson.JSONObject;
 import com.example.model.pojos.outpatient.Medicalcardczjl;
-import com.example.model.servers.outpatient.MedicalcardCzjlService;
-import com.example.model.servers.outpatient.MedicalcardService;
+import com.example.model.services.outpatient.MedicalcardCzjlService;
+import com.example.model.services.outpatient.MedicalcardService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Date;
 import java.util.List;
 
 @CrossOrigin

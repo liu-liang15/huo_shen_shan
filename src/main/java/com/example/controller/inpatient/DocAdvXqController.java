@@ -1,8 +1,7 @@
 package com.example.controller.inpatient;
 
 import com.example.model.pojos.inpatient.DocAdvXq;
-import com.example.model.servers.inpatient.DocAdvServer;
-import com.example.model.servers.inpatient.DocAdvXqServer;
+import com.example.model.services.inpatient.DocAdvXqServer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;

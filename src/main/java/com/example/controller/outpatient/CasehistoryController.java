@@ -1,10 +1,7 @@
 package com.example.controller.outpatient;
 
 import com.example.model.pojos.outpatient.Casehistory;
-import com.example.model.pojos.outpatient.Hospregcate;
-import com.example.model.pojos.outpatient.Mzshoushucf;
-import com.example.model.servers.outpatient.CasehistoryService;
-import com.example.model.servers.outpatient.HospregcateService;
+import com.example.model.services.outpatient.CasehistoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;

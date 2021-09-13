@@ -1,11 +1,9 @@
 package com.example.controller.inpatient;
 
-import com.example.model.dao.inpatient.SurXhDao;
 import com.example.model.pojos.inpatient.SurXh;
-import com.example.model.servers.inpatient.SurXhServer;
+import com.example.model.services.inpatient.SurXhServer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 

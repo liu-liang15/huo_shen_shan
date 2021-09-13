@@ -3,12 +3,10 @@ package com.example.controller.inpatient;
 import com.alibaba.fastjson.JSON;
 import com.example.model.pojos.inpatient.Ward;
 import com.example.model.pojos.inpatient.WardRec;
-import com.example.model.servers.inpatient.WardServer;
-import lombok.val;
+import com.example.model.services.inpatient.WardServer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import javax.management.ObjectName;
 import java.util.List;
 import java.util.Map;
 

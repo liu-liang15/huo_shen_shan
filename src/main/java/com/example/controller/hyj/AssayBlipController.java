@@ -1,9 +1,8 @@
 package com.example.controller.hyj;
 
-import com.example.model.pojos.hyj.AssayBlip;
 import com.example.model.pojos.hyj.AssayMeal;
 import com.example.model.pojos.hyj.AssayMealBlip;
-import com.example.model.servers.hyj.AssayBlipService;
+import com.example.model.services.hyj.AssayBlipService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestBody;

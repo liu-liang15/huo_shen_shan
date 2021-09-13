@@ -1,13 +1,12 @@
 package com.example.model.pojos.outpatient;
 
+import lombok.Data;
+
 import java.io.Serializable;
 import java.util.Date;
 
-import lombok.Data;
-
 @Data
 public class Medicalcard implements Serializable {
-
   private Integer mediNo;
   private String mediCard;
   private String mediPassword;

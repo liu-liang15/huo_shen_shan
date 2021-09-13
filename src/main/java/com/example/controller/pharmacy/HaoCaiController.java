@@ -2,7 +2,7 @@ package com.example.controller.pharmacy;
 
 
 import com.example.model.pojos.pharmacy.HaoCai;
-import com.example.model.servers.pharmacy.HaoCaiService;
+import com.example.model.services.pharmacy.HaoCaiService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;

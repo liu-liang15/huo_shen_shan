@@ -1,10 +1,9 @@
 package com.example.controller.pharmacy;
 
-import com.example.model.pojos.pharmacy.ChuKu;
 import com.example.model.pojos.pharmacy.DiaoBoSq;
 import com.example.model.pojos.pharmacy.XiaoHuiSq;
 import com.example.model.pojos.pharmacy.YpKuCun;
-import com.example.model.servers.pharmacy.KuCunFayaoService;
+import com.example.model.services.pharmacy.KuCunFayaoService;
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;

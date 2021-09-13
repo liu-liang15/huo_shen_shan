@@ -1,10 +1,9 @@
 package com.example.controller.inpatient;
 
 import com.alibaba.fastjson.JSON;
-import com.example.model.dao.inpatient.OpeRoomDao;
 import com.example.model.pojos.inpatient.OpeCzRec;
 import com.example.model.pojos.inpatient.OpeRoom;
-import com.example.model.servers.inpatient.OpeRoomServer;
+import com.example.model.services.inpatient.OpeRoomServer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

@@ -1,9 +1,7 @@
 package com.example.controller.inpatient;
 
-import com.alibaba.fastjson.JSONObject;
 import com.example.model.pojos.inpatient.HosAlone;
-import com.example.model.servers.inpatient.HosAloneServer;
-import lombok.val;
+import com.example.model.services.inpatient.HosAloneServer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

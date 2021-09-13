@@ -1,7 +1,7 @@
 package com.example.controller.inpatient;
 
 import com.example.model.pojos.inpatient.OpeCzRec;
-import com.example.model.servers.inpatient.OpeCzRecServer;
+import com.example.model.services.inpatient.OpeCzRecServer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;

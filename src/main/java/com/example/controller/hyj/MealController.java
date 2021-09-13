@@ -1,7 +1,7 @@
 package com.example.controller.hyj;
 
 import com.example.model.pojos.hyj.Meal;
-import com.example.model.servers.hyj.MealService;
+import com.example.model.services.hyj.MealService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestBody;

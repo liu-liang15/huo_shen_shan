@@ -1,10 +1,8 @@
 package com.example.controller.outpatient;
 
 import com.alibaba.fastjson.JSON;
-import com.example.model.pojos.inpatient.DocAdv;
-import com.example.model.pojos.inpatient.DocAdvXq;
 import com.example.model.pojos.outpatient.*;
-import com.example.model.servers.outpatient.*;
+import com.example.model.services.outpatient.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

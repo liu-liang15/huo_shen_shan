@@ -3,7 +3,7 @@ package com.example.controller.inpatient;
 import com.alibaba.fastjson.JSON;
 import com.example.model.pojos.inpatient.DocAdv;
 import com.example.model.pojos.inpatient.DocAdvXq;
-import com.example.model.servers.inpatient.DocAdvServer;
+import com.example.model.services.inpatient.DocAdvServer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
