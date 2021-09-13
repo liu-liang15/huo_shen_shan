@@ -3,9 +3,12 @@ package com.example.model.services.inpatient;
 import com.example.model.dao.inpatient.DocAdvXqDao;
 import com.example.model.dao.inpatient.DocExeDao;
 import com.example.model.dao.inpatient.ExpCalDao;
+import com.example.model.dao.inpatient.HosAloneDao;
+import com.example.model.dao.outpatient.MedicalcardDao;
 import com.example.model.pojos.inpatient.DocAdvXq;
 import com.example.model.pojos.inpatient.DocExe;
 import com.example.model.pojos.inpatient.ExpCal;
+import com.example.model.pojos.inpatient.HosAlone;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -21,6 +24,11 @@ public class DocExeServer {
     DocAdvXqDao docAdvXqDao;
     @Autowired
     ExpCalDao expCalDao;
+    @Autowired
+    HosAloneDao hosAloneDao;
+    @Autowired
+    MedicalcardDao medicalcardDao;
+    double num=0;
     //新增今日医嘱并查看
     public List<DocExe> selDocExe(String param){
         //获得长期医嘱详情
@@ -46,7 +54,11 @@ public class DocExeServer {
         for (DocExe d:docExes){
             docExeDao.upDateDocExe(d);
             ExpCal e=new ExpCal(resNo,d.getYaoPingXx().getDrugName()+"*"+d.getDocAdvXq().getDrugNumber(),d.getDocAdvXq().getDrugNumber()*d.getYaoPingXx().getDrugShoujia());
+            num+=d.getDocAdvXq().getDrugNumber()*d.getYaoPingXx().getDrugShoujia();
             expCalDao.addExpCal(e);
         }
+        //扣除诊疗卡余额
+        List<HosAlone>list=hosAloneDao.allHos(resNo);
+        medicalcardDao.updatePat(-num,list.get(0).getAdmNot().getMedicalcard().getMediNo());
     }
 }
