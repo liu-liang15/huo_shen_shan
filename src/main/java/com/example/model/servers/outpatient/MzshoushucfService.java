@@ -25,6 +25,7 @@ public class MzshoushucfService {
     public void insertMzshoushuxq(List<Mzshoushuxq> list, String sqSsNo){
         int ssNo = Integer.parseInt(sqSsNo);
         for(Mzshoushuxq p : list){
+            p.setSqCount(1);
             p.setSqSsNo(ssNo);
             mzshoushucfDao.insertMzshoushuxq(p);
         }

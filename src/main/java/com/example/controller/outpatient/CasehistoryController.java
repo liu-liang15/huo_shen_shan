@@ -19,7 +19,6 @@ import java.util.List;
 public class CasehistoryController {
     @Autowired
     CasehistoryService casehistoryService;
-
     //新增病人病历
     @RequestMapping("/insertBingLi")
     public int insertBingLi(String patientNo){

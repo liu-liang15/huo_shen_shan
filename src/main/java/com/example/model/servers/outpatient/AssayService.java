@@ -23,7 +23,9 @@ public class AssayService {
     }
 
     public void insertLabworkdetailsCF(List<Labworkdetails> list, String assayNo){
+        System.out.println("化验s"+list);
         for(Labworkdetails p : list){
+            p.setLabdetCount(1);
             p.setLabdetAssayNo(assayNo);
             assayDao.insertLabworkdetailsCF(p);
         }

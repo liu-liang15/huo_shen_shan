@@ -94,4 +94,16 @@ public class AdmNot {
     this.admZt = admZt;
   }
 
+  public AdmNot(long hosNo, String patient, String section, String doctor, String result, String dispose, String admZt) {
+    this.hosNo = hosNo;
+    this.patient = patient;
+    this.section = section;
+    this.doctor = doctor;
+    this.result = result;
+    this.dispose = dispose;
+    this.admZt = admZt;
+  }
+
+  public AdmNot() {
+  }
 }
