@@ -43,14 +43,14 @@
 
 
     <select id="findpaycf" resultMap="payfeesdetails">
-        select p.predet_no as id,p.drug_name as name,p.number as count,p.xiaoji as xiaoji
+        select p.drug_id as id,p.drug_name as name,p.number as count,p.xiaoji as xiaoji
         from prescriptiondetails p
             inner join prescription pr on p.predet_pres_no = pr.pres_no
         where pr.pres_seedo_number = #{param}
     </select>
 
     <select id="findpayhy" resultMap="payfeesdetails">
-        select l.labdet_no as id,am.assay_meal_name as name,l.labdet_count as count,l.assay_meal_price as xiaoji
+        select l.assay_meal_id as id,am.assay_meal_name as name,l.labdet_count as count,l.assay_meal_price as xiaoji
         from labworkdetails l
             inner join assay a on a.assay_no = l.labdet_assay_no
             inner join assay_meal am on am.assay_meal_id = l.assay_meal_id
@@ -58,7 +58,7 @@
     </select>
 
     <select id="findpayjc" resultMap="payfeesdetails">
-        select ed.exadet_no as id,am.assay_meal_name as name,ed.exadet_count as count,ed.assay_meal_price as xiaoji
+        select ed.assay_meal_id as id,am.assay_meal_name as name,ed.exadet_count as count,ed.assay_meal_price as xiaoji
         from examinedetails ed
             inner join examineorder e on e.exaord_no = ed.exadet_exaord_no
             inner join assay_meal am on am.assay_meal_id = ed.assay_meal_id
@@ -66,7 +66,7 @@
     </select>
 
     <select id="findpayss" resultMap="payfeesdetails">
-        select x.sq_no as id,s.sur_name as name,x.sq_count as count,x.sur_pay as xiaoji
+        select x.sur_no as id,s.sur_name as name,x.sq_count as count,x.sur_pay as xiaoji
         from mzshoushuxq x
             inner join mzshoushucf c on c.ss_no = x.sq_ss_no
             inner join sur_item s on x.sur_no = s.sur_no

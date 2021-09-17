@@ -22,7 +22,7 @@ public class PayfeesController {
 
 
 
-    //修改状态
+    //修改状态，生成缴费单，详单
     @RequestMapping("updatePayZt")
     public int updatePayZt(@RequestBody Map<String,Object> map){
         String mzhao = JSON.toJSONString(map.get("Mzhao"));
