@@ -1,24 +1,32 @@
 package com.example.model.pojos.pharmacy;
 
 
+import java.util.Collection;
 import java.util.Date;
 
 public class FaYao {
 
-  private long fyId;
+  private String fyId;
   private String fyRy;
-  private String cfd;
+  private String jfd;
   private Date fySj=new Date();
+  private Collection<FaoYaoXd> faoYaoXds;
 
+  public Collection<FaoYaoXd> getFaoYaoXds() {
+    return faoYaoXds;
+  }
 
-  public long getFyId() {
+  public void setFaoYaoXds(Collection<FaoYaoXd> faoYaoXds) {
+    this.faoYaoXds = faoYaoXds;
+  }
+
+  public String getFyId() {
     return fyId;
   }
 
-  public void setFyId(long fyId) {
+  public void setFyId(String fyId) {
     this.fyId = fyId;
   }
-
 
   public String getFyRy() {
     return fyRy;
@@ -28,13 +36,12 @@ public class FaYao {
     this.fyRy = fyRy;
   }
 
-
-  public String getCfd() {
-    return cfd;
+  public String getJfd() {
+    return jfd;
   }
 
-  public void setCfd(String cfd) {
-    this.cfd = cfd;
+  public void setJfd(String jfd) {
+    this.jfd = jfd;
   }
 
   public Date getFySj() {
